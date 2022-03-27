@@ -1,7 +1,7 @@
 <template>
       <div class="modal-shadow">
         <div class="modal">
-            <span class="modal-close">
+            <span class="modal-close" >
               <i class="material-icons" @click="closeModal">close</i>
             </span>
           <slot name="title">

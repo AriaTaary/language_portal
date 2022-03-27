@@ -7,7 +7,7 @@
         @closeModal="closeInfoModal"
         >
           <template v-slot:title>
-                <h3 class="modal-title">Профиль</h3>
+                <h3 class="modal-title">Аккаунт</h3>
           </template>
           <template v-slot:body>
             <div class="v-account-info">
@@ -58,7 +58,7 @@ export default {
     showModal () {
       this.show = true
     },
-    closeModal () {
+    closeInfoModal () {
       this.show = false
     }
   }
