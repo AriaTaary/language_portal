@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <Header/>
-    <router-view/>
+    <router-view class="routerBody"/>
     <Footer/>
   </div>
 </template>
@@ -33,5 +33,12 @@ export default {
   text-transform: uppercase;
   font-size: 15px;
   color: black;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.routerBody {
+  flex: 1;
 }
 </style>
