@@ -1,11 +1,8 @@
 <template>
   <div class="v-account">
-     <div class="v-account-cart" @click="showModal">
-        <span class="material-icons size"> account_circle </span>
-        <VModalWindow
-        v-if="show"
-        @closeModal="closeInfoModal"
-        >
+     <div class="v-account-cart">
+        <span class="material-icons size" @click="showModal"> account_circle </span>
+        <VModalWindow ref="modal">
           <template v-slot:title>
                 <h3 class="modal-title">Аккаунт</h3>
           </template>
@@ -22,15 +19,17 @@
             <div id="nav">
               <router-link to="/profile">Профиль</router-link>
             </div>
+            <router-view/>
+          </template>
+          <template v-slot:footer>
             <div class="nav-exit">
               <a class="nav-exit" href="../App.vue">
                 <span class="material-icons">
-              exit_to_app
-              </span>
-              <p>Выйти</p>
+                  exit_to_app
+                </span>
+                <p>Выйти</p>
               </a>
-              </div>
-              <router-view/>
+            </div>
           </template>
         </VModalWindow>
     </div>
@@ -45,7 +44,6 @@ export default {
 
   data () {
     return {
-      show: false,
       userName: 'Ira',
       userSurname: 'Petrova'
     }
@@ -56,10 +54,7 @@ export default {
 
   methods: {
     showModal () {
-      this.show = true
-    },
-    closeInfoModal () {
-      this.show = false
+      this.$refs.modal.show = true
     }
   }
 }

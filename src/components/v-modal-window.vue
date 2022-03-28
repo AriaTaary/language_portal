@@ -1,9 +1,10 @@
 <template>
-      <div class="modal-shadow">
+    <transition name="modal">
+      <div v-if="show" class="modal-shadow" @click.self="closeModal">
         <div class="modal">
-            <span class="modal-close" >
-              <i class="material-icons" @click="closeModal">close</i>
-            </span>
+          <span class="modal-close" >
+            <i class="material-icons" @click="closeModal">close</i>
+          </span>
           <slot name="title">
               <h3 class="modal-title">Заголовок</h3>
           </slot>
@@ -12,19 +13,25 @@
                   Дефолтный контент модального окна
               </div>
           </slot>
+          <slot name="footer">
+              <div class="modal-footer">
+              </div>
+          </slot>
         </div>
       </div>
+  </transition>
 </template>
 <script>
 export default {
-  name: 'ModalWindow',
+  name: 'VModalWindow',
   data () {
     return {
+      show: false
     }
   },
   methods: {
     closeModal () {
-      this.$emit('closeModal')
+      this.show = false
     }
   }
 }
@@ -66,5 +73,10 @@ export default {
   &-content {
     margin-bottom: 20px;
   }
-}
+  .modal-enter-active, .modal-leave-active {
+      transition: opacity 2s
+  }
+  .modal-enter, .modal-leave-to {
+      opacity: 0
+  }}
 </style>
