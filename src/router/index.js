@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Main from '../views/Main.vue'
 import Authorization from '../views/Authorization.vue'
 import Registration from '../views/Registration.vue'
+import Interactive from '../views/Interactive.vue'
 
 Vue.use(VueRouter)
 
@@ -11,6 +12,11 @@ const routes = [
     path: '/',
     name: 'Main',
     component: Main
+  },
+  {
+    path: '/interactive',
+    name: 'Interactive',
+    component: Interactive
   },
   {
     path: '/auth',
