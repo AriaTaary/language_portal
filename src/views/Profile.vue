@@ -53,7 +53,7 @@ export default {
 }
 </script>
 
-<style lang="scss" >
+<style lang="scss" scoped >
 img{
   border-radius: 50%;
   border: 1px solid rgb(170, 167, 167);
