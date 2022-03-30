@@ -29,9 +29,17 @@
         </svg>
       </router-link>
     </div>
+    <VAccount></VAccount>
   </div>
 </template>
+<script>
+import VAccount from './v-account'
+export default {
+  components: { VAccount },
+  name: 'vHeder',
 
+}
+</script>
 <style lang="scss">
 .headerContainer {
   background-color: #ABB5D0;

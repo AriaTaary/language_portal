@@ -10,9 +10,9 @@
             <img src="../assets/img/Layer_5.png" alt="img" class="">
           </div>
           <div class="profile-info-account">
-            <h1 class="profile-info-username">
+            <h3 class="profile-info-username">
               <span class="fs-exclude">{{userName}} {{userSurname}}</span>
-            </h1>
+            </h3>
           </div>
         </div>
         <div class="block-edit">
@@ -34,6 +34,7 @@
 
 <script>
 import VProgressBar from '../components/v-progress-bar'
+
 export default {
   components: { VProgressBar },
   name: 'Profile',
@@ -54,6 +55,9 @@ export default {
 </script>
 
 <style lang="scss" scoped >
+.profile-wrapper{
+  padding-top:50px ;
+}
 img{
   border-radius: 50%;
   border: 1px solid rgb(170, 167, 167);
@@ -91,7 +95,7 @@ img{
   border-radius: 4px;
   padding: 8px 16px;
   color: white;
-  background: blue;
+  background: #ABB5D0;
   cursor: pointer;
   text-decoration: none;
 }

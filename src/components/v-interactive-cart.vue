@@ -1,17 +1,18 @@
 <template>
   <div class="v-inertactive-cart">
+    <h1>Перевод слов</h1>
     <div class="transformers-rule ">
       <div class="containers optimus" :class="{active: isActive}" >
         <div class="card">
           <div class="face front">
-              <img src="../assets/logo.png" alt="logo" />
+              <img src="../assets/img/ineteractive1.png" alt="logo" />
               <div class="word-span">
                 <span>{{randomWord.word}}</span>
                 <span>{{randomWord.transcription}}</span>
               </div>
           </div>
           <div class="face back">
-            <img src="../assets/logo.png" alt="logo" />
+            <img src="../assets/img/ineteractive1.png" alt="logo" />
             <div class="">
               <p v-for="item in randomWord.translates" :key="item">{{item}}</p>
             </div>
@@ -19,21 +20,14 @@
         </div>
       </div>
     </div>
+    
      <div class="cart-btn">
-      <button
-      class="btn-item"
-      type="button"
-      v-on:click="cartRotate"
-      >
-      <span>Посмотреть перевод</span>
-      </button>
-       <button
-      class="btn-item"
-      type="button"
-      @click="addMyDictionary"
-      >
-      <span>Добавить в словарь</span>
-      </button>
+       <div class="avd_div" v-on:click="cartRotate">
+      <a href="#" class="but_sad_s_2 blue_sad">Посмотреть перевод</a>
+      </div>
+        <div class="avd_div" @click="addMyDictionary">
+      <a href="#" class="but_sad_s_2 blue_sad">Добавить в словарь</a>
+      </div>
     </div>
   </div>
 </template>
@@ -126,10 +120,11 @@ span, p{
 .v-inertactive-cart{
   margin: 50px 0;
   padding: 25px 0;
-  background: #e8e8e8;
+  background: #ffffff;
   text-align: center;
 }
 .transformers-rule {
+  padding-top: 50px;
   display: flex;
   justify-content: center;
 }
@@ -169,8 +164,8 @@ span, p{
   -webkit-transform: rotateY(180deg);
 }
 .optimus img {
-  width: 50px;
-  height: 50px;
+  width: 120px;
+  height: 180px;
   float: right;
 }
 .front {
@@ -180,7 +175,7 @@ span, p{
   z-index: 0;
 }
 .cart-btn{
- margin: 25px;
+ margin-top: 70px;
  display: inline-flex
 }
 .btn-item {
@@ -197,7 +192,13 @@ span, p{
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); padding: 0 10px;
 }
 
-.btn-item:hover {
-  background: rgb(222, 224, 247);
-}
+.avd_div{
+  margin:30px 35px;padding:0;text-align:center;display:block;}
+ .but_sad_s_2{text-decoration:none;color:#fff;padding:12px 20px;font-size:18px;font-weight:bold;-webkit-border-radius:10px;-moz-border-radius:10px;-o-border-radius:10px;border-radius:10px;-webkit-box-shadow:0 5px 5px #313131, 0 9px 0 #393939, 0px 9px 10px rgba(0,0,0,0.4), 0px 2px 9px rgba(255,255,255,0.2) inset, 0 -2px 9px rgba(0,0,0,0.2) inset;-moz-box-shadow:0 5px 5px #313131, 0 9px 0 #393939, 0px 9px 10px rgba(0,0,0,0.4), 0px 2px 9px rgba(255,255,255,0.2) inset, 0 -2px 9px rgba(0,0,0,0.2) inset;-o-box-shadow:0 5px 5px #313131, 0 9px 0 #393939, 0px 9px 10px rgba(0,0,0,0.4), 0px 2px 9px rgba(255,255,255,0.2) inset, 0 -2px 9px rgba(0,0,0,0.2) inset;box-shadow:0 5px 5px #313131, 0 9px 0 #393939, 0px 9px 10px rgba(0,0,0,0.4), 0px 2px 9px rgba(255,255,255,0.2) inset, 0 -2px 9px rgba(0,0,0,0.2) inset;position:relative;border-bottom:1px solid rgba(255,255,255,0.2);text-shadow:0 1px 1px #555;-webkit-border-radius:35px 5px;-moz-border-radius:35px 5px;-o-border-radius:35px 5px;border-radius:35px 5px;}
+ .but_sad_s_2:hover{-webkit-box-shadow:0 5px 5px #313131, 0 9px 0 #393939, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 15px rgba(255,255,255,0.4), inset 0 -2px 9px rgba(0,0,0,0.2);-moz-box-shadow:0 5px 5px #313131, 0 9px 0 #393939, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 15px rgba(255,255,255,0.4), inset 0 -2px 9px rgba(0,0,0,0.2);-o-box-shadow:0 5px 5px #313131, 0 9px 0 #393939, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 15px rgba(255,255,255,0.4), inset 0 -2px 9px rgba(0,0,0,0.2);box-shadow:0 5px 5px #313131, 0 9px 0 #393939, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 15px rgba(255,255,255,0.4), inset 0 -2px 9px rgba(0,0,0,0.2);}
+ .but_sad_s_2:active{top:7px;box-shadow: 0 2px 0 #393939, 0px 4px 4px rgba(0,0,0,0.4), 0px 2px 5px rgba(0,0,0,0.2) inset;}
+ .blue_sad{background-color:#2ca0ca;background-image:linear-gradient(to top, #3eb8e5 0%, #2ca0ca 100%);background-image:-o-linear-gradient(to top, #3eb8e5 0%, #2ca0ca 100%);background-image:-moz-linear-gradient(to top, #3eb8e5 0%, #2ca0ca 100%);background-image:-webkit-linear-gradient(to top, #3eb8e5 0%, #2ca0ca 100%);background-image:-ms-linear-gradient(to top, #3eb8e5 0%, #2ca0ca 100%);-webkit-box-shadow:0 5px 5px #267896, 0 9px 0 #156785, 0 9px 10px rgba(0, 0, 0, 0.4), 0 2px 9px rgba(255, 255, 255, 0.2) inset, 0 -2px 9px rgba(0, 0, 0, 0.2) inset;-moz-box-shadow:0 5px 5px #267896, 0 9px 0 #156785, 0 9px 10px rgba(0, 0, 0, 0.4), 0 2px 9px rgba(255, 255, 255, 0.2) inset, 0 -2px 9px rgba(0, 0, 0, 0.2) inset;-o-box-shadow:0 5px 5px #267896, 0 9px 0 #156785, 0 9px 10px rgba(0, 0, 0, 0.4), 0 2px 9px rgba(255, 255, 255, 0.2) inset, 0 -2px 9px rgba(0, 0, 0, 0.2) inset;box-shadow:0 5px 5px #267896, 0 9px 0 #156785, 0 9px 10px rgba(0, 0, 0, 0.4), 0 2px 9px rgba(255, 255, 255, 0.2) inset, 0 -2px 9px rgba(0, 0, 0, 0.2) inset;}
+ .blue_sad:hover{-webkit-box-shadow:0 5px 5px #267896, 0 9px 0 #156785, 0px 9px 10px rgba(0,0,0,0.4), 0px 2px 15px rgba(255,255,255,0.4) inset, 0 -2px 9px rgba(0,0,0,0.2) inset;-moz-box-shadow:0 5px 5px #267896, 0 9px 0 #156785, 0px 9px 10px rgba(0,0,0,0.4), 0px 2px 15px rgba(255,255,255,0.4) inset, 0 -2px 9px rgba(0,0,0,0.2) inset;-o-box-shadow:0 5px 5px #267896, 0 9px 0 #156785, 0px 9px 10px rgba(0,0,0,0.4), 0px 2px 15px rgba(255,255,255,0.4) inset, 0 -2px 9px rgba(0,0,0,0.2) inset;box-shadow:0 5px 5px #267896, 0 9px 0 #156785, 0px 9px 10px rgba(0,0,0,0.4), 0px 2px 15px rgba(255,255,255,0.4) inset, 0 -2px 9px rgba(0,0,0,0.2) inset;}
+ .blue_sad:active{-webkit-box-shadow:0 2px 2px #25325e, 0px 4px 4px rgba(0,0,0,0.3), 0px 2px 5px rgba(0,0,0,0.2) inset;-moz-box-shadow:0 2px 0 #25325e, 0px 4px 4px rgba(0,0,0,0.3), 0px 2px 5px rgba(0,0,0,0.2) inset;-o-box-shadow:0 2px 0 #25325e, 0px 4px 4px rgba(0,0,0,0.3), 0px 2px 5px rgba(0,0,0,0.2) inset;box-shadow:0 2px 0 #25325e, 0px 4px 4px rgba(0,0,0,0.3), 0px 2px 5px rgba(0,0,0,0.2) inset;}
+ 
 </style>

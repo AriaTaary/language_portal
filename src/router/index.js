@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Profile from '@/views/Profile'
+import Profile from '../views/Profile.vue'
 import Main from '../views/Main.vue'
 import Authorization from '../views/Authorization.vue'
 import Registration from '../views/Registration.vue'
+import Interactive from '../views/Interactive.vue'
 
 Vue.use(VueRouter)
 
@@ -27,7 +28,13 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: Profile
+  },
+  {
+    path: '/interactive',
+    name: 'Interactive',
+    component: Interactive
   }
+  
 ]
 
 const router = new VueRouter({

@@ -1,10 +1,7 @@
 <template>
     <transition name="modal">
-      <div v-if="show" class="modal-shadow" @click.self="closeModal">
+      <div class="modal-shadow" >
         <div class="modal">
-          <span class="modal-close" >
-            <i class="material-icons" @click="closeModal">close</i>
-          </span>
           <slot name="title">
               <h3 class="modal-title">Заголовок</h3>
           </slot>
@@ -26,13 +23,10 @@ export default {
   name: 'VModalWindow',
   data () {
     return {
-      show: false
     }
   },
   methods: {
-    closeModal () {
-      this.show = false
-    }
+
   }
 }
 </script>
@@ -42,14 +36,16 @@ export default {
 }
 .modal-shadow {
   position: absolute;
-  top: 0;
-  left: 0;
-  min-height: 100%;
+  top: 140px;
+  left: -110px;
+  height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.39);
+  z-index: 2;
 }
 .modal {
   background: #fff;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   border-radius: 8px;
   padding: 15px;
   min-width: 280px;

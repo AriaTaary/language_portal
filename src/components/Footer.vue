@@ -1,5 +1,6 @@
 <template>
-  <div class="footerContainer">
+  <div class="wrapper">
+    <div class="footerContainer container">
     <div class="menu">
       <div class="menuColumn leftColumn">
         <router-link
@@ -48,9 +49,13 @@
       © 2022 HELPTENSE
     </span>
   </div>
+  </div>
 </template>
 
 <style lang="scss">
+.wrapper{
+   background-color: #ABB5D0;
+}
 .footerContainer {
   background-color: #ABB5D0;
   display: flex;
