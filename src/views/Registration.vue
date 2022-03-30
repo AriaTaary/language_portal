@@ -7,6 +7,14 @@
           <div class="vr"></div>
           <a href="/registration" class="registration">Регистрация</a>
         </div>
+        <router-link
+          to="/"
+          class="crossIcon"
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.442892 20L10 10.4421L19.5571 20L20 19.5581L10.4422 9.99984L20 0.441265L19.5571 0L10 9.55759L0.442892 0L0 0.441265L9.5578 9.99984L0 19.5581L0.442892 20Z" fill="black"/>
+          </svg>
+        </router-link>
         <form action="/registration" class="auth-registration" method="get">
           <label for="first_name">Имя</label>
           <input type="text" v-model="first_name" minlength="2" />
@@ -78,6 +86,7 @@ export default {
   padding: 20px 20px;
   z-index: 2;
   box-shadow: 5px 5px 100px 5px rgba(0, 0, 0, 0.55);
+  position: relative;
 }
 .auth-registration {
   display: flex;
@@ -113,5 +122,11 @@ export default {
     color: #d8474e;
     box-shadow: inset 0 0 0 2px #d8474e;
   }
+}
+
+.crossIcon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }
 </style>
