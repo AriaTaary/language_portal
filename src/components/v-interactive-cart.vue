@@ -87,10 +87,6 @@ export default {
       myDictionary: []
     }
   },
-
-  mounted () {
-  },
-
   methods: {
     cartRotate () {
       this.isActive = !this.isActive;

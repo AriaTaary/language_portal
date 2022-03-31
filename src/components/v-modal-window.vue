@@ -20,14 +20,7 @@
 </template>
 <script>
 export default {
-  name: 'VModalWindow',
-  data () {
-    return {
-    }
-  },
-  methods: {
-
-  }
+  name: 'VModalWindow'
 }
 </script>
 <style lang="scss">

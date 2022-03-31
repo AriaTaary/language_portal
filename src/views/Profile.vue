@@ -45,12 +45,6 @@ export default {
       userSurname: 'Petrova'
     }
   },
-
-  mounted () {
-  },
-
-  methods: {
-  }
 }
 </script>
 

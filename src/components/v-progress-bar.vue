@@ -22,17 +22,5 @@ export default {
       totalSteps: 100
     }
   },
-
-  mounted () {
-
-  },
-
-  methods: {
-
-  }
 }
 </script>
-
-<style lang="scss" >
-
-</style>
