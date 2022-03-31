@@ -21,19 +21,18 @@
       </div>
     </div>
     
-     <div class="cart-btn">
-       <div class="avd_div" v-on:click="cartRotate">
-      <a href="#" class="but_sad_s_2 blue_sad">Посмотреть перевод</a>
+    <div class="cart-btn">
+      <div class="avd_div" v-on:click="cartRotate">
+        <a href="#" class="but_sad_s_2 blue_sad">Посмотреть перевод</a>
       </div>
-        <div class="avd_div" @click="addMyDictionary">
-      <a href="#" class="but_sad_s_2 blue_sad">Добавить в словарь</a>
+      <div class="avd_div" @click="addMyDictionary">
+        <a href="#" class="but_sad_s_2 blue_sad">Добавить в словарь</a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'VInteractiveCart',
 
@@ -93,7 +92,9 @@ export default {
     },
     addMyDictionary () {
       console.log(this.randomWord);
-     
+      this.myDictionary.push(this.randomWord);
+       this.randomWord = {};
+    console.log(this.myDictionary);
     }
   },
   computed: {

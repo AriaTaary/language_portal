@@ -22,7 +22,7 @@
             </div>
           </div>
           <div id="nav">
-            <router-link to="/profile">Профиль</router-link>
+            <router-link to="/profile">Личный кабинет</router-link>
           </div>
         </template>
         <template v-slot:footer>
