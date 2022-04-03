@@ -31,7 +31,7 @@
       </div>
       <div class="menuColumn rightColumn">
         <router-link
-          to="/empty"
+          to="/profile"
           class="menuItem"
         >Личный кабинет</router-link>
         <router-link
