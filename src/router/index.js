@@ -6,8 +6,9 @@ import Authorization from '../views/Authorization.vue'
 import Registration from '../views/Registration.vue'
 import Interactive from '../views/Interactive.vue'
 import MyDictionary from '@/views/MyDictionary'
+import Dictionary from '../views/Dictionary.vue';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
     component: Registration
   },
   {
+    path: '/dictionary',
+    name: 'Dictionary',
+    component: Dictionary
+  },
+   {
     path: '/profile',
     name: 'Profile',
     component: Profile
@@ -40,13 +46,12 @@ const routes = [
     name: 'Mydictionary',
     component: MyDictionary
   }
-  
-]
+];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
-})
+});
 
-export default router
+export default router;
