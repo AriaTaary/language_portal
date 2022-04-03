@@ -17,7 +17,7 @@
         class="menuItem"
       >Обучение по программе</router-link>
       <router-link
-        to="/interactive"
+        to="/songs"
         class="menuItem"
       >Интерактив</router-link>
       <router-link

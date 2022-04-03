@@ -2,7 +2,6 @@
   <div>
 <div @click="show=!show" class="songBlock">
   <h3
-    v-tooltip="'You have  new messages.'"
   >Перевод песни One Republic - If I lose myself</h3>
   </div>
     <transition name="fade">
@@ -50,8 +49,28 @@
 </template>
 
 <script>
+/***************************/
+// Translate
+const axios = require("axios");
+
+const options = {
+  method: 'GET',
+  url: 'https://translated-mymemory---translation-memory.p.rapidapi.com/api/get',
+  params: {langpair: 'en|ru', q: 'Hello World!', mt: '1', onlyprivate: '0', de: 'a@b.c'},
+  headers: {
+    'X-RapidAPI-Host': 'translated-mymemory---translation-memory.p.rapidapi.com',
+    'X-RapidAPI-Key': '88d73d1d24msh14c77d0c3570e68p127452jsn2de695b61d32'
+  }
+};
+
+axios.request(options).then(function (response) {
+	console.log(response.data);
+}).catch(function (error) {
+	console.error(error);
+});
+/***************************/
 export default {
-  name: 'Intercitve',
+  name: 'Songs',
   data () {
     return {
       show: false,

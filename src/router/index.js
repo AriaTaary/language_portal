@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Main from '../views/Main.vue'
 import Authorization from '../views/Authorization.vue'
 import Registration from '../views/Registration.vue'
-import Interactive from '../views/Interactive.vue'
+import Songs from '../views/Songs.vue'
 
 Vue.use(VueRouter)
 
@@ -24,9 +24,9 @@ const routes = [
     component: Registration
   },
   {
-    path: '/interactive',
-    name: 'Interactive',
-    component: Interactive
+    path: '/songs',
+    name: 'Songs',
+    component: Songs
   }
 ]
 
