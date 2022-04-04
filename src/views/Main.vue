@@ -2,13 +2,15 @@
   <div class="landingContainer">
     <div class="block">
       <img class="blockImage" src="../assets/learning-crop.jpeg" alt="фоновое изображение">
-      <div class="blockText rightBlock">
+    <div class="container">
+        <div class="blockText rightBlock">
         Изучение английского в школе HelpTense - это нескучное онлайн-обучение языку с помощью игр и интересных заданий в любое удобное для вас время
         <router-link
           to="/profile"
           class="startButton"
         >Начать</router-link>
       </div>
+    </div>
     </div>
     <div class="block">
       <img class="blockImage" src="../assets/notebook.png" alt="фоновое изображение">
@@ -42,6 +44,10 @@ export default {
 </script>
 
 <style lang="scss">
+.container {
+    width: 1140px;
+    margin: 0 auto;
+}
 .landingContainer {
   display: flex;
   flex-direction: column;
