@@ -7,6 +7,8 @@ import Registration from '../views/Registration.vue'
 import Interactive from '../views/Interactive.vue'
 import MyDictionary from '@/views/MyDictionary'
 import Dictionary from '../views/Dictionary.vue';
+import InteractiveCart from '@/views/InteractiveCart'
+import InteractiveSpeaking from '@/views/InteractiveSpeaking'
 
 Vue.use(VueRouter);
 
@@ -40,6 +42,16 @@ const routes = [
     path: '/interactive',
     name: 'Interactive',
     component: Interactive
+  },
+  {
+    path: '/interactivecart',
+    name: 'InteractiveCart',
+    component: InteractiveCart
+  },
+  {
+    path: '/interactivespeaking',
+    name: 'LInteractivespeaking',
+    component: InteractiveSpeaking
   },
   {
     path: '/mydictionary',
