@@ -6,6 +6,7 @@
       <router-link to="/materials" class="menuItem">Учебные материалы</router-link>
       <router-link to="/program" class="menuItem">Обучение по программе</router-link>
       <router-link to="/interactive" class="menuItem">Интерактив</router-link>
+      <router-link to="/songs" class="menuItem">Песни</router-link>
       <router-link to="/dictionary" class="menuItem">Словарь</router-link>
       <router-link to="/auth" class="menuItem">
         <svg
@@ -21,10 +22,18 @@
           />
         </svg>
       </router-link>
+       <VAccount></VAccount>
     </div>
   </div>
 </template>
+<script>
+import VAccount from './v-account'
+export default {
+  components: { VAccount },
+  name: 'vHeder',
 
+}
+</script>
 <style lang="scss">
 .headerContainer {
   background-color: #abb5d0;
