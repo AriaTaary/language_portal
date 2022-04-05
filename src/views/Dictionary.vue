@@ -268,4 +268,7 @@ export default {
 .active-item {
   background-color: rgb(209, 137, 191) !important;
 }
+.transcription {
+  text-transform: lowercase;
+}
 </style>
