@@ -5,7 +5,6 @@
           <div class="interactive-item"></div>
           <div class="interactive-item"></div>
           <div class="interactive-item"></div>
-        
         </div>
 </template>
 
@@ -16,6 +15,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.conteiner{
+  width: 1024px;
+}
 .interactive-block{
   display: flex;
   flex-wrap: wrap;
