@@ -7,7 +7,9 @@ import Registration from '../views/Registration.vue'
 import Interactive from '../views/Interactive.vue'
 import MyDictionary from '@/views/MyDictionary'
 import Dictionary from '../views/Dictionary.vue';
-import Songs from '../views/Songs.vue'
+import Songs from '../views/Songs.vue';
+import Testing from '../views/Testing.vue';
+
 
 Vue.use(VueRouter);
 
@@ -51,6 +53,11 @@ const routes = [
     path: '/songs',
     name: 'Songs',
     component: Songs
+  },
+  {
+    path: '/testing',
+    name: 'Testing',
+    component: Testing
   },
 ];
 
