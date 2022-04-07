@@ -3,6 +3,7 @@
         <h1>Мой словарь  ( {{myDictionary.length}} )</h1>
         <div class="list-words">
             <div v-for="word in myDictionary" :key="word.index" class="row-dictionary conteiner">
+                 <span @click="toSpeak(item.word)" class="material-icons">volume_up</span>
                 <div class="column-dictionary-word">
                     {{word.word}}
                 </div>
@@ -25,12 +26,15 @@ export default {
 
     data() {
         return {
-            myDictionary: dictionary.words,       
+            myDictionary: dictionary,       
         };
     },
     methods: {
         deleteWordMyDictionary () {
             console.log(this.myDictionary);
+        },
+        toSpeak(word) {
+            speechSynthesis.speak(new SpeechSynthesisUtterance(word));
         },
     },
 };
@@ -52,6 +56,8 @@ export default {
 .list-words{
     display: grid;
     justify-items: center;
+    text-transform: none;
+    font-size: 20px;
 }
 .row-dictionary{
     display: flex;
@@ -60,14 +66,15 @@ export default {
     padding: 20px 10px;
     border-bottom:1px solid #ced4e7; ;
 }
-.column-dictionary-word{
+.column-dictionary-word, .column-dictionary-transcription{
     width: 250px;
-}
-.column-dictionary-transcription{
-    width: 300px;
+    padding-left: 15px;
 }
 .material-icons{
-    margin-left: 40px;
+    cursor: pointer;
     color: #ABB5D0;
+}
+.material-icons:active{
+    opacity: 0.5;
 }
 </style>

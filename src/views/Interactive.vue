@@ -1,8 +1,8 @@
 <template>
         <div class="interactive-block">
-           <router-link class="interactive-item" to="/interactivecart" >Слова</router-link>
-           <router-link class="interactive-item" to="/interactivespeaking" >Разговорник</router-link>
-          <div class="interactive-item"></div>
+          <router-link class="interactive-item" to="/interactivecart" >Слова</router-link>
+          <router-link class="interactive-item" to="/interactivespeaking" >Разговорник</router-link>
+          <router-link class="interactive-item" to="/music" >Музыка</router-link>
           <div class="interactive-item"></div>
           <div class="interactive-item"></div>
         </div>

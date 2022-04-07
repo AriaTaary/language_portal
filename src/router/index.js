@@ -10,6 +10,7 @@ import Dictionary from '../views/Dictionary.vue';
 import InteractiveCart from '@/views/InteractiveCart'
 import InteractiveSpeaking from '@/views/InteractiveSpeaking'
 import Songs from '../views/Songs.vue'
+import Music from '@/views/Music'
 
 Vue.use(VueRouter);
 
@@ -58,7 +59,12 @@ const routes = [
     path: '/mydictionary',
     name: 'Mydictionary',
     component: MyDictionary
-  },  
+  }, 
+  {
+    path: '/music',
+    name: 'Music',
+    component: Music
+  }, 
   {
     path: '/songs',
     name: 'Songs',
