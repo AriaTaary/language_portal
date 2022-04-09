@@ -2,7 +2,7 @@
   <div class="video-wrapper">
     <section>
     <h2>{{titleOfSong}}</h2>
-    <youtube :video-id="videoId"></youtube>
+       <youtube :video-id="videoId"></youtube>
   </section>
     <div @click="show=!show" class="songBlock">
       <h3>Перевод песни One Republic - If I lose myself</h3>
