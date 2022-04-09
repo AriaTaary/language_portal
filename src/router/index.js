@@ -10,7 +10,8 @@ import Dictionary from '../views/Dictionary.vue';
 import InteractiveCart from '@/views/InteractiveCart'
 import InteractiveSpeaking from '@/views/InteractiveSpeaking'
 import Songs from '../views/Songs.vue'
-import Music from '@/views/Music'
+import InteractiveMusic from '../views/InteractiveMusic.vue'
+import TrainingPrograms from '@/views/TrainingPrograms'
 
 Vue.use(VueRouter);
 
@@ -51,8 +52,8 @@ const routes = [
     component: InteractiveCart
   },
   {
-    path: '/interactivespeaking',
-    name: 'LInteractivespeaking',
+    path: '/speaking',
+    name: 'Interactivespeaking',
     component: InteractiveSpeaking
   },
   {
@@ -62,13 +63,18 @@ const routes = [
   }, 
   {
     path: '/music',
-    name: 'Music',
-    component: Music
+    name: 'InteractiveMusic',
+    component: InteractiveMusic
   }, 
   {
     path: '/songs',
     name: 'Songs',
     component: Songs
+  },
+  {
+    path: '/programs',
+    name: 'Trainingprograms',
+    component: TrainingPrograms
   },
 ];
 
