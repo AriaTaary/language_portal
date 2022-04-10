@@ -1,7 +1,8 @@
 <template>
   <div class="video-wrapper">
     <section>
-    <h2>{{titleOfSong}}</h2>
+    <h2>{{}}</h2>
+    <iframe width="500" height="300" :src="'http://www.youtube.com/embed/'+videoId" frameborder="0" allowfullscreen></iframe>
        <youtube :video-id="videoId"></youtube>
   </section>
     <div @click="show=!show" class="songBlock">
@@ -75,22 +76,26 @@ axios.request(options).then(function (response) {
 
 export default {
   name: 'Songs',
+  props: ['videoId']
+  ,
   data () {
     return {
-      videoId:'',
-      titleOfSong:'',
       show: false,
+      songs:[]
 
     }
   },
   mounted () {
-    this.$root.$on('shoose', function (item) {
-      console.log(item.titleOfSong);
-      this.titleOfSong=item.titleOfSong;
-      this.videoId=item.videoId;
+     this.$root.$on('shoose', function (item) {
+     this.songs=item;
+     this.videoId=item.videoId;
+     this.titleOfSong=item.titleOfSong;
+
+      console.log(this.songs);
      
     })
-  }
+  },
+
  
 }
 </script>
