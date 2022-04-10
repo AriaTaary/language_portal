@@ -67,9 +67,10 @@ const routes = [
     component: InteractiveMusic
   }, 
   {
-    path: '/songs',
+    path: '/songs/:videoId',
     name: 'Songs',
-    component: Songs
+    component: Songs,
+    props: true
   },
   {
     path: '/programs',

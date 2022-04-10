@@ -2,8 +2,7 @@
   <div class="video-wrapper">
     <section>
     <h2>{{}}</h2>
-    <iframe width="500" height="300" :src="'http://www.youtube.com/embed/'+videoId" frameborder="0" allowfullscreen></iframe>
-       <youtube :video-id="videoId"></youtube>
+      <youtube :video-id="videoId"></youtube>
   </section>
     <div @click="show=!show" class="songBlock">
       <h3>Перевод песни One Republic - If I lose myself</h3>
@@ -73,28 +72,26 @@ axios.request(options).then(function (response) {
 	console.error(error);
 });
 /***************************/
-
 export default {
   name: 'Songs',
-  props: ['videoId']
-  ,
+  props:['videoId'],
   data () {
     return {
       show: false,
-      songs:[]
 
     }
   },
-  mounted () {
-     this.$root.$on('shoose', function (item) {
-     this.songs=item;
-     this.videoId=item.videoId;
-     this.titleOfSong=item.titleOfSong;
+  methods(){
+   
 
-      console.log(this.songs);
-     
-    })
   },
+  mounted () {
+  
+     
+ 
+  },
+  created(){
+  }
 
  
 }

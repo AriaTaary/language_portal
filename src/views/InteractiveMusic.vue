@@ -6,11 +6,12 @@
         <div class="music-list">
             <router-link 
             class="song-item" 
-            to="/songs" 
             v-for="item in songs" 
             :key="item.index"
+            :to="{name:'Songs', params:{videoId:item.videoId, titleOfSong:item.titleOfSong}}" 
+           
              >
-                <img v-bind:src="'https://i.ytimg.com/vi/'+item.videoId+'/hqdefault.jpg'" alt="img" @click="chooseSong(item)">
+                <img :src="'https://i.ytimg.com/vi/'+item.videoId+'/hqdefault.jpg'" alt="img" @click="chooseSong(item)">
                     <p>{{item.titleOfSong}}</p>
             </router-link>
            
@@ -38,9 +39,8 @@ export default {
     },
 
     methods: {
-        chooseSong(item){
-            console.log(item);
-            this.$root.$emit('shoose', item);
+        chooseSong(){
+            console.log();
         }
     },
 };
