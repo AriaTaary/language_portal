@@ -7,6 +7,7 @@ import Registration from '../views/Registration.vue';
 import Interactive from '../views/Interactive.vue';
 import MyDictionary from '../views/MyDictionary';
 import Dictionary from '../views/Dictionary.vue';
+import Songs from '../views/Songs.vue';
 import Articles from '../views/Articles.vue';
 
 Vue.use(VueRouter);
@@ -51,7 +52,12 @@ const routes = [
     path: '/articles',
     name: 'Articles',
     component: Articles
-  }
+  },  
+  {
+    path: '/songs',
+    name: 'Songs',
+    component: Songs
+  },
 ];
 
 const router = new VueRouter({
