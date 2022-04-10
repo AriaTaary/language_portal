@@ -18,15 +18,15 @@
 
           <div class="articles-feed">
             <div v-if="loading" class="loading">
-              <img src="../assets/img/loader.svg" alt="Загрузка данных">
+              <img src="../../assets/img/loader.svg" alt="Загрузка данных">
             </div>
-            <div v-else>
-              <div v-if="this.articles.length === 0">
+            <template v-else>
+              <template v-if="this.articles.length === 0">
                 <p class="page-error">Ничего не найдено</p>
-              </div>
-              <div v-else>
+              </template>
+              <template v-else>
                 <div class="articles-content-settings">
-                  <details class="filter" @click="openCloseFilterSort()">
+                  <details class="filter">
                       <summary>
                           <div class="filter_block">
                               <p>Фильтровать</p>
@@ -62,7 +62,7 @@
                       </div>
                       </div>
                   </details>
-                  <details class="sort" @click="openCloseFilterSort()">
+                  <details class="sort">
                       <summary>
                           <div class="sort_block">
                               <p>Сортировать</p>
@@ -95,7 +95,7 @@
                           </select>
                         </div>
                         <div class="filter-buttons">
-                            <button type="submit" id="submit-sort" @click="submitSort()">
+                            <button type="submit" id="submit-sort">
                                 <svg width="30" height="30" viewBox="0 0 330 330" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M226.872 106.664L142.018 191.517L103.128 152.626C97.271 146.769 87.773 146.768 81.915 152.625C76.057 158.483 76.057 167.98 81.915 173.838L131.411 223.336C134.224 226.149 138.039 227.73 142.017 227.73C142.018 227.73 142.017 227.73 142.018 227.73C145.996 227.73 149.811 226.149 152.624 223.337L248.085 127.878C253.943 122.02 253.943 112.523 248.085 106.665C242.227 100.807 232.73 100.806 226.872 106.664Z" fill="#A4A4A5"/>
                                 </svg>
@@ -116,44 +116,11 @@
                   v-bind:article="article"
                   v-bind:index="index"
                 />
-              </div>
-            </div>
+              </template>
+            </template>
           </div>
         </div>
-        <div class="advisory">
-          <div class="advisory-block">
-            <div class="title">
-                ПОПУЛЯРНЫЕ СТАТЬИ
-            </div>
-            <div class="article">
-                <p class="article-title">PRESENT SIMPLE</p>
-                <p class="article-count"><span class="pink">35</span></p>
-            </div>
-            <div class="article">
-                <p class="article-title">PRESENT SIMPLE</p>
-                <p class="article-count"><span class="pink">35</span></p>
-            </div>
-            <div class="article">
-                <p class="article-title">PRESENT SIMPLE</p>
-                <p class="article-count"><span class="pink">35</span></p>
-            </div>
-            <div class="title">
-                ПОДБОРКА ДЛЯ ВАС
-            </div>
-            <div class="article">
-                <p class="article-title">PRESENT SIMPLE</p>
-                <p class="article-count"><span class="pink">35</span></p>
-            </div>
-            <div class="article">
-                <p class="article-title">PRESENT SIMPLE</p>
-                <p class="article-count"><span class="pink">35</span></p>
-            </div>
-            <div class="article">
-                <p class="article-title">PRESENT SIMPLE</p>
-                <p class="article-count"><span class="pink">35</span></p>
-            </div>
-          </div>
-        </div>
+        <RecommendationBlock />
       </div>
   </div>
 </template>
@@ -161,12 +128,14 @@
 
 
 <script>
-import ArticlePreview from '../components/ArticlePreview'
-import Articles from '../db/articles'
+import ArticlePreview from '../../components/ArticlePreview'
+import Articles from '../../db/articles'
+import RecommendationBlock from '../../components/RecommendationBlock'
 
 export default {
   components: {
-    ArticlePreview
+    ArticlePreview,
+    RecommendationBlock
   },
 
   data: () => ({
@@ -192,6 +161,46 @@ export default {
   beforeMount() {
     this.articles = Articles;
     this.loading = false;
+  },
+
+  methods: {
+    openCloseFilterSort () {
+        const filter = document.querySelector(".filter");
+        const sort = document.querySelector(".sort");
+        const closeFilter = document.querySelector("#close-filter");
+        const submitFilter = document.querySelector("#submit-filter");
+        const closeSort = document.querySelector("#close-sort");
+        const submitSort = document.querySelector("#submit-sort");
+
+        if (filter !== null) {
+            filter.addEventListener("click", () => {
+                if (sort.hasAttribute('open')) {
+                    sort.removeAttribute('open');
+                }
+            });
+            closeFilter.addEventListener("click", () => {
+                filter.removeAttribute("open");
+            });
+            submitFilter.addEventListener("click", () => {
+                filter.removeAttribute("open");
+            });
+        }
+
+        if (sort !== null) {
+            sort.addEventListener("click", () => {
+                if (filter.hasAttribute('open')) {
+                    filter.removeAttribute('open');
+                }
+            });
+            closeSort.addEventListener("click", () => {
+                sort.removeAttribute("open");
+            });
+
+            submitSort.addEventListener("click", () => {
+                sort.removeAttribute("open");
+            });
+        }
+    }
   }
 }
 
@@ -224,7 +233,7 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 0 0 45px 0;
+    margin: 0 0 40px 0;
 }
 
 .content-title {
@@ -246,54 +255,6 @@ export default {
 
 .not-main{
     color: #B3B3B3;
-}
-
-.advisory{
-    flex-direction: column;
-    margin-left: 50px;
-    margin-bottom: 40px;
-}
-
-.advisory-block{
-    background-color: rgb(0, 0, 0, 0.05);
-    width: 25vw;
-    box-sizing: border-box;
-    border-radius: 5px;
-
-    & .title {
-        color: rgb(0, 0, 0, 0.3);
-        padding: 15px;
-        border-bottom: 2px solid white; 
-    }
-
-    & .article {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px;
-        height: 19px;
-    }
-
-    & .article-title{
-        color: black;
-    }
-
-    & .article-count {
-        display: inline-flex;
-        color: #D5444C;
-    }
-
-    & .article-count::after{
-        background-size: contain;
-        background-repeat: no-repeat;
-        display: inline-block;
-        content: " ";
-        margin-left: 10px;
-        background-image: url(../assets/img/bookmark-active.svg);
-        height: 17px;
-        width: 17px;
-    }
 }
 
 .button-favourite{
@@ -339,11 +300,7 @@ export default {
 .filter, .sort{
     display: flex;
     flex-direction: row;
-    /* font-weight: 600; */
-    /* font-size: 14px; */
     line-height: 17px;
-    /* color: #6F6E6E; */
-    /* position: absolute; */
     position: relative;
     background: none;
     border: none;
@@ -351,7 +308,6 @@ export default {
     z-index: 99;
     background-color: transparent;
     padding-bottom: 18px;
-    /* margin-right: 288.67px; */
     padding: 13px 0 16px 0;
 }
 
@@ -381,7 +337,6 @@ export default {
 .filter-part{
     margin-top: 10px;
     border-bottom: 1px solid #EBEBEB;
-    /* position: absolute; */
 }
 
 .sort-part{
@@ -390,6 +345,14 @@ export default {
     flex-direction: column;
     padding: 0 11px 21px 11px;
     border-bottom: 1px solid #EBEBEB;
+
+    & select {
+        cursor: pointer;
+        padding: 0 5px;
+        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.21);
+        -webkit-appearance: auto !important;
+    }
 }
 
 .sort-part:first-child{
@@ -413,7 +376,6 @@ export default {
 .filter_list{
     list-style: none;
     margin-top: 20px;
-    /* margin: 20px 0; */
     padding: 0 0 20px 11px;
     border-bottom: 1px solid #EBEBEB;
 }
@@ -435,12 +397,8 @@ export default {
 }
 
 summary {
-  display: block;
+  display: block !important;
   outline: none;
-}
-
-summary::-webkit-details-marker {
-  display: none;
 }
 
 .checkbox {
@@ -474,59 +432,6 @@ summary::-webkit-details-marker {
     height: 300px;
     border-radius: 5px;
     object-fit: cover;
-}
-
-.pagination{
-    display: flex;
-    width: 100%;
-    margin-bottom: 40px;
-    justify-content: center;
-}
-
-.el-pagination.is-background .el-pager li:not(.disabled).active {
-    background-color: #D5444C !important;
-    color: #FFF !important;
-}
-
-.el-pagination.is-background .el-pager li:not(.disabled).active:hover {
-    color: #FFF !important;
-}
-
-.el-pagination.is-background .el-pager li:not(.disabled):hover {
-     color: #D5444C !important;
-}
-
-.post-button{
-    border: none;
-    background-color: transparent;
-    outline: none;
-}
-
-.post-button:hover{
-    cursor: pointer;
-}
-
-.post-button:hover .likes svg path{
-    fill: #D5444C;
-    fill-opacity: 1;
-}
-
-.post-button:hover .bookmarks svg path{
-    fill: #D5444C;
-    fill-opacity: 1;
-}
-
-.post-button:hover span{
-    color: #D5444C;
-}
-
-.post-button-active .likes span{
-    color: #D5444C;
-}
-
-
-.post-button-active .bookmarks span{
-    color: #D5444C;
 }
 
 .back-to{
@@ -606,8 +511,6 @@ input::-webkit-input-placeholder {
     width: 100%;
     min-height: 100%;
     justify-content: center;
-    /* margin-top: 15vh; */
-    /* margin-bottom: 100px; */
 }
 
 .filter, .sort{
@@ -651,13 +554,13 @@ input::-webkit-input-placeholder {
     display: inline-block;
     content: " ";
     margin-right: 5px;
-    background-image: url(../assets/img/filter.svg);
+    background-image: url(../../assets/img/filter.svg);
     height: 15px;
     width: 15px;
 }
 
 .filter_block:hover::before{
-    background-image: url(../assets/img/filter-hover.svg);
+    background-image: url(../../assets/img/filter-hover.svg);
 }
 
 .sort_block::before{
@@ -666,12 +569,12 @@ input::-webkit-input-placeholder {
     display: inline-block;
     content: " ";
     margin-right: 5px;
-    background-image: url(../assets/img/sort.svg);
+    background-image: url(../../assets/img/sort.svg);
     height: 15px;
     width: 15px;
 }
 
 .sort_block:hover::before{
-    background-image: url(../assets/img/sort-hover.svg);
+    background-image: url(../../assets/img/sort-hover.svg);
 }
 </style>

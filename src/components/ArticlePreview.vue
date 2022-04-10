@@ -69,15 +69,14 @@ export default {
 
   beforeMount() {
       const dateFormatter = new Intl.DateTimeFormat('ru-RU', { month: 'long', day: 'numeric', year: "numeric"});
-
       this.formattedDate = dateFormatter.format(new Date(this.article.created_at));
   },
 
 }
 </script>
 
-<style scoped>
-    .card-info{
+<style lang="scss">
+.card-info{
     display: flex;
     flex-direction: column;
     padding-bottom: 40px;
@@ -128,10 +127,6 @@ export default {
 .card-main-info{
     margin-top: 25px;
 }
-
-/* .card-main-info h2, .card-main-info p{
-    margin-bottom: 20px;
-} */
 
 .card-main-info-title{
     display: flex;

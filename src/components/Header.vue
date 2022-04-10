@@ -23,7 +23,7 @@
             />
           </svg>
         </router-link>
-        <VAccount></VAccount>
+        <VAccount class="menuItem"></VAccount>
       </div>
     </div>
   </div>

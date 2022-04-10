@@ -8,7 +8,9 @@ import Interactive from '../views/Interactive.vue';
 import MyDictionary from '../views/MyDictionary';
 import Dictionary from '../views/Dictionary.vue';
 import Songs from '../views/Songs.vue';
-import Articles from '../views/Articles.vue';
+
+import ArticlesMain from '@/views/Articles/Main.vue';
+import ArticleView from '@/views/Articles/View.vue';
 
 Vue.use(VueRouter);
 
@@ -50,9 +52,20 @@ const routes = [
   },
   {
     path: '/articles',
-    name: 'Articles',
-    component: Articles
+    name: 'ArticlesMain',
+    component: ArticlesMain,
+    meta: {
+      title: 'Обучающие статьи'
+    }
   },  
+  {
+    path: '/article/view/:id',
+    name: 'ArticleView',
+    component: ArticleView,
+    meta: {
+      title: 'Просмотр статьи'
+    }
+  },
   {
     path: '/songs',
     name: 'Songs',
