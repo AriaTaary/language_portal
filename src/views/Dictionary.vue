@@ -20,7 +20,7 @@
           d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
         />
       </svg>
-      <button @click="themesList=!themesList" class="choice-theme">Выберите тему</button>
+      <button @click="themesList = !themesList" class="choice-theme">Выберите тему</button>
       <button @click="clearTheme" class="choice-theme">Сбросить</button>
     </div>
     <div v-show="notFound" class="search-fail">К сожалению, слово не найдено</div>
@@ -31,11 +31,11 @@
         class="themes-block"
         @click="toActivateTheme(card.name)"
       >
-        <span v-if="card.name!==currentTheme">
-          <h2 class="themes-block__heading">{{card.translateName}}</h2>
+        <span v-if="card.name !== currentTheme">
+          <h2 class="themes-block__heading">{{ card.translateName }}</h2>
         </span>
         <span v-else>
-          <h2 class="themes-block__heading active-item">{{card.translateName}}</h2>
+          <h2 class="themes-block__heading active-item">{{ card.translateName }}</h2>
         </span>
       </span>
     </div>
@@ -72,9 +72,6 @@
             <span class="transcription">{{ item.transcription }}</span>
           </div>
           <div class="word-element__row">
-            <span class="theme">{{ item.theme }}</span>
-          </div>
-          <div class="word-element__row">
             <span class="translate">{{ item.translation }}</span>
           </div>
         </div>
@@ -85,11 +82,11 @@
 
 <script>
 export default {
-  name: "Dictionary",
+  name: 'Dictionary',
   data() {
     return {
       themesList: false,
-      currentTheme: "",
+      currentTheme: '',
       searchRequest: null,
       searchResult: [],
       wordsArray: [],
@@ -108,7 +105,7 @@ export default {
     },
     fetchWords() {
       this.getJson(
-        "https://raw.githubusercontent.com/Anna-Naily/json/main/dictionary.json"
+        'https://raw.githubusercontent.com/Anna-Naily/json/main/dictionaryDB.json'
       ).then((data) => {
         this.wordsArray = data.words;
         this.searchResult = this.wordsArray;
@@ -116,7 +113,7 @@ export default {
     },
     fetchThemes() {
       this.getJson(
-        "https://raw.githubusercontent.com/Anna-Naily/json/main/themes.json"
+        'https://raw.githubusercontent.com/Anna-Naily/json/main/themes.json'
       ).then((data) => {
         this.themesArray = data.themes;
       });
@@ -139,6 +136,7 @@ export default {
       } else {
         this.notFound = false;
       }
+      this.delDouble();
     },
     toSpeak(word) {
       speechSynthesis.speak(new SpeechSynthesisUtterance(word));
@@ -149,14 +147,44 @@ export default {
     },
     sortByTheme() {
       this.searchResult = this.wordsArray.filter((item) => {
-        if (item.theme === this.currentTheme) {
+        if (item.theme.trim() === this.currentTheme) {
           return true;
         }
       });
     },
     clearTheme() {
       this.searchResult = this.wordsArray;
-      this.currentTheme = "";
+      this.currentTheme = '';
+    },
+    findDouble(array, word) {
+      for (let i = 0; i < array.length; i++) {
+        if (array[i].word === word) return false;
+      }
+      return true;
+    },
+    delDouble() {
+      let singleArray = [];
+      let singleResult = [];
+      for (let i = 0; i < this.searchResult.length; i++) {
+        singleArray.push(this.searchResult[i].word);
+      }
+      let singleList = new Set(singleArray);
+      singleArray = [];
+      singleList.forEach((word) => {
+        singleArray.push(word);
+      });
+
+      for (let i = 0; i < this.searchResult.length; i++) {
+        for (let j = 0; j < singleArray.length; j++) {
+          if (
+            this.searchResult[i].word === singleArray[j] &&
+            this.findDouble(singleResult, singleArray[j])
+          ) {
+            singleResult.push(this.searchResult[i]);
+          }
+        }
+      }
+      this.searchResult = singleResult;
     },
   },
 };
@@ -167,7 +195,7 @@ export default {
   display: flex;
   margin: auto;
   flex-direction: column;
-  width: 975px;
+  width: 990px;
 }
 .search-block {
   display: flex;

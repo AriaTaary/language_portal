@@ -7,12 +7,18 @@
           <div class="vr"></div>
           <a href="/registration" class="registration">Регистрация</a>
         </div>
-        <router-link
-          to="/"
-          class="crossIcon"
-        >
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0.442892 20L10 10.4421L19.5571 20L20 19.5581L10.4422 9.99984L20 0.441265L19.5571 0L10 9.55759L0.442892 0L0 0.441265L9.5578 9.99984L0 19.5581L0.442892 20Z" fill="black"/>
+        <router-link to="/" class="crossIcon">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.442892 20L10 10.4421L19.5571 20L20 19.5581L10.4422 9.99984L20 0.441265L19.5571 0L10 9.55759L0.442892 0L0 0.441265L9.5578 9.99984L0 19.5581L0.442892 20Z"
+              fill="black"
+            />
           </svg>
         </router-link>
         <form action="/registration" class="auth-registration" method="get">
@@ -24,7 +30,7 @@
           <input type="email" v-model="reg_email" placeholder="Укажите email" />
           <label for="password">Пароль</label>
           <input type="password" v-model="reg_pass" placeholder="Придумайте пароль" />
-          <button class="reg-btn" type="submit">Регистрация</button>
+          <button class="reg-btn" type="submit">Зарегистрироваться</button>
         </form>
       </div>
     </div>
@@ -34,15 +40,15 @@
 <script>
 export default {
   name: 'Registration',
-  data () {
+  data() {
     return {
       first_name: '',
       last_name: '',
       reg_email: '',
-      reg_password: ''
-    }
-  }
-}
+      reg_password: '',
+    };
+  },
+};
 </script>
 <style lang="scss" scoped>
 .authorization-block {
@@ -102,13 +108,14 @@ export default {
     padding: 5px 10px;
     margin-top: 15px;
     margin-bottom: 15px;
+    border: 1px solid rgb(187, 187, 187);
   }
 }
 .reg-btn {
   background: #d8474e;
   border: none;
   color: white;
-  width: 150px;
+  width: 200px;
   margin: auto;
   margin-top: 30px;
   padding: 6px 15px;
