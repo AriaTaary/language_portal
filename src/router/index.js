@@ -1,13 +1,16 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Profile from '../views/Profile.vue'
-import Main from '../views/Main.vue'
-import Authorization from '../views/Authorization.vue'
-import Registration from '../views/Registration.vue'
-import Interactive from '../views/Interactive.vue'
-import MyDictionary from '@/views/MyDictionary'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Profile from '../views/Profile.vue';
+import Main from '../views/Main.vue';
+import Authorization from '../views/Authorization.vue';
+import Registration from '../views/Registration.vue';
+import Interactive from '../views/Interactive.vue';
+import MyDictionary from '../views/MyDictionary';
 import Dictionary from '../views/Dictionary.vue';
-import Songs from '../views/Songs.vue'
+import Songs from '../views/Songs.vue';
+
+import ArticlesMain from '@/views/Articles/Main.vue';
+import ArticleView from '@/views/Articles/View.vue';
 
 Vue.use(VueRouter);
 
@@ -46,7 +49,23 @@ const routes = [
     path: '/mydictionary',
     name: 'Mydictionary',
     component: MyDictionary
+  },
+  {
+    path: '/articles',
+    name: 'ArticlesMain',
+    component: ArticlesMain,
+    meta: {
+      title: 'Обучающие статьи'
+    }
   },  
+  {
+    path: '/article/view/:id',
+    name: 'ArticleView',
+    component: ArticleView,
+    meta: {
+      title: 'Просмотр статьи'
+    }
+  },
   {
     path: '/songs',
     name: 'Songs',
