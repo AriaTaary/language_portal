@@ -1,6 +1,6 @@
 <template>
   <div class="video-wrapper">
-    <div class="container">
+    <div class="video-container">
       <div class="search-block">
         <input
           type="text"
@@ -120,7 +120,7 @@ export default {
 };
 </script>
 <style lang="scss">
-.container {
+.video-container {
   width: 990px;
   margin: auto;
 }

@@ -11,6 +11,9 @@ import Songs from '../views/Songs.vue';
 import Videos from '../views/Videos.vue';
 import VideoPage from '../views/VideoPage.vue';
 
+import ArticlesMain from '@/views/Articles/Main.vue';
+import ArticleView from '@/views/Articles/View.vue';
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -48,6 +51,22 @@ const routes = [
     path: '/mydictionary',
     name: 'Mydictionary',
     component: MyDictionary
+  },
+  {
+    path: '/articles',
+    name: 'ArticlesMain',
+    component: ArticlesMain,
+    meta: {
+      title: 'Обучающие статьи'
+    }
+  },  
+  {
+    path: '/article/view/:id',
+    name: 'ArticleView',
+    component: ArticleView,
+    meta: {
+      title: 'Просмотр статьи'
+    }
   },
   {
     path: '/songs',

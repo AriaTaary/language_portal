@@ -3,7 +3,7 @@
     <span class="logo">HelpTense</span>
     <div class="menu">
       <router-link to="/" class="menuItem">Главная</router-link>
-      <router-link to="/materials" class="menuItem">Учебные материалы</router-link>
+      <router-link to="/articles" class="menuItem">Учебные материалы</router-link>
       <router-link to="/program" class="menuItem">Обучение по программе</router-link>
       <router-link to="/interactive" class="menuItem">Интерактив</router-link>
       <router-link to="/songs" class="menuItem">Песни</router-link>
@@ -48,10 +48,16 @@ export default {
   background-color: #abb5d0;
   height: 55px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 35px;
+  justify-content: center;
+
+  & .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 1366px;
+  }
 
   & .logo {
     font-weight: 600;
