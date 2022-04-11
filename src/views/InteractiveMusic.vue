@@ -8,9 +8,7 @@
             class="song-item" 
             v-for="item in songs" 
             :key="item.index"
-            :to="{name:'Songs', params:{videoId:item.videoId, titleOfSong:item.titleOfSong}}" 
-           
-             >
+            :to="{name:'Songs', params:{videoId:item.videoId, titleOfSong:item.titleOfSong}}">
                 <img :src="'https://i.ytimg.com/vi/'+item.videoId+'/hqdefault.jpg'" alt="img" @click="chooseSong(item)">
                     <p>{{item.titleOfSong}}</p>
             </router-link>
@@ -32,16 +30,6 @@ export default {
         return {
             songs:musicList,
         };
-    },
-
-    mounted() {
-        
-    },
-
-    methods: {
-        chooseSong(){
-            console.log();
-        }
     },
 };
 </script>

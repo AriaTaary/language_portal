@@ -1,11 +1,14 @@
 <template>
   <div class="video-wrapper">
-    <section>
-    <h2>{{}}</h2>
-      <youtube :video-id="videoId"></youtube>
-  </section>
+    <section class="section-video">
+    <h2>{{titleOfSong}}</h2>
+    <youtube :video-id="videoId" class="youtube-video" ></youtube>
+    </section>
+    <div class="sub">
+        <p class="sub-item"></p><br>
+    </div>
     <div @click="show=!show" class="songBlock">
-      <h3>Перевод песни One Republic - If I lose myself</h3>
+      <h3>Перевод песни {{titleOfSong}}</h3>
     </div>
     <transition name="fade">
             <div v-if="show"  class="songs">
@@ -73,33 +76,92 @@ axios.request(options).then(function (response) {
 });
 /***************************/
 export default {
-  name: 'Songs',
-  props:['videoId'],
+  name: 'songs',
+  props:{
+    videoId: String,
+    titleOfSong: String,
+  },
   data () {
     return {
-      show: false,
-
+       show: false,
+      songs: [{
+        song1: {
+          id: 1,
+          titleOfSong: 'If I lose myself',
+          textOfSong: `I stayed up at the sun
+                  Thought of all the people, places and things I’ve loved
+                  I stayed up just to see
+                  Of all the faces,
+                  you are the one next to me
+                  You can feel the light start to tremble
+                  Washing what you know out to sea
+                  You can see your life out of the window, tonight
+                  If I lose myself tonight
+                  It’ll be by your side
+                  If I lose myself tonight
+                  woooh, woooh, woooh!
+                  If I lose myself tonight
+                  It’ll be you and I
+                  Lose myself tonight
+                  whooooooo
+                  I woke up with the sun
+                  Thought of all the people, places and things I’ve loved
+                  I woke up just to see
+                  With all the faces
+                  You are the one next to me
+                  You can feel the light start to tremble
+                  Washing what you know out to sea
+                  You can see your life out of the window, tonight
+                  If I lose myself tonight
+                  It’ll be by your side
+                  If I lose myself tonight
+                  woooh, woooh, woooh!
+                  If I lose myself tonight
+                  It’ll be you and I
+                  Lose myself tonight
+                  whooooooo
+                  Take us down and we keep trying
+                  40 000 feet keep flying
+                  Take us down and we keep trying
+                  40 000 feet keep flying
+                  Take us down and we keep trying
+                  40 000 feet keep flying
+                  Take us down and we keep trying
+                  40 000 feet keep flying
+                  Take us down and we keep trying
+                  40 000 feet keep flying
+                  Lose myself
+                  If I lose myself tonight
+                  Whoooooooooo
+                  whoooooo, whoooo,
+                  whooooooo`
+        }
+      }]
     }
-  },
-  methods(){
-   
-
-  },
-  mounted () {
-  
-     
- 
-  },
-  created(){
   }
-
- 
 }
 </script>
 
 <style lang="scss">
+.section-video{
+  position: relative;
+}
+.sub{
+  background: rgb(209, 209, 209);
+  text-transform: none;
+}
+.sub-item{
+  padding: 5px 0;
+}
 .video-wrapper{
   display: flex;
+  padding: 50px 25px;
+}
+.youtube-video{
+  margin: 25px;
+}
+span{
+  color: black;
 }
 .songs {
   display: flex;
