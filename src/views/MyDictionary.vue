@@ -22,7 +22,7 @@
 <script>
 import dictionary from '@/db/dictionary'
 export default {
-    name: 'Mydictionary',
+  name: 'Mydictionary',
 
     data() {
         return {
