@@ -8,12 +8,16 @@ import Interactive from '../views/Interactive.vue';
 import MyDictionary from '../views/MyDictionary';
 import Dictionary from '../views/Dictionary.vue';
 import Songs from '../views/Songs.vue';
+<<<<<<< HEAD
 import Testing from '../views/Testing.vue';
+
+=======
 import Videos from '../views/Videos.vue';
 import VideoPage from '../views/VideoPage.vue';
 
 import ArticlesMain from '../views/Articles/Main.vue';
 import ArticleView from '../views/Articles/View.vue';
+>>>>>>> master
 
 Vue.use(VueRouter);
 
@@ -75,11 +79,12 @@ const routes = [
     component: Songs
   },
   {
+<<<<<<< HEAD
     path: '/testing',
     name: 'Testing',
     component: Testing
   },
-  {
+=======
     path: '/videos',
     name: 'Videos',
     component: Videos
@@ -90,6 +95,7 @@ const routes = [
     component: VideoPage,
     props: true
   }
+>>>>>>> master
 ];
 
 const router = new VueRouter({
