@@ -1,17 +1,20 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Profile from '../views/Profile.vue'
-import Main from '../views/Main.vue'
-import Authorization from '../views/Authorization.vue'
-import Registration from '../views/Registration.vue'
-import Interactive from '../views/Interactive.vue'
-import MyDictionary from '@/views/MyDictionary'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Profile from '../views/Profile.vue';
+import Main from '../views/Main.vue';
+import Authorization from '../views/Authorization.vue';
+import Registration from '../views/Registration.vue';
+import Interactive from '../views/Interactive.vue';
+import MyDictionary from '../views/MyDictionary';
 import Dictionary from '../views/Dictionary.vue';
 import InteractiveCart from '@/views/InteractiveCart'
 import InteractiveSpeaking from '@/views/InteractiveSpeaking'
 import Songs from '../views/Songs.vue'
 import InteractiveMusic from '../views/InteractiveMusic.vue'
 import TrainingPrograms from '@/views/TrainingPrograms'
+
+import ArticlesMain from '@/views/Articles/Main.vue';
+import ArticleView from '@/views/Articles/View.vue';
 
 Vue.use(VueRouter);
 
@@ -67,6 +70,22 @@ const routes = [
     component: InteractiveMusic
   }, 
   {
+    path: '/articles',
+    name: 'ArticlesMain',
+    component: ArticlesMain,
+    meta: {
+      title: 'Обучающие статьи'
+    }
+  },  
+  {
+    path: '/article/view/:id',
+    name: 'ArticleView',
+    component: ArticleView,
+    meta: {
+      title: 'Просмотр статьи'
+    }
+  },
+  {
     path: '/songs/:videoId/:titleOfSong',
     name: 'Songs',
     component: Songs,
@@ -77,6 +96,7 @@ const routes = [
     name: 'Trainingprograms',
     component: TrainingPrograms
   },
+
 ];
 
 const router = new VueRouter({
