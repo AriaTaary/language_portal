@@ -6,27 +6,7 @@
       <router-link to="/materials" class="menuItem">Учебные материалы</router-link>
       <router-link to="/program" class="menuItem">Обучение по программе</router-link>
       <router-link to="/dictionary" class="menuItem">Словарь</router-link>
-      
-      <a @mousemove="show = !show"
-       class="menuItem">
-        Интерактив
-      </a>
-      <transition name="fade" class="btn">
-        <ul v-show="show" class="list"
-        @mouseleave="show=false"
-        >
-          <li class="list-item">
-              <router-link to="/interactive" class="menuItem">Слова</router-link>
-          </li>
-          <li class="list-item">
-              <router-link to="/songs" class="menuItem">Песни</router-link>
-          </li>
-          <li class="list-item">
-              <router-link to="/testing" class="menuItem">Тесты</router-link>
-          </li>
-        </ul>
-      </transition>
-      
+      <VMenuInteractive></VMenuInteractive>      
       <router-link to="/auth" class="menuItem">
         <svg
           width="30"
@@ -47,16 +27,11 @@
 </template>
 <script>
 import VAccount from './v-account'
-export default {
-  components: { VAccount },
-  name: 'vHeder',
-  data(){
-    return {
-      show:false
-    }
-  },
-  
+import VMenuInteractive from './v-dropdown-menu'
 
+export default {
+  components: { VAccount,VMenuInteractive },
+  name: 'vHeder',
 }
 </script>
 <style lang="scss">
@@ -92,34 +67,5 @@ export default {
       }
     }
   }
-}
-.slide-fade-enter-active {
-  transition: all .3s ease;
-}
-.slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active до версии 2.1.8 */ {
-  transform: translateX(10px);
-  opacity: 0;
-}
-
-.btn{
-  position: relative;
-}
-.list {
-  position: absolute;
-  top:50px;
-  right: 130px;
-  display: flex;
-  justify-content:space-around;
-  flex-direction: column;
-  background: #abb5d0;
-  padding: 10px 20px 10px 0;
-  border-radius: 10px;
-}
-.list-item {
-  margin-top: 10px;
 }
 </style>
