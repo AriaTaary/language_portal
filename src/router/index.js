@@ -5,14 +5,14 @@ import Main from '../views/Main.vue';
 import Authorization from '../views/Authorization.vue';
 import Registration from '../views/Registration.vue';
 import Interactive from '../views/Interactive.vue';
-import MyDictionary from '@/views/MyDictionary';
+import MyDictionary from '../views/MyDictionary';
 import Dictionary from '../views/Dictionary.vue';
 import Songs from '../views/Songs.vue';
 import Videos from '../views/Videos.vue';
 import VideoPage from '../views/VideoPage.vue';
 
-import ArticlesMain from '@/views/Articles/Main.vue';
-import ArticleView from '@/views/Articles/View.vue';
+import ArticlesMain from '../views/Articles/Main.vue';
+import ArticleView from '../views/Articles/View.vue';
 
 Vue.use(VueRouter);
 
@@ -59,7 +59,7 @@ const routes = [
     meta: {
       title: 'Обучающие статьи'
     }
-  },  
+  },
   {
     path: '/article/view/:id',
     name: 'ArticleView',

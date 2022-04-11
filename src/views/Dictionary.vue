@@ -165,25 +165,23 @@ export default {
     delDouble() {
       let singleArray = [];
       let singleResult = [];
-      for (let i = 0; i < this.searchResult.length; i++) {
-        singleArray.push(this.searchResult[i].word);
-      }
+      this.searchResult.foreach((item) => {
+        singleArray.push(item.word);
+      });
+
       let singleList = new Set(singleArray);
       singleArray = [];
       singleList.forEach((word) => {
         singleArray.push(word);
       });
 
-      for (let i = 0; i < this.searchResult.length; i++) {
-        for (let j = 0; j < singleArray.length; j++) {
-          if (
-            this.searchResult[i].word === singleArray[j] &&
-            this.findDouble(singleResult, singleArray[j])
-          ) {
-            singleResult.push(this.searchResult[i]);
+      this.searchResult.foreach((item) => {
+        singleArray.foreach((word) => {
+          if (item.word === word && this.findDouble(singleResult, word)) {
+            singleResult.push(item);
           }
-        }
-      }
+        });
+      });
       this.searchResult = singleResult;
     },
   },
