@@ -101,7 +101,6 @@ export default {
     this.fetchWords();
     this.fetchThemes();
   },
-
   methods: {
     getJson(url) {
       return fetch(url).then((result) => result.json());
@@ -188,7 +187,6 @@ export default {
   margin-bottom: 40px;
   font-size: 16px;
 }
-
 .word-list__heading {
   font-size: 20px;
   color: #666e83;

@@ -7,14 +7,14 @@ import Registration from '../views/Registration.vue';
 import Interactive from '../views/Interactive.vue';
 import MyDictionary from '../views/MyDictionary';
 import Dictionary from '../views/Dictionary.vue';
-import InteractiveCart from '@/views/InteractiveCart'
-import InteractiveSpeaking from '@/views/InteractiveSpeaking'
+import InteractiveCart from '../views/InteractiveCart.vue'
+import InteractiveSpeaking from '../views/InteractiveSpeaking.vue'
 import Songs from '../views/Songs.vue'
 import InteractiveMusic from '../views/InteractiveMusic.vue'
-import TrainingPrograms from '@/views/TrainingPrograms'
+import TrainingPrograms from '../views/TrainingPrograms.vue'
 
-import ArticlesMain from '@/views/Articles/Main.vue';
-import ArticleView from '@/views/Articles/View.vue';
+import ArticlesMain from '../views/Articles/Main.vue';
+import ArticleView from '../views/Articles/View.vue';
 
 Vue.use(VueRouter);
 
