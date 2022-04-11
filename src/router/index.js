@@ -8,7 +8,6 @@ import Interactive from '../views/Interactive.vue';
 import MyDictionary from '../views/MyDictionary';
 import Dictionary from '../views/Dictionary.vue';
 import Songs from '../views/Songs.vue';
-import Testing from '../views/Testing.vue';
 import Videos from '../views/Videos.vue';
 import VideoPage from '../views/VideoPage.vue';
 
@@ -73,11 +72,6 @@ const routes = [
     path: '/songs',
     name: 'Songs',
     component: Songs
-  },
-  {
-    path: '/testing',
-    name: 'Testing',
-    component: Testing
   },
   {
     path: '/videos',

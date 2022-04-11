@@ -5,13 +5,7 @@
     <div class="wrpList">
         <ul class="list">
             <li class="list-item">
-                  <router-link to="/interactive" class="menuItem">Слова</router-link>
-            </li>
-            <li class="list-item">
-                <router-link to="/songs" class="menuItem">Песни</router-link>
-            </li>
-            <li class="list-item">
-                <router-link to="/testing" class="menuItem">Тесты</router-link>
+              <slot></slot>
             </li>
         </ul>
     </div>
@@ -46,5 +40,7 @@ export default {
 }
 .list-item {
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
 </style>
