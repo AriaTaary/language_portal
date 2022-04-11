@@ -8,9 +8,11 @@ import Interactive from '../views/Interactive.vue';
 import MyDictionary from '../views/MyDictionary';
 import Dictionary from '../views/Dictionary.vue';
 import Songs from '../views/Songs.vue';
+import Videos from '../views/Videos.vue';
+import VideoPage from '../views/VideoPage.vue';
 
-import ArticlesMain from '@/views/Articles/Main.vue';
-import ArticleView from '@/views/Articles/View.vue';
+import ArticlesMain from '../views/Articles/Main.vue';
+import ArticleView from '../views/Articles/View.vue';
 
 Vue.use(VueRouter);
 
@@ -35,7 +37,7 @@ const routes = [
     name: 'Dictionary',
     component: Dictionary
   },
-   {
+  {
     path: '/profile',
     name: 'Profile',
     component: Profile
@@ -57,7 +59,7 @@ const routes = [
     meta: {
       title: 'Обучающие статьи'
     }
-  },  
+  },
   {
     path: '/article/view/:id',
     name: 'ArticleView',
@@ -71,6 +73,17 @@ const routes = [
     name: 'Songs',
     component: Songs
   },
+  {
+    path: '/videos',
+    name: 'Videos',
+    component: Videos
+  },
+  {
+    path: '/videoPage:videoUrl=videoUrl:videoTitle=videoTitle',
+    name: 'VideoPage',
+    component: VideoPage,
+    props: true
+  }
 ];
 
 const router = new VueRouter({
