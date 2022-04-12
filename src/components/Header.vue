@@ -1,19 +1,26 @@
 <template>
   <div class="headerContainer">
     <div class="content">
-    <span class="logo">HelpTense</span>
-    <div class="menu">
-      <router-link to="/" class="menuItem">Главная</router-link>
-      <router-link to="/articles" class="menuItem">Учебные материалы</router-link>
-      <router-link to="/program" class="menuItem">Обучение по программе</router-link>
-      <router-link to="/dictionary" class="menuItem">Словарь</router-link>
-      <router-link to="/videos" class="menuItem">Фильмы и видео</router-link>
-      <VMenuInteractive>
+      <span class="logo">HelpTense</span>
+      <div class="menu">
+        <router-link to="/" class="menuItem">Главная</router-link>
+        <router-link to="/articles" class="menuItem">Учебные материалы</router-link>
+        <router-link to="/program" class="menuItem">Обучение по программе</router-link>
+        <router-link to="/dictionary" class="menuItem">Словарь</router-link>
+        <router-link to="/videos" class="menuItem">Фильмы и видео</router-link>
+        <div class="topItem menuItem">
+          Интерактив
+          <div class="wrpList">
+            <ul class="list">
+              <li class="list-item">
                 <router-link to="/interactive" class="menuItem">Слова</router-link>
                 <router-link to="/songs" class="menuItem">Песни</router-link>
-        </VMenuInteractive> 
-      <div v-if="authFlag">           
-        <router-link to="/auth" class="menuItem">
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div v-if="authFlag">
+          <router-link to="/auth" class="menuItem">
             <svg
               width="30"
               height="30"
@@ -36,21 +43,19 @@
   </div>
 </template>
 <script>
-import VAccount from './v-account'
-import VMenuInteractive from './v-dropdown-menu'
+import VAccount from "./v-account";
 
 export default {
-  components: { 
+  components: {
     VAccount,
-    VMenuInteractive 
-    },
-  name: 'vHeder',
- data() {
+  },
+  name: "vHeder",
+  data() {
     return {
       authFlag: false,
     };
   },
-}
+};
 </script>
 <style lang="scss">
 .headerContainer {
@@ -94,5 +99,29 @@ export default {
 }
 .btn-account {
   margin-left: 30px;
+}
+.topItem {
+  position: relative;
+}
+.topItem:hover .wrpList {
+  display: block;
+}
+.wrpList {
+  display: none;
+  position: absolute;
+}
+.list {
+  top: 50px;
+  right: 130px;
+  justify-content: space-around;
+  flex-direction: column;
+  background: #abb5d0;
+  padding: 10px 20px 10px 0;
+  border-radius: 10px;
+}
+.list-item {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
 </style>
