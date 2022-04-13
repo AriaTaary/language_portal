@@ -1,13 +1,20 @@
 <template>
-  <div class="video-wrapper">
+  <div class="container routerBody">
+    <div class="feed-body">
     <section class="section-video">
-    <h2>{{titleOfSong}}</h2>
-    <youtube :video-id="videoId" class="youtube-video" ></youtube>
+      <div class="router-block">
+        <router-link to="/music" class="router-span">
+        <span class="material-icons">keyboard_return</span>
+        Вернуться
+      </router-link>
+        <div class="content-title">
+              {{titleOfSong}}
+        </div>
+      </div>
+      <youtube :video-id="videoId" class="youtube-video" ></youtube>
     </section>
-    <div class="sub">
-        <p class="sub-item"></p><br>
-    </div>
-    <div @click="show=!show" class="songBlock">
+    <div class="block-text">
+      <div @click="show=!show" class="songBlock">
       <h3>Перевод песни {{titleOfSong}}</h3>
     </div>
     <transition name="fade">
@@ -51,6 +58,8 @@
               </table>
             </div>
     </transition>
+    </div>
+    </div>
   </div>
 </template>
 
@@ -143,6 +152,11 @@ export default {
 </script>
 
 <style lang="scss">
+.router-span{
+  display: flex;
+  text-decoration: none;
+  margin-bottom: 15px;
+}
 .section-video{
   position: relative;
 }
@@ -153,12 +167,11 @@ export default {
 .sub-item{
   padding: 5px 0;
 }
-.video-wrapper{
-  display: flex;
-  padding: 50px 25px;
-}
 .youtube-video{
-  margin: 25px;
+  margin-top: 25px;
+}
+.block-text{
+  width: 100%;
 }
 span{
   color: black;

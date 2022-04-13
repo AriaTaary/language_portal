@@ -1,10 +1,10 @@
 <template>
-        <div class="interactive-block">
-          <router-link class="interactive-item" to="/interactivecart" >Слова</router-link>
-          <router-link class="interactive-item" to="/speaking" >Разговорник</router-link>
-          <router-link class="interactive-item" to="/music" >Музыка</router-link>
-          <div class="interactive-item"></div>
-          <div class="interactive-item"></div>
+        <div class="container routerBody">
+          <div class="feed-body">
+            <router-link class="interactive-item" to="/interactivecart" >Слова</router-link>
+            <router-link class="interactive-item" to="/speaking" >Разговорник</router-link>
+            <router-link class="interactive-item" to="/music" >Музыка</router-link>
+          </div>
         </div>
 </template>
 
@@ -15,16 +15,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.conteiner{
-  width: 1024px;
-}
-.interactive-block{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
- 
-}
 .interactive-item{
   width: 250px;
   height: 250px;
@@ -35,7 +25,7 @@ export default {
   align-items: center;
   justify-content: center;
   font-size: 20px;
-  background: rgb(202, 245, 139);
+  background-color: transparent;
   text-decoration: none;
 }
 .interactive-item:hover{
