@@ -15,6 +15,8 @@
               <li class="list-item">
                 <router-link to="/interactive" class="menuItem">Слова</router-link>
                 <router-link to="/songs" class="menuItem">Песни</router-link>
+                <router-link to="/quiz" class="menuItem">Викторина</router-link>
+
               </li>
             </ul>
           </div>
