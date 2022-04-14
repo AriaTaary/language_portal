@@ -15,7 +15,7 @@
               <li class="list-item">
                 <router-link to="/interactive" class="menuItem">Слова</router-link>
                 <router-link to="/songs" class="menuItem">Песни</router-link>
-                <router-link to="/quiz" class="menuItem">Викторина</router-link>
+                <router-link to="/testing" class="menuItem">Тестирование</router-link>
 
               </li>
             </ul>
@@ -107,6 +107,7 @@ export default {
 }
 .topItem:hover .wrpList {
   display: block;
+  z-index: 1;
 }
 .wrpList {
   display: none;

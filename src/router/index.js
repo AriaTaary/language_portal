@@ -10,7 +10,7 @@ import Dictionary from '../views/Dictionary.vue';
 import Songs from '../views/Songs.vue';
 import Videos from '../views/Videos.vue';
 import VideoPage from '../views/VideoPage.vue';
-import Quiz from '../views/Quiz.vue';
+import Testing from '../views/Testing.vue';
 
 import ArticlesMain from '../views/Articles/Main.vue';
 import ArticleView from '../views/Articles/View.vue';
@@ -86,9 +86,9 @@ const routes = [
     props: true
   },
   {
-    path: '/quiz',
-    name: 'Quiz',
-    component: Quiz
+    path: '/testing',
+    name: 'Testing',
+    component: Testing
   },
 ];
 

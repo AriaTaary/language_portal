@@ -1,0 +1,29 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "category": "Translate",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Переведите слово - Home",
+      "correct_answer": "Дом",
+      "incorrect_answers": ["Крыша","Лестница","Кошка"]
+    },
+    {
+      "category": "Translate",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Как переводится слово - Bones?",
+      "correct_answer": "Кости",
+      "incorrect_answers": ["Челюсти", "Ноги", "Голова"]
+    },
+    {
+      "category": "Translate",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Переведите слово - Magazine",
+      "correct_answer": "Журнал",
+      "incorrect_answers": ["Магазин", "Кинотеатр", "Буфет"]
+    }
+  ]
+}
