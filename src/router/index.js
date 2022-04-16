@@ -10,6 +10,7 @@ import Dictionary from '../views/Dictionary.vue';
 import Songs from '../views/Songs.vue';
 import Videos from '../views/Videos.vue';
 import VideoPage from '../views/VideoPage.vue';
+import Testing from '../views/Testing.vue';
 
 import ArticlesMain from '../views/Articles/Main.vue';
 import ArticleView from '../views/Articles/View.vue';
@@ -83,7 +84,12 @@ const routes = [
     name: 'VideoPage',
     component: VideoPage,
     props: true
-  }
+  },
+  {
+    path: '/testing',
+    name: 'Testing',
+    component: Testing
+  },
 ];
 
 const router = new VueRouter({

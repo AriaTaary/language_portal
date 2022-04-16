@@ -6,8 +6,11 @@ import store from './store';
 import 'material-design-icons-iconfont';
 import vuetify from './plugins/vuetify';
 import VueYouTubeEmbed from 'vue-youtube-embed';
+import BootstrapVue from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.use(VueYouTubeEmbed);
-
+Vue.use(BootstrapVue);
 Vue.config.productionTip = false;
 
 new Vue({
