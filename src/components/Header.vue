@@ -6,10 +6,21 @@
         <router-link to="/" class="menuItem">Главная</router-link>
         <router-link to="/articles" class="menuItem">Учебные материалы</router-link>
         <router-link to="/program" class="menuItem">Обучение по программе</router-link>
-        <router-link to="/interactive" class="menuItem">Интерактив</router-link>
-        <router-link to="/songs" class="menuItem">Песни</router-link>
         <router-link to="/dictionary" class="menuItem">Словарь</router-link>
         <router-link to="/videos" class="menuItem">Фильмы и видео</router-link>
+        <div class="topItem menuItem">
+          Интерактив
+          <div class="wrpList">
+            <ul class="list">
+              <li class="list-item">
+                <router-link to="/interactive" class="menuItem">Слова</router-link>
+                <router-link to="/songs" class="menuItem">Песни</router-link>
+                <router-link to="/testing" class="menuItem">Тестирование</router-link>
+
+              </li>
+            </ul>
+          </div>
+        </div>
         <div v-if="authFlag">
           <router-link to="/auth" class="menuItem">
             <svg
@@ -34,10 +45,13 @@
   </div>
 </template>
 <script>
-import VAccount from './v-account';
+import VAccount from "./v-account";
+
 export default {
-  components: { VAccount },
-  name: 'vHeder',
+  components: {
+    VAccount,
+  },
+  name: "vHeder",
   data() {
     return {
       authFlag: false,
@@ -87,5 +101,30 @@ export default {
 }
 .btn-account {
   margin-left: 30px;
+}
+.topItem {
+  position: relative;
+}
+.topItem:hover .wrpList {
+  display: block;
+  z-index: 1;
+}
+.wrpList {
+  display: none;
+  position: absolute;
+}
+.list {
+  top: 50px;
+  right: 130px;
+  justify-content: space-around;
+  flex-direction: column;
+  background: #abb5d0;
+  padding: 10px 20px 10px 0;
+  border-radius: 10px;
+}
+.list-item {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
 </style>
