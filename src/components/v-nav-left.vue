@@ -1,8 +1,10 @@
 <template>
      <div class="nav-left advisory-block">
-        <router-link to="/music" class="menuItem">Музыка</router-link>
-        <router-link to="/interactivecart" class="menuItem">Слова</router-link>
-        <router-link to="/speaking" class="menuItem">Разговорник</router-link>
+        <router-link class="menuItem" to="/interactivecart" >Слова</router-link>
+        <router-link class="menuItem" to="/speaking" >Разговорник</router-link>
+        <router-link class="menuItem" to="/music" >Музыка</router-link>
+        <router-link class="menuItem" to="/videos" >Фильмы И Видео</router-link>
+        <router-link class="menuItem" to="/testing" >Тестирование</router-link>
     </div>
 </template>
 

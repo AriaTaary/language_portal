@@ -6,18 +6,17 @@
         <router-link to="/" class="menuItem">Главная</router-link>
         <router-link to="/articles" class="menuItem">Учебные материалы</router-link>
         <router-link to="/programs" class="menuItem">Обучение по программе</router-link>
-        <router-link to="/interactive" class="menuItem">Интерактив</router-link>
         <router-link to="/dictionary" class="menuItem">Словарь</router-link>
-        <router-link to="/videos" class="menuItem">Фильмы и видео</router-link>
         <div class="topItem menuItem">
           Интерактив
           <div class="wrpList">
             <ul class="list">
               <li class="list-item">
-                <router-link to="/interactive" class="menuItem">Слова</router-link>
-                <router-link to="/songs" class="menuItem">Песни</router-link>
-                <router-link to="/testing" class="menuItem">Тестирование</router-link>
-
+                <router-link class="menuItem" to="/interactivecart" >Слова</router-link>
+                <router-link class="menuItem" to="/speaking" >Разговорник</router-link>
+                <router-link class="menuItem" to="/music" >Музыка</router-link>
+                <router-link class="menuItem" to="/videos" >Фильмы И Видео</router-link>
+                <router-link class="menuItem" to="/testing" >Тестирование</router-link>
               </li>
             </ul>
           </div>
