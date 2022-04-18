@@ -24,6 +24,9 @@
           </div>
             <span id="nextWord" class="material-icons grey" @click="nextWord">arrow_forward_ios</span>
         </div>
+        <div class="addword" v-show="show">
+          Вы уже добавили это слово в ваш словарь
+        </div>
         <div class="cart-btn">
           <div 
             class="but_sad_s_2 blue_sad avd_div" 
@@ -58,7 +61,9 @@ export default {
       words: dictionary,
       isActive: false,
       randomWord:null,
-      newDictionary:[]
+      newDictionary:[],
+      myDictionary:[],
+      show: false
     }
   },
   methods: {
@@ -66,24 +71,27 @@ export default {
       this.isActive = !this.isActive;
     },
     addMyDictionary () {
-      this.$emit('addMyDictionary', this.randomWord);
+      if (this.myDictionary.filter(item => item.word == this.randomWord.word).length > 0) {
+        this.show=true;
+      } else {
+        this.myDictionary.push(this.randomWord);
+        }
     },
     nextWord () { 
+      this.show=false;
       let filterWords=this.words.filter((i)=> !this.newDictionary.includes(i))
       this.randomWord=filterWords[Math.floor(Math.random() * filterWords.length)];
       this.newDictionary.push(this.randomWord);
       if (this.newDictionary.length === this.words.length){
         document.getElementById("nextWord").classList.add('hide')
-      
       }
       document.getElementById("previousWord").classList.remove('hide')
-
     },
     previousWord(){
+      this.show=false;
       this.randomWord=this.newDictionary[this.newDictionary.length-2];
       if (this.newDictionary.length === 2){
         document.getElementById("previousWord").classList.add('hide')
-      
       }
       this.newDictionary.pop();
       document.getElementById("nextWord").classList.remove('hide')
@@ -92,7 +100,6 @@ export default {
   created() {
     this.randomWord= this.words[Math.floor(Math.random() * this.words.length)];
     this.newDictionary.push(this.randomWord);
-     
   }
 }
 </script>
@@ -105,6 +112,9 @@ export default {
   padding-top:50px ;
   text-align: center;
   text-transform: none;
+}
+.addword{
+  margin-top: 25px;
 }
 .menu-cart-wrap{
   display: flex;
