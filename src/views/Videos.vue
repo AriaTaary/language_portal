@@ -6,6 +6,7 @@
           type="text"
           class="search-block__item"
           v-model="searchRequest"
+          @keyup.enter="sortArray"
           placeholder="Найти видео"
         />
         <svg
@@ -27,7 +28,7 @@
       <div class="video-themes-block">
         <div v-for="theme in getThemeArray" :key="theme.id" @click="toActivateTheme(theme)">
           <span v-if="theme !== currentTheme" class="video-themes">{{ theme }}</span>
-          <span v-else class="video-themes active-item">{{ theme }}</span>
+          <span v-else class="video-themes active">{{ theme }}</span>
         </div>
         <span @click="clearTheme" class="video-themes">Сбросить</span>
       </div>
@@ -41,6 +42,12 @@
             params: { videoTitle: item.name, videoUrl: item.url },}"
         >
           <h1 class="video__name">{{ item.name }}</h1>
+          <img
+            width="248px"
+            height="166px"
+            :src="'https://i.ytimg.com/vi/'+item.url+'/hqdefault.jpg'"
+            alt="img"
+          />
         </router-link>
       </div>
     </div>
@@ -153,6 +160,7 @@ export default {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-bottom: 100px;
 }
 .main-heading {
   margin-top: 30px;
@@ -161,7 +169,6 @@ export default {
   color: #666e83;
 }
 .video {
-  background-image: url('../assets/img/video_icon3.jpg');
   padding-top: 60px;
   width: 248px;
   height: 166px;
@@ -170,12 +177,15 @@ export default {
   margin-bottom: 40px;
   transition: 0.3s;
   text-decoration: none;
+  position: relative;
   &:hover {
     filter: hue-rotate(180deg);
     scale: 1.2;
   }
 }
 .video__name {
+  position: absolute;
+  top: 160px;
   font-size: 14px;
   background-color: rgba(0, 0, 0, 0.753);
   color: rgb(255, 255, 255);
@@ -198,8 +208,7 @@ export default {
     background-color: #dae6f3;
   }
 }
-.active-item {
+.active {
   border-color: #eea6ea;
-  color: #fff;
 }
-</style>>
+</style>
