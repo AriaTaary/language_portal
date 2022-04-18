@@ -45,13 +45,13 @@
   </div>
 </template>
 <script>
-import VAccount from "./v-account";
+import VAccount from './v-account';
 
 export default {
   components: {
     VAccount,
   },
-  name: "vHeder",
+  name: 'vHeder',
   data() {
     return {
       authFlag: false,
