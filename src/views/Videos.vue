@@ -6,7 +6,7 @@
           type="text"
           class="search-block__item"
           v-model="searchRequest"
-          v-on:keyup.enter="sortArray"
+          @keyup.enter="sortArray"
           placeholder="Найти видео"
         />
         <svg
@@ -211,4 +211,4 @@ export default {
 .active {
   border-color: #eea6ea;
 }
-</style>>
+</style>

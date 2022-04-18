@@ -6,7 +6,7 @@
           type="text"
           class="search-block__item"
           v-model="searchRequest"
-          v-on:keyup.enter="sortArray"
+          @keyup.enter="sortArray"
           placeholder="Найти слово"
         />
         <svg
@@ -200,12 +200,6 @@ export default {
         });
       });
       this.searchResult = singleResult;
-    },
-  },
-  computed: {
-    getImg() {
-      let food = 'food';
-      return require(`../assets/img/${food}.png`);
     },
   },
 };
