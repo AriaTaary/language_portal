@@ -1,38 +1,42 @@
 <template>
   <div class="question-box-container">
-    <b-jumbotron class="box">
-      <template slot="lead">
+    <div class="box">
+      <div class="question">
         {{ currentQuestion.question }}
-      </template>
+      </div>
 
-      <hr class="my-4" />
+      <hr/>
 
-      <b-list-group>
-        <b-list-group-item
+      <div class="box-table">
+        <div class="box-table__item" 
           v-for="(answer, index) in shuffledAnswers"
           :key="index"
           @click.prevent="selectAnswer(index)"
           :class="answerClass(index)"
         >
           {{ answer }}
-        </b-list-group-item>
-      </b-list-group>
+        </div>
+      </div>
 
-      <b-button
+      <div class="btns">
+        <v-btn elevation="2"
+        class="btn"
         variant="primary"
         @click="submitAnswer"
         :disabled="selectedIndex === null || answered"
       >
         Провеить
-      </b-button>
-      <b-button 
+      </v-btn>
+      <v-btn elevation="2" 
+        class="btn"
         @click="next" variant="success"
         :disabled="answered === false"      
         
       >
         Следующий
-      </b-button>
-    </b-jumbotron>
+      </v-btn>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -112,7 +116,32 @@ export default {
 
 <style scoped>
 .box{
-    margin-top: 30px;
+  margin-top: 30px;
+  padding: 50px 100px;
+  background: #e2e2e2;
+  border-radius:10px;
+  
+}
+.question{
+  color: #000;
+  text-shadow:
+    2px 1px 0 #fff,
+    2px -1px 0 #fff,
+    -2px 1px 0 #fff,
+    -2px -1px 0 #fff;
+}
+.box-table {
+  background: #fff;
+  -webkit-box-shadow: 0px -5px 5px -5px rgba(34, 60, 80, 0.6);
+  -moz-box-shadow: 0px -5px 5px -5px rgba(34, 60, 80, 0.6);
+  box-shadow: 0px -5px 5px -5px rgba(34, 60, 80, 0.6);
+
+}
+.box-table__item {
+  padding: 15px 10px;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
 }
 .list-group {
   margin-bottom: 15px;
@@ -123,8 +152,11 @@ export default {
   cursor: pointer;
 }
 
+.btns {
+  margin-top: 30px;
+}
 .btn {
-  margin: 0 5px;
+  margin: 5px;
 }
 
 .selected {
@@ -141,4 +173,5 @@ export default {
 .question-box-container {
     min-width: 300px;
 }
+
 </style>

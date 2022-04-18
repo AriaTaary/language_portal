@@ -1,22 +1,22 @@
 <template>
   <div class="quiz">
-     <b-nav tabs>
-      <b-nav-item disabled><b>Правильные/Всего</b></b-nav-item>
-      <b-nav-item disabled>Количество: {{ numCorrect }}/{{ numTotal }}</b-nav-item>
-    </b-nav>
+     <nav tabs>
+      <div disabled><b>Правильные/Всего</b></div>
+      <div disabled>Количество: {{ numCorrect }}/{{ numTotal }}</div>
+    </nav>
 
-    <b-container class="bv-example-row">
-      <b-row>
-        <b-col sm="6" offset="3">
+    <div class="bv-example-row">
+      <div>
+        <div>
           <TestingBox
             v-if="questions.length"
             :currentQuestion="questions[index]"
             :next="next"
             :increment="increment"
           />
-        </b-col>
-      </b-row>
-    </b-container>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
