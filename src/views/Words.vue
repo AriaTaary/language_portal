@@ -55,7 +55,7 @@ import VNavLeft from '../components/v-nav-left'
 import dictionary from '@/db/dictionary'
 export default {
   components: { VNavLeft },
-  name: 'InteractiveCart',
+  name: 'Words',
   data () {
     return {
       words: dictionary,
@@ -97,7 +97,7 @@ export default {
       document.getElementById("nextWord").classList.remove('hide')
     }
   },
-  created() {
+  beforeMount() {
     this.randomWord= this.words[Math.floor(Math.random() * this.words.length)];
     this.newDictionary.push(this.randomWord);
   }

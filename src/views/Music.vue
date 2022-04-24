@@ -61,7 +61,7 @@ import musicList from '@/db/musicList.json'
 
 export default {
   components: { VNavLeft },
-    name: 'InteractiveMusic',
+    name: 'Music',
         
     data() {
         return {

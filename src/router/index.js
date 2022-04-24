@@ -6,10 +6,10 @@ import Authorization from '../views/Authorization.vue';
 import Registration from '../views/Registration.vue';
 import MyDictionary from '../views/MyDictionary';
 import Dictionary from '../views/Dictionary.vue';
-import InteractiveCart from '../views/InteractiveCart.vue'
-import InteractiveSpeaking from '../views/InteractiveSpeaking.vue'
+import Words from '../views/Words.vue'
+import Speaking from '../views/Speaking.vue'
 import Songs from '../views/Songs.vue'
-import InteractiveMusic from '../views/InteractiveMusic.vue'
+import Music from '../views/Music.vue'
 import TrainingPrograms from '../views/TrainingPrograms.vue'
 import Videos from '../views/Videos.vue';
 import VideoPage from '../views/VideoPage.vue';
@@ -47,14 +47,14 @@ const routes = [
     component: Profile
   },
   {
-    path: '/interactivecart',
-    name: 'InteractiveCart',
-    component: InteractiveCart
+    path: '/words',
+    name: 'Words',
+    component: Words
   },
   {
     path: '/speaking',
-    name: 'Interactivespeaking',
-    component: InteractiveSpeaking
+    name: 'Speaking',
+    component: Speaking
   },
   {
     path: '/mydictionary',
@@ -63,8 +63,8 @@ const routes = [
   }, 
   {
     path: '/music',
-    name: 'InteractiveMusic',
-    component: InteractiveMusic
+    name: 'Music',
+    component: Music
   }, 
   {
     path: '/articles',

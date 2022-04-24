@@ -9,14 +9,14 @@
         <router-link to="/dictionary" class="menuItem">Словарь</router-link>
         <div class="topItem menuItem">
           Интерактив
-          <div class="wrpList">
+          <div class="wrpList"> 
             <ul class="list">
               <li class="list-item">
-                <router-link class="menuItem" to="/interactivecart" >Слова</router-link>
-                <router-link class="menuItem" to="/speaking" >Разговорник</router-link>
-                <router-link class="menuItem" to="/music" >Музыка</router-link>
-                <router-link class="menuItem" to="/videos" >Фильмы И Видео</router-link>
-                <router-link class="menuItem" to="/testing" >Тестирование</router-link>
+                <router-link to="/words" class="menuItem">Слова</router-link>
+                <router-link  to="/speaking" class="menuItem">Разговорник</router-link>
+                <router-link to="/music" class="menuItem">Музыка</router-link>
+                <router-link to="/videos" class="menuItem">Фильмы И Видео</router-link>
+                <router-link to="/testing" class="menuItem">Тестирование</router-link>
               </li>
             </ul>
           </div>

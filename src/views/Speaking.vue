@@ -18,7 +18,7 @@
                             {{item.translation}}
                         </div>
                     </div>
-                    <div class="list-words" v-show="!show">
+                    <div class="list-words" v-show="show">
                         <h2>{{this.currentTheme.translation}}</h2>
                         <div 
                         v-for="item in searchResult" 
@@ -48,13 +48,13 @@ import themespharases from '@/db/themespharases'
 
 export default {
   components: { VNavLeft },
-    name: 'Interactivespeaking',
+    name: 'Speaking',
 
 data() {
     return {
         phraseslist:phrases,
         themesArray:themespharases,
-        show: false,
+        show: true,
         currentTheme:[],
         searchResult:[],
     };
@@ -64,7 +64,6 @@ methods: {
         speechSynthesis.speak(new SpeechSynthesisUtterance(word));
     }, 
     toActivateTheme(item) {
-        console.log(item);
         this.currentTheme = item;
         this.sortByTheme();
     },
