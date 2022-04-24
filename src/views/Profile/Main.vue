@@ -5,7 +5,7 @@
       <div class="profile-info-wrapper">
         <div class="profile-info">
           <div class="profile-info-img">
-            <img src="../assets/img/Layer_5.png" alt="img" class />
+            <img src="../../assets/img/Layer_5.png" alt="img" class />
           </div>
           <div class="profile-info-account">
             <h3 class="profile-info-username">
@@ -31,10 +31,11 @@
 </template>
 
 <script>
-import VProgressBar from '../components/v-progress-bar';
+import VProgressBar from '../../components/v-progress-bar';
 
 export default {
   components: { VProgressBar },
+
   name: 'Profile',
 
   data() {
@@ -50,36 +51,44 @@ export default {
 .profile-wrapper {
   padding-top: 50px;
 }
+
 img {
   border-radius: 50%;
   border: 1px solid rgb(170, 167, 167);
   width: 150px;
 }
+
 .profile-info-account {
   margin-left: 25px;
   text-align: left;
 }
+
 .progress-bar {
   padding: 25px 10px;
   display: flex;
   justify-content: center;
 }
+
 .profile-container {
   width: 900px;
   margin: 0 auto;
 }
+
 .profile-info-wrapper {
   padding: 25px 0;
   display: flex;
   border-bottom: 2px solid #e5e5e5;
   justify-content: space-between;
 }
+
 .profile-info {
   display: flex;
 }
+
 .profile-info-img {
   display: flex;
 }
+
 .btn-edit {
   display: flex;
   align-items: center;
@@ -90,13 +99,16 @@ img {
   cursor: pointer;
   text-decoration: none;
 }
+
 .div-edit {
   padding-left: 10px;
 }
+
 .block-edit {
   align-items: center;
   display: flex;
 }
+
 .profile-info-statistics {
   padding: 25px 10px;
 }

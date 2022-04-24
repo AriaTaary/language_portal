@@ -4,18 +4,13 @@
       <div disabled><b>Правильные/Всего</b></div>
       <div disabled>Количество: {{ numCorrect }}/{{ numTotal }}</div>
     </nav>
-
     <div class="bv-example-row">
-      <div>
-        <div>
-          <TestingBox
-            v-if="questions.length"
-            :currentQuestion="questions[index]"
-            :next="next"
-            :increment="increment"
-          />
-        </div>
-      </div>
+      <TestingBox
+        v-if="questions.length"
+        :currentQuestion="questions[index]"
+        :next="next"
+        :increment="increment"
+      />
     </div>
   </div>
 </template>
@@ -23,11 +18,14 @@
 <script>
 import TestingBox from '../components/v-testing-box.vue'
 import Questions from '../db/tests.json'
+
 export default {
   name: 'Testing',
+
   components: {
     TestingBox  
-    },
+  },
+
   data() {
     return {
       questions: [],
@@ -36,25 +34,27 @@ export default {
       numTotal: 0
     }
   },
+
+  mounted() {
+    this.questions  = Questions.results
+  },
+
   methods: {
     next() {
-      if(this.index == this.questions.length-1){
-        return
-      }else{      
-        this.index++
+      if (this.index == this.questions.length-1) {
+        return;
+      } else {      
+        this.index++;
       }
-      
     },
+
     increment(isCorrect) {
       if (isCorrect) {
-        this.numCorrect++
+        this.numCorrect++;
       }
-      this.numTotal++
+      this.numTotal++;
     }
   },
-  mounted: function() {
-    this.questions  = Questions.results
-  }
 }
 </script>
 
@@ -66,8 +66,10 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 .bv-example-row {
   display: flex;
   justify-content: center;
+  margin-bottom: 40px;
 }
 </style>

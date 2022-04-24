@@ -21,14 +21,16 @@
 
 <script>
 import dictionary from '@/db/dictionary'
+
 export default {
-  name: 'Mydictionary',
+    name: 'Mydictionary',
 
     data() {
         return {
             myDictionary: dictionary,       
         };
     },
+
     methods: {
         deleteWordMyDictionary () {
             console.log(this.myDictionary);
@@ -41,11 +43,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.my-dictionary{
+.my-dictionary {
     margin-bottom: 50px;
     padding: 50px 0;
 }
-.my-dictionary h1{
+
+.my-dictionary h1 {
     margin-bottom: 40px;
     text-align: center;
     font-family: "Montserrat", sans-serif;
@@ -53,28 +56,34 @@ export default {
     color: #666e83;
     text-transform: uppercase;
 }
-.list-words{
+
+.list-words {
     display: grid;
     justify-items: center;
     text-transform: none;
     font-size: 20px;
 }
-.row-dictionary{
+
+.row-dictionary {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px 10px;
     border-bottom:1px solid #ced4e7; ;
 }
-.column-dictionary-word, .column-dictionary-transcription{
+
+.column-dictionary-word, 
+.column-dictionary-transcription {
     width: 250px;
     padding-left: 15px;
 }
-.material-icons{
+
+.material-icons {
     cursor: pointer;
     color: #ABB5D0;
 }
-.material-icons:active{
+
+.material-icons:active {
     opacity: 0.5;
 }
 </style>

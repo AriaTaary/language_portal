@@ -24,7 +24,7 @@
         </svg>
         <button @click="themesList = !themesList" class="choice-theme">Выберите тему</button>
         <button @click="clearTheme" class="choice-theme">Сбросить</button>
-        <router-link class="router-btn" to="/mydictionary">
+        <router-link class="router-btn" to="/dictionary/my">
           <span class="choice-theme">Мой словарь</span>
         </router-link>
       </div>
@@ -95,10 +95,15 @@
 </template>
 
 <script>
-import DictionaryTheme from '../components/DictionaryTheme.vue';
+import DictionaryTheme from '../../components/DictionaryTheme.vue';
+
 export default {
-  components: { DictionaryTheme },
   name: 'Dictionary',
+
+  components: { 
+    DictionaryTheme 
+  },
+
   data() {
     return {
       themesList: false,
@@ -110,14 +115,17 @@ export default {
       notFound: false,
     };
   },
+
   created() {
     this.fetchWords();
     this.fetchThemes();
   },
+
   methods: {
     getJson(url) {
       return fetch(url).then((result) => result.json());
     },
+
     fetchWords() {
       this.getJson(
         'https://raw.githubusercontent.com/Anna-Naily/json/main/dictionaryDB.json'
@@ -126,6 +134,7 @@ export default {
         this.searchResult = this.wordsArray;
       });
     },
+
     fetchThemes() {
       this.getJson(
         'https://raw.githubusercontent.com/Anna-Naily/json/main/themes.json'
@@ -133,6 +142,7 @@ export default {
         this.themesArray = data.themes;
       });
     },
+
     sortArray() {
       this.searchResult = this.wordsArray.filter((item) => {
         if (
@@ -153,13 +163,16 @@ export default {
       }
       this.delDouble();
     },
+
     toSpeak(word) {
       speechSynthesis.speak(new SpeechSynthesisUtterance(word));
     },
+
     toActivateTheme(theme) {
       this.currentTheme = theme;
       this.sortByTheme();
     },
+
     sortByTheme() {
       this.searchResult = this.wordsArray.filter((item) => {
         if (item.theme.trim() === this.currentTheme) {
@@ -167,16 +180,19 @@ export default {
         }
       });
     },
+
     clearTheme() {
       this.searchResult = this.wordsArray;
       this.currentTheme = '';
     },
+
     findDouble(array, word) {
       for (let i = 0; i < array.length; i++) {
         if (array[i].word === word) return false;
       }
       return true;
     },
+
     delDouble() {
       let singleArray = [];
       let singleResult = [];
@@ -206,19 +222,22 @@ export default {
 
 <style lang="scss" >
 .wrapper-dictionary {
-  background: url('../assets/img/dictionary-bcg.jpg');
+  background: url('../../assets/img/dictionary-bcg.jpg');
   background-size: cover;
 }
+
 .dictionary-block {
   display: flex;
   margin: auto;
   flex-direction: column;
   width: 990px;
 }
+
 .search-block {
   display: flex;
   align-items: center;
 }
+
 .search-block__item {
   margin-top: 40px;
   margin-bottom: 40px;
@@ -228,18 +247,21 @@ export default {
   width: 238px;
   border: 2px solid #abb5d0;
 }
+
 .search-fail {
   display: block;
   color: black;
   margin-bottom: 40px;
   font-size: 16px;
 }
+
 .word-list__heading {
   font-size: 20px;
   color: #666e83;
   text-transform: uppercase;
   margin-bottom: 50px;
 }
+
 .word-list__item {
   display: flex;
   justify-content: space-between;
@@ -248,18 +270,22 @@ export default {
   margin-bottom: 20px;
   align-items: center;
 }
+
 .sound {
   margin-right: 60px;
 }
+
 .word-element {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
+
 .word-element__row {
   text-align: center;
   width: 200px;
 }
+
 .bi-volume-up-fill {
   color: #a8b4d4;
   cursor: pointer;
@@ -268,11 +294,13 @@ export default {
     color: #8089a1;
   }
 }
+
 .bi-search {
   color: #666e83;
   cursor: pointer;
   margin-left: 15px;
 }
+
 .choice-theme {
   background-color: #abb5d0;
   color: white;
@@ -285,11 +313,13 @@ export default {
     background-color: #8892ad;
   }
 }
+
 .theme-content {
   margin-bottom: 30px;
   display: flex;
   flex-wrap: wrap;
 }
+
 .themes-block {
   display: flex;
   margin-bottom: 20px;
@@ -300,9 +330,11 @@ export default {
     scale: 1.1;
   }
 }
+
 .transcription {
   text-transform: lowercase;
 }
+
 .bi-plus-square-fill {
   color: #a8b4d4;
   cursor: pointer;
@@ -311,6 +343,7 @@ export default {
     color: #8089a1;
   }
 }
+
 .router-btn {
   text-transform: initial;
   text-decoration: none;

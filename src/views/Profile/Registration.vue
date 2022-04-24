@@ -21,12 +21,16 @@
             />
           </svg>
         </router-link>
-        <form action="/auth" class="auth-enter" method="get">
+        <form action="/registration" class="auth-registration" method="get">
+          <label for="first_name">Имя</label>
+          <input type="text" v-model="first_name" minlength="2" />
+          <label for="last_name">Фамилия</label>
+          <input type="text" v-model="last_name" minlength="2" />
           <label for="email">Email</label>
-          <input type="email" v-model="auth_email" placeholder="Введите email" />
+          <input type="email" v-model="reg_email" placeholder="Укажите email" />
           <label for="password">Пароль</label>
-          <input type="password" v-model="auth_password" placeholder="Пароль" />
-          <button class="auth-btn" type="submit">Войти</button>
+          <input type="password" v-model="reg_pass" placeholder="Придумайте пароль" />
+          <button class="reg-btn" type="submit">Зарегистрироваться</button>
         </form>
       </div>
     </div>
@@ -35,15 +39,19 @@
 
 <script>
 export default {
-  name: 'Authorization',
+  name: 'Registration',
+
   data() {
     return {
-      auth_email: '',
-      auth_password: '',
+      first_name: '',
+      last_name: '',
+      reg_email: '',
+      reg_password: '',
     };
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .authorization-block {
   background-color: rgba(0, 0, 0, 0.4);
@@ -57,28 +65,34 @@ export default {
   top: 0;
   left: 0;
 }
+
 .enter-link {
   display: flex;
   justify-content: space-between;
   width: 200px;
+
   a {
     text-decoration: none;
     color: black;
     text-transform: uppercase;
     font-size: 16px;
   }
-  .registration {
+
+  .enter {
     color: gray;
     transition: 0.3s;
+
     &:hover {
       color: black;
     }
   }
 }
+
 .vr {
   display: inline;
   border-left: 2px solid #d0d0d0;
 }
+
 .modal-window-authorization {
   width: 470px;
   border-radius: 10px;
@@ -88,16 +102,19 @@ export default {
   box-shadow: 5px 5px 100px 5px rgba(0, 0, 0, 0.55);
   position: relative;
 }
-.auth-enter {
+
+.auth-registration {
   display: flex;
   flex-direction: column;
   text-align: left;
   margin-top: 35px;
+
   label {
     text-transform: uppercase;
     color: black;
     font-size: 14px;
   }
+
   input {
     padding: 5px 10px;
     margin-top: 15px;
@@ -105,18 +122,19 @@ export default {
     border: 1px solid rgb(187, 187, 187);
   }
 }
-.auth-btn {
+
+.reg-btn {
   background: #d8474e;
   border: none;
   color: white;
-  width: 85px;
+  width: 200px;
   margin: auto;
   margin-top: 30px;
   padding: 6px 15px;
   font-size: 14px;
   border-radius: 6px;
-  transition: all 0.4s ease;
   cursor: pointer;
+  transition: all 0.4s ease;
   box-sizing: border-box;
   &:hover {
     background: rgba(0, 0, 0, 0);

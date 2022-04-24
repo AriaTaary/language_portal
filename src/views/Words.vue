@@ -52,10 +52,15 @@
 
 <script>
 import VNavLeft from '../components/v-nav-left'
-import dictionary from '@/db/dictionary'
+import dictionary from '../db/dictionary'
+
 export default {
-  components: { VNavLeft },
   name: 'Words',
+
+  components: { 
+    VNavLeft 
+  },
+
   data () {
     return {
       words: dictionary,

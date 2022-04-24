@@ -114,6 +114,7 @@ export default {
 
 .dropdownMenu {
   display: none;
+  z-index: 1;
   flex-direction: column;
   position: absolute;
   right: -20px;

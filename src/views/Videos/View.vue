@@ -39,7 +39,7 @@ export default {
 
 <style lang="scss" scoped>
 .single-video-wrapper {
-  background: url('../assets/img/videos-page-bcg.jpg');
+  background: url('../../assets/img/videos-page-bcg.jpg');
   background-size: cover;
 }
 .video-player-block {

@@ -48,6 +48,7 @@ export default {
     width: 1140px;
     margin: 0 auto;
 }
+
 .landingContainer {
   display: flex;
   flex-direction: column;

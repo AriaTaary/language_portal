@@ -132,7 +132,7 @@ export default {
   margin: auto;
 }
 .video-wrapper {
-  background: url('../assets/img/videos-page-bcg.jpg');
+  background: url('../../assets/img/videos-page-bcg.jpg');
   background-size: cover;
 }
 .search-block {

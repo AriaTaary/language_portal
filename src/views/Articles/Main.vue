@@ -207,14 +207,14 @@ export default {
 </script>
 
 <style lang="scss">
-.container{
+.container {
     display: flex;
     width: 100%;
     box-sizing: border-box;
     max-width: 1366px;
 }
 
-.feed-body{
+.feed-body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -222,13 +222,13 @@ export default {
     margin: 30px 0 0 0;
 }
 
-.feed{
+.feed {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.feed-title{
+.feed-title {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -241,63 +241,32 @@ export default {
     font-weight: 400;
 }
 
-.articles-feed{
+.articles-feed {
     min-height: 250px;
 }
 
-.articles-content-settings, .vacancies-content-settings{
+.articles-content-settings, .vacancies-content-settings {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-bottom: 40px;
 }
 
-
-.not-main{
+.not-main {
     color: #B3B3B3;
 }
 
-.button-favourite{
-    background-color: transparent !important;
-    border: none !important;
-    color: #B3B3B3;
-    border-radius: 5px;
-    border: none;
-    padding: 7px 0px !important;
-    cursor: pointer;
-    outline: none;
-    display: flex;
-    align-items: center;
-}
-
-.button-favourite:hover{
-    color:#D5444C;
-}
-
-.button-favourite::before{
-    background-size: contain;
-    background-repeat: no-repeat;
-    display: inline-block;
-    content: ' ';
-    margin-right: 10px;
-    background-image: url('/img/star.svg');
-    height: 20px;
-    width: 20px;
-}
-.button-favourite:hover::before{
-    background-image: url('/img/star-hover.svg');
-}
-
-.card-text{
+.card-text {
     margin-top: 25px;
     margin-bottom: 25px;
 }
 
-.edit-block{
+.edit-block {
     margin-bottom: 10px;
 }
 
-.filter, .sort{
+.filter, 
+.sort {
     display: flex;
     flex-direction: row;
     line-height: 17px;
@@ -311,13 +280,14 @@ export default {
     padding: 13px 0 16px 0;
 }
 
-.filter_block, .sort_block{
+.filter_block,
+.sort_block {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.filter-title{
+.filter-title {
     font-size: 14px;
     line-height: 17px;
     padding: 11px;
@@ -328,18 +298,18 @@ export default {
 }
 
 
-.filter-title:hover{
+.filter-title:hover {
     color: black;
     border-left: 2px solid #D5444C;
     cursor: pointer;
 }
 
-.filter-part{
+.filter-part {
     margin-top: 10px;
     border-bottom: 1px solid #EBEBEB;
 }
 
-.sort-part{
+.sort-part {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
@@ -355,16 +325,17 @@ export default {
     }
 }
 
-.sort-part:first-child{
+.sort-part:first-child {
     padding: 0 11px 10px 11px;
 }
 
-.sort-label{
+.sort-label {
     font-size: 14px;
     padding: 11px 0;
 }
 
-.filter_box, .sort_box{
+.filter_box,
+.sort_box {
     position: absolute;
     background-color: white;
     width: 300px;
@@ -373,24 +344,24 @@ export default {
     border-radius: 5px;
 }
 
-.filter_list{
+.filter_list {
     list-style: none;
     margin-top: 20px;
     padding: 0 0 20px 11px;
     border-bottom: 1px solid #EBEBEB;
 }
 
-.filter-error{
+.filter-error {
     margin-top: 20px;
     padding: 0 0 20px 11px;
     font-size: 14px;
 }
 
-.filter_item:not(:last-child){
+.filter_item:not(:last-child) {
     margin-bottom: 10px;
 }
 
-.filter_link{
+.filter_link {
     font-size: 14px;
     line-height: 17px;
     color: #6F6E6E;
@@ -407,26 +378,26 @@ summary {
     align-items: center;
 }
 
-.checkbox label{
+.checkbox label {
     padding-left: 10px;
     color: black;
     font-size: 14px;
 }
 
-.filter-buttons{
+.filter-buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     padding: 10px 0;
 }
 
-.filter-buttons button{
+.filter-buttons button {
     background-color: transparent;
     border: none;
     cursor: pointer;
 }
 
-.article-photo{
+.article-photo {
     margin-top: 30px;
     width: 100%;
     height: 300px;
@@ -434,22 +405,22 @@ summary {
     object-fit: cover;
 }
 
-.back-to{
+.back-to {
     margin-top: 30px;
 }
 
-.page-error{
+.page-error {
     color: rgba(0, 0, 0, 0.3);
     width: 100%;
     text-align: center;
     margin-bottom: 40px;
 }
 
-.source-link{
+.source-link {
     color: rgba(0, 0, 0, 0.3);
 }
 
-.button-main{
+.button-main {
     background-color: #D5444C !important;
     border: none !important;
     color: white;
@@ -462,7 +433,7 @@ summary {
     box-sizing: border-box;
 }
 
-.search-field{
+.search-field {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -470,7 +441,7 @@ summary {
     justify-content: center;
 }
 
-.search-button{
+.search-button {
     display: flex;
     align-items: center;
     top: 0;
@@ -485,7 +456,7 @@ summary {
     margin-left: 20px;
 }
 
-.input-search{
+.input-search {
     height: 30px;
     line-height: 30px;
     border: none;
@@ -506,33 +477,36 @@ input::-webkit-input-placeholder {
     font-size: 12px;
 }
 
-.loading{
+.loading {
     display: flex;
     width: 100%;
     min-height: 100%;
     justify-content: center;
 }
 
-.filter, .sort{
+.filter,
+.sort {
     color: rgba(0, 0, 0, 0.3);
     font-size: 17px;
 }
 
-.sort{
+.sort {
     margin-left: 30px;
 }
 
-.filter-main, .sort-main{
+.filter-main,
+.sort-main {
     color: rgba(0, 0, 0, 0.3);
     font-size: 17px;
     position: relative;
 }
 
-.sort-main{
+.sort-main {
     margin-left: 30px;
 }
 
-.filter_box_main, .sort_box_main{
+.filter_box_main,
+.sort_box_main {
     position: absolute;
     right: 0;
     background-color: white;
@@ -543,12 +517,13 @@ input::-webkit-input-placeholder {
     z-index: 99;
 }
 
-.filter_block:hover, .sort_block:hover{
+.filter_block:hover,
+.sort_block:hover {
     color: rgba(0, 0, 0);
     cursor: pointer;
 }
 
-.filter_block::before{
+.filter_block::before {
     background-size: contain;
     background-repeat: no-repeat;
     display: inline-block;
@@ -559,11 +534,11 @@ input::-webkit-input-placeholder {
     width: 15px;
 }
 
-.filter_block:hover::before{
+.filter_block:hover::before {
     background-image: url(../../assets/img/filter-hover.svg);
 }
 
-.sort_block::before{
+.sort_block::before {
     background-size: contain;
     background-repeat: no-repeat;
     display: inline-block;
@@ -574,7 +549,7 @@ input::-webkit-input-placeholder {
     width: 15px;
 }
 
-.sort_block:hover::before{
+.sort_block:hover::before {
     background-image: url(../../assets/img/sort-hover.svg);
 }
 </style>
