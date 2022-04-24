@@ -9,15 +9,11 @@
         <router-link to="/dictionary" class="menuItem">Словарь</router-link>
         <div class="topItem menuItem">
           Интерактив
-          <div class="wrpList">
-            <ul class="list">
-              <li class="list-item">
-                <router-link to="/interactive" class="menuItem">Слова</router-link>
-                <router-link to="/songs" class="menuItem">Песни</router-link>
-                <router-link to="/testing" class="menuItem">Тестирование</router-link>
-                <router-link to="/videos" class="menuItem">Фильмы и видео</router-link>
-              </li>
-            </ul>
+          <div class="dropdownMenu">
+            <router-link to="/interactive" class="dropdownMenuItem">Слова</router-link>
+            <router-link to="/songs" class="dropdownMenuItem">Песни</router-link>
+            <router-link to="/testing" class="dropdownMenuItem">Тестирование</router-link>
+            <router-link to="/videos" class="dropdownMenuItem">Фильмы и видео</router-link>
           </div>
         </div>
         <div v-if="authFlag">
@@ -36,13 +32,15 @@
             </svg>
           </router-link>
         </div>
-        <div v-else class="btn-account">
-          <VAccount></VAccount>
-        </div>
+        <VAccount 
+          v-else
+          class="btn-account"
+        />
       </div>
     </div>
   </div>
 </template>
+
 <script>
 import VAccount from './v-account';
 
@@ -58,6 +56,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss">
 .headerContainer {
   background-color: #abb5d0;
@@ -98,32 +97,42 @@ export default {
     }
   }
 }
+
 .btn-account {
   margin-left: 30px;
 }
+
 .topItem {
   position: relative;
+  cursor: pointer;
 }
-.topItem:hover .wrpList {
-  display: block;
-  z-index: 1;
-}
-.wrpList {
-  display: none;
-  position: absolute;
-}
-.list {
-  top: 50px;
-  right: 130px;
-  justify-content: space-around;
-  flex-direction: column;
-  background: #abb5d0;
-  padding: 10px 20px 10px 0;
-  border-radius: 10px;
-}
-.list-item {
-  margin-top: 10px;
+
+.topItem:hover .dropdownMenu {
   display: flex;
+}
+
+.dropdownMenu {
+  display: none;
   flex-direction: column;
+  position: absolute;
+  right: -20px;
+  top: 16px;
+  background: #abb5d0;
+  border-radius: 0 0 5px 5px;
+  text-align: right;
+  width: fit-content;
+  padding-top: 20px;
+
+  & .dropdownMenuItem {
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 10px 20px;
+  }
+
+  & .dropdownMenuItem:hover,
+  & .router-link-active {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+  }
 }
 </style>
