@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import dictionary from '@/db/dictionary'
+import dictionary from '../db/dictionary.json'
 export default {
   name: 'Mydictionary',
 
