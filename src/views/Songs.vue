@@ -1,9 +1,22 @@
 <template>
-  <div>
-<div @click="show=!show" class="songBlock">
-  <h3
-  >Перевод песни One Republic - If I lose myself</h3>
-  </div>
+  <div class="container routerBody">
+    <div class="feed-body">
+    <section class="section-video">
+      <div class="router-block">
+        <router-link to="/music" class="router-span">
+        <span class="material-icons">keyboard_return</span>
+        Вернуться
+      </router-link>
+        <div class="content-title">
+              {{titleOfSong}}
+        </div>
+      </div>
+      <youtube :video-id="videoId" class="youtube-video" ></youtube>
+    </section>
+    <div class="block-text">
+      <div @click="show=!show" class="songBlock">
+      <h3>Перевод песни {{titleOfSong}}</h3>
+    </div>
     <transition name="fade">
             <div v-if="show"  class="songs">
                 <table v-for="song in songs" :key="song">
@@ -45,6 +58,8 @@
               </table>
             </div>
     </transition>
+    </div>
+    </div>
   </div>
 </template>
 
@@ -70,10 +85,14 @@ axios.request(options).then(function (response) {
 });
 /***************************/
 export default {
-  name: 'Songs',
+  name: 'songs',
+  props:{
+    videoId: String,
+    titleOfSong: String,
+  },
   data () {
     return {
-      show: false,
+       show: false,
       songs: [{
         song1: {
           id: 1,
@@ -83,41 +102,33 @@ export default {
                   I stayed up just to see
                   Of all the faces,
                   you are the one next to me
-
                   You can feel the light start to tremble
                   Washing what you know out to sea
                   You can see your life out of the window, tonight
-
                   If I lose myself tonight
                   It’ll be by your side
                   If I lose myself tonight
                   woooh, woooh, woooh!
-
                   If I lose myself tonight
                   It’ll be you and I
                   Lose myself tonight
                   whooooooo
-
                   I woke up with the sun
                   Thought of all the people, places and things I’ve loved
                   I woke up just to see
                   With all the faces
                   You are the one next to me
-
                   You can feel the light start to tremble
                   Washing what you know out to sea
                   You can see your life out of the window, tonight
-
                   If I lose myself tonight
                   It’ll be by your side
                   If I lose myself tonight
                   woooh, woooh, woooh!
-
                   If I lose myself tonight
                   It’ll be you and I
                   Lose myself tonight
                   whooooooo
-
                   Take us down and we keep trying
                   40 000 feet keep flying
                   Take us down and we keep trying
@@ -128,7 +139,6 @@ export default {
                   40 000 feet keep flying
                   Take us down and we keep trying
                   40 000 feet keep flying
-
                   Lose myself
                   If I lose myself tonight
                   Whoooooooooo
@@ -142,6 +152,30 @@ export default {
 </script>
 
 <style lang="scss">
+.router-span{
+  display: flex;
+  text-decoration: none;
+  margin-bottom: 15px;
+}
+.section-video{
+  position: relative;
+}
+.sub{
+  background: rgb(209, 209, 209);
+  text-transform: none;
+}
+.sub-item{
+  padding: 5px 0;
+}
+.youtube-video{
+  margin-top: 25px;
+}
+.block-text{
+  width: 100%;
+}
+span{
+  color: black;
+}
 .songs {
   display: flex;
   justify-content: center;

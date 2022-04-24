@@ -4,10 +4,13 @@ import Profile from '../views/Profile.vue';
 import Main from '../views/Main.vue';
 import Authorization from '../views/Authorization.vue';
 import Registration from '../views/Registration.vue';
-import Interactive from '../views/Interactive.vue';
 import MyDictionary from '../views/MyDictionary';
 import Dictionary from '../views/Dictionary.vue';
-import Songs from '../views/Songs.vue';
+import Words from '../views/Words.vue'
+import Speaking from '../views/Speaking.vue'
+import Songs from '../views/Songs.vue'
+import Music from '../views/Music.vue'
+import TrainingPrograms from '../views/TrainingPrograms.vue'
 import Videos from '../views/Videos.vue';
 import VideoPage from '../views/VideoPage.vue';
 import Testing from '../views/Testing.vue';
@@ -44,15 +47,25 @@ const routes = [
     component: Profile
   },
   {
-    path: '/interactive',
-    name: 'Interactive',
-    component: Interactive
+    path: '/words',
+    name: 'Words',
+    component: Words
+  },
+  {
+    path: '/speaking',
+    name: 'Speaking',
+    component: Speaking
   },
   {
     path: '/mydictionary',
     name: 'Mydictionary',
     component: MyDictionary
-  },
+  }, 
+  {
+    path: '/music',
+    name: 'Music',
+    component: Music
+  }, 
   {
     path: '/articles',
     name: 'ArticlesMain',
@@ -70,10 +83,17 @@ const routes = [
     }
   },
   {
-    path: '/songs',
+    path: '/songs/:videoId/:titleOfSong',
     name: 'Songs',
-    component: Songs
+    component: Songs,
+    props: true
   },
+  {
+    path: '/programs',
+    name: 'Trainingprograms',
+    component: TrainingPrograms
+  },
+
   {
     path: '/videos',
     name: 'Videos',
