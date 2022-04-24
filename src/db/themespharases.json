@@ -1,0 +1,23 @@
+[
+    {"theme":"welcome","translation":"приветствие и прощание"},
+    {"theme":"acquaint","translation":"Знакомство"},
+    {"theme":"no","translation":"Выражения несогласия"},
+    {"theme":"hotel","translation":"в отеле"},
+    {"theme":"taxi","translation":"поездка на такси"},
+    {"theme":"road","translation":"Указать дорогу"},
+    {"theme":"shop","translation":"в магазине"},
+    {"theme":"yes","translation":"Выражения согласия"},
+    {"theme":"doctor","translation":"у врача"},
+    {"theme":"restaurantr","translation":"Сделать заказ в ресторане"},
+    {"theme":"airport","translation":"в аэропорту"},
+    {"theme":"bank","translation":"в банке"},
+    {"theme":"askroad","translation":"спросить дорогу"},
+    {"theme":"weather","translation":"О погоде"},
+    {"theme":"help","translation":"попросит помощи"},
+    {"theme":"emotions","translation":"Выразить чувства , эмоции"},
+    {"theme":"emergency","translation":"Чрезвычайные ситуации"},
+    {"theme":"opinion","translation":"Выражение мнения"},
+    {"theme":"interview","translation":"На собеседовании"},
+    {"theme":"talk","translation":"Поддержать разговор"}
+
+]

@@ -5,15 +5,16 @@
       <div class="menu">
         <router-link to="/" class="menuItem">Главная</router-link>
         <router-link to="/articles" class="menuItem">Учебные материалы</router-link>
-        <router-link to="/program" class="menuItem">Обучение по программе</router-link>
+        <router-link to="/programs" class="menuItem">Обучение по программе</router-link>
         <router-link to="/dictionary" class="menuItem">Словарь</router-link>
         <div class="topItem menuItem">
           Интерактив
           <div class="dropdownMenu">
-            <router-link to="/interactive" class="dropdownMenuItem">Слова</router-link>
-            <router-link to="/songs" class="dropdownMenuItem">Песни</router-link>
-            <router-link to="/testing" class="dropdownMenuItem">Тестирование</router-link>
+            <router-link to="/words" class="dropdownMenuItem">Слова</router-link>
+            <router-link  to="/speaking" class="dropdownMenuItem">Разговорник</router-link>
+            <router-link to="/music" class="dropdownMenuItem">Музыка</router-link>
             <router-link to="/videos" class="dropdownMenuItem">Фильмы и видео</router-link>
+            <router-link to="/testing" class="dropdownMenuItem">Тестирование</router-link>
           </div>
         </div>
         <div v-if="authFlag">
