@@ -2,15 +2,13 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Profile from '../views/Profile.vue';
 import Main from '../views/Main.vue';
-import Authorization from '../views/Authorization.vue';
-import Registration from '../views/Registration.vue';
 import MyDictionary from '../views/MyDictionary';
 import Dictionary from '../views/Dictionary.vue';
-import Words from '../views/Words.vue'
-import Speaking from '../views/Speaking.vue'
-import Songs from '../views/Songs.vue'
-import Music from '../views/Music.vue'
-import TrainingPrograms from '../views/TrainingPrograms.vue'
+import Words from '../views/Words.vue';
+import Speaking from '../views/Speaking.vue';
+import Songs from '../views/Songs.vue';
+import Music from '../views/Music.vue';
+import TrainingPrograms from '../views/TrainingPrograms.vue';
 import Videos from '../views/Videos.vue';
 import VideoPage from '../views/VideoPage.vue';
 import Testing from '../views/Testing.vue';
@@ -25,16 +23,6 @@ const routes = [
     path: '/',
     name: 'Main',
     component: Main
-  },
-  {
-    path: '/auth',
-    name: 'Authorization',
-    component: Authorization
-  },
-  {
-    path: '/registration',
-    name: 'Registration',
-    component: Registration
   },
   {
     path: '/dictionary',
@@ -60,12 +48,12 @@ const routes = [
     path: '/mydictionary',
     name: 'Mydictionary',
     component: MyDictionary
-  }, 
+  },
   {
     path: '/music',
     name: 'Music',
     component: Music
-  }, 
+  },
   {
     path: '/articles',
     name: 'ArticlesMain',
@@ -109,7 +97,7 @@ const routes = [
     path: '/testing',
     name: 'Testing',
     component: Testing
-  },
+  }
 ];
 
 const router = new VueRouter({
