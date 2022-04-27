@@ -3,9 +3,9 @@
     <div class="authorization-block">
       <div class="modal-window-authorization">
         <nav class="enter-link" v-bind:class="active" @click.prevent>
-          <span @click="makeActive('enter')" class="enter">Вход</span>
+          <span @click="makeActive(constants.auth)" class="authorization">Вход</span>
           <div class="vr"></div>
-          <span @click="makeActive('registration')" class="registration">Регистрация</span>
+          <span @click="makeActive(constants.reg)" class="registration">Регистрация</span>
         </nav>
         <button @click="$parent.controlAuthWindow" class="crossIcon">
           <svg
@@ -21,7 +21,7 @@
             />
           </svg>
         </button>
-        <div v-if="active=='enter'">
+        <div v-if="active===constants.auth">
           <form action="#" class="auth-enter" method="get">
             <label for="email">Email</label>
             <input type="email" v-model="auth_email" placeholder="Введите email" />
@@ -49,6 +49,8 @@
 </template>
 
 <script>
+import { profileEnter } from '../constants';
+
 export default {
   name: 'Authorization',
   data() {
@@ -59,11 +61,13 @@ export default {
       last_name: '',
       reg_email: '',
       reg_password: '',
-      active: 'enter',
+      active: '',
+      constants: {},
     };
   },
   mounted() {
-    this.active = 'enter';
+    this.constants = profileEnter;
+    this.active = this.constants.auth;
   },
   methods: {
     makeActive(item) {
@@ -97,7 +101,7 @@ export default {
     cursor: pointer;
   }
 }
-nav.enter .enter,
+nav.authorization .authorization,
 nav.registration .registration {
   color: black;
 }

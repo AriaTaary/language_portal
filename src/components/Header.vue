@@ -40,7 +40,7 @@
         <div v-else class="btn-account">
           <VAccount></VAccount>
         </div>
-        <transition v-if="authModalWindow" name="modal">
+        <transition v-if="authModalWindow" name="fade" appear>
           <Authorization class="modal-auth"></Authorization>
         </transition>
       </div>
@@ -59,7 +59,7 @@ export default {
   name: 'vHeder',
   data() {
     return {
-      authFlag: false,
+      authFlag: true,
       authModalWindow: false,
     };
   },
