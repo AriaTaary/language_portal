@@ -1,1 +1,4 @@
-export const profileEnter = { auth: 'authorization', reg: 'registration' };
+export const PROFILE_ENTER = {
+  auth: 'authorization',
+  reg: 'registration'
+};

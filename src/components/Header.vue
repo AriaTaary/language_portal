@@ -59,7 +59,7 @@ export default {
   name: 'vHeder',
   data() {
     return {
-      authFlag: true,
+      authFlag: false,
       authModalWindow: false,
     };
   },
