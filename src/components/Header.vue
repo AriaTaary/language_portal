@@ -9,11 +9,11 @@
         <router-link to="/dictionary" class="menuItem">Словарь</router-link>
         <div class="topItem menuItem">
           Интерактив
-          <div class="wrpList"> 
+          <div class="wrpList">
             <ul class="list">
               <li class="list-item">
                 <router-link to="/words" class="menuItem">Слова</router-link>
-                <router-link  to="/speaking" class="menuItem">Разговорник</router-link>
+                <router-link to="/speaking" class="menuItem">Разговорник</router-link>
                 <router-link to="/music" class="menuItem">Музыка</router-link>
                 <router-link to="/videos" class="menuItem">Фильмы И Видео</router-link>
                 <router-link to="/testing" class="menuItem">Тестирование</router-link>
@@ -22,7 +22,7 @@
           </div>
         </div>
         <div v-if="authFlag">
-          <router-link to="/auth" class="menuItem">
+          <div @click="controlAuthWindow" class="menuItem">
             <svg
               width="30"
               height="30"
@@ -35,27 +35,38 @@
                 fill="white"
               />
             </svg>
-          </router-link>
+          </div>
         </div>
         <div v-else class="btn-account">
           <VAccount></VAccount>
         </div>
+        <transition v-if="authModalWindow" name="fade" appear>
+          <Authorization class="modal-auth"></Authorization>
+        </transition>
       </div>
     </div>
   </div>
 </template>
 <script>
 import VAccount from './v-account';
+import Authorization from './Authorization.vue';
 
 export default {
   components: {
+    Authorization,
     VAccount,
   },
   name: 'vHeder',
   data() {
     return {
       authFlag: false,
+      authModalWindow: false,
     };
+  },
+  methods: {
+    controlAuthWindow() {
+      this.authModalWindow = !this.authModalWindow;
+    },
   },
 };
 </script>
