@@ -17,6 +17,7 @@
                 <router-link to="/music" class="menuItem">Музыка</router-link>
                 <router-link to="/videos" class="menuItem">Фильмы И Видео</router-link>
                 <router-link to="/testing" class="menuItem">Тестирование</router-link>
+                <router-link to="/translateintime" class="menuItem">Перевести 20 слов за 3 минуты</router-link>
               </li>
             </ul>
           </div>
