@@ -1,29 +1,39 @@
 <template>
-  <div class="quiz">
-     <nav tabs>
-      <div disabled><b>Правильные/Всего</b></div>
-      <div disabled>Количество: {{ numCorrect }}/{{ numTotal }}</div>
-    </nav>
-    <div class="bv-example-row">
-      <TestingBox
-        v-if="questions.length"
-        :currentQuestion="questions[index]"
-        :next="next"
-        :increment="increment"
-      />
+  <div class="container">
+    <div class="wrapper">
+      <MiniHeader />
+      <h1>Тестирование</h1>
+      <div class="quiz">
+        <div class="quizInfo">Правильных ответов: 
+          <b>{{ numCorrect }}</b>
+        </div>
+        <div class="quizInfo">Пройдено вопросов: 
+          <b>{{ numTotal }}</b>
+        </div>
+        <TestingBox
+          v-if="questions.length"
+          :currentQuestion="questions[index]"
+          :testIsOver="testIsOver"
+          :result="result"
+          @next="next"
+          @increment="increment"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import TestingBox from '../components/v-testing-box.vue'
+import MiniHeader from '../components/MiniHeader.vue'
+import TestingBox from '../components/TestingBox.vue'
 import Questions from '../db/tests.json'
 
 export default {
   name: 'Testing',
 
   components: {
-    TestingBox  
+    TestingBox,
+    MiniHeader,
   },
 
   data() {
@@ -31,20 +41,23 @@ export default {
       questions: [],
       index: 0,
       numCorrect: 0,
-      numTotal: 0
-    }
+      numTotal: 0,
+      testIsOver: false,
+      result: '',
+    };
   },
 
-  mounted() {
-    this.questions  = Questions.results
+  beforeMount() {
+    this.questions = Questions.results;
   },
 
   methods: {
     next() {
-      if (this.index == this.questions.length-1) {
-        return;
-      } else {      
+      if (this.index !== this.questions.length-1) {
         this.index++;
+      } else {
+        this.result = `${this.numCorrect}/${this.numTotal}`
+        this.testIsOver = true;
       }
     },
 
@@ -58,18 +71,20 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .quiz {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.bv-example-row {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
+.quizInfo {
+  margin-bottom: 10px;
+
+  & b {
+    color: #8892ad;
+  }
 }
 </style>

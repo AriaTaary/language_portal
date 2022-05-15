@@ -1,40 +1,30 @@
 <template>
-  <div class="profile">
-    <div class="profile-wrapper profile-container">
+  <div class="container">
+    <div class="wrapper">
       <h1>Мой профиль</h1>
-      <div class="profile-info-wrapper">
-        <div class="profile-info">
-          <div class="profile-info-img">
-            <img src="../../assets/img/Layer_5.png" alt="img" class />
-          </div>
-          <div class="profile-info-account">
-            <h3 class="profile-info-username">
-              <span class="fs-exclude">{{userName}} {{userSurname}}</span>
-            </h3>
-          </div>
-        </div>
-        <div class="block-edit">
-          <a class="btn-edit" href>
-            <span class="material-icons">edit</span>
-            <div class="div-edit">Редактировать</div>
-          </a>
-        </div>
+      <div class="profileInfo">
+        <img class="profileImage" src="../../assets/img/Layer_5.png" alt="img" />
+        <span class="profileUsername">{{userName}} {{userSurname}}</span>
+        <button class="purpleButton buttonAutoMarginLeft" href="">
+          <span class="material-icons">edit</span>
+          Редактировать
+        </button>
       </div>
-      <div class="profile-info-statistics">
-        <h1>Достижения</h1>
-        <div class="progress-bar">
-          <VProgressBar></VProgressBar>
-        </div>
+      <div class="profileStatistics">
+        <h1>Мои достижения</h1>
+        <ProgressBar />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import VProgressBar from '../../components/v-progress-bar';
+import ProgressBar from '../../components/ProgressBar.vue';
 
 export default {
-  components: { VProgressBar },
+  components: { 
+    ProgressBar 
+  },
 
   name: 'Profile',
 
@@ -48,68 +38,28 @@ export default {
 </script>
 
 <style lang="scss" scoped >
-.profile-wrapper {
-  padding-top: 50px;
+.profileInfo {
+  padding-bottom: 40px;
+  display: flex;
+  border-bottom: 2px solid #abb5d067;
+  align-items: center;
 }
 
-img {
+.profileImage {
   border-radius: 50%;
-  border: 1px solid rgb(170, 167, 167);
   width: 150px;
 }
 
-.profile-info-account {
-  margin-left: 25px;
-  text-align: left;
+.profileUsername {
+  color: #8892ad;
+  font-size: 30px;
+  margin-left: 50px;
 }
 
-.progress-bar {
-  padding: 25px 10px;
+.profileStatistics {
   display: flex;
-  justify-content: center;
-}
-
-.profile-container {
-  width: 900px;
-  margin: 0 auto;
-}
-
-.profile-info-wrapper {
-  padding: 25px 0;
-  display: flex;
-  border-bottom: 2px solid #e5e5e5;
-  justify-content: space-between;
-}
-
-.profile-info {
-  display: flex;
-}
-
-.profile-info-img {
-  display: flex;
-}
-
-.btn-edit {
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  border-radius: 4px;
-  padding: 8px 16px;
-  color: white;
-  background: #abb5d0;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.div-edit {
-  padding-left: 10px;
-}
-
-.block-edit {
-  align-items: center;
-  display: flex;
-}
-
-.profile-info-statistics {
-  padding: 25px 10px;
+  padding-top: 40px;
 }
 </style>

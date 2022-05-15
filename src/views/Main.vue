@@ -1,19 +1,17 @@
 <template>
   <div class="landingContainer">
     <div class="block">
-      <img class="blockImage" src="../assets/learning-crop.jpeg" alt="фоновое изображение">
-    <div class="container">
-        <div class="blockText rightBlock">
+      <img class="blockImage" src="../assets/img/learning-crop.jpeg" alt="фоновое изображение">
+      <div class="blockText rightBlock">
         Изучение английского в школе HelpTense - это нескучное онлайн-обучение языку с помощью игр и интересных заданий в любое удобное для вас время
         <router-link
           to="/profile"
           class="startButton"
         >Начать</router-link>
-      </div>
     </div>
     </div>
     <div class="block">
-      <img class="blockImage" src="../assets/notebook.png" alt="фоновое изображение">
+      <img class="blockImage" src="../assets/img/notebook.png" alt="фоновое изображение">
       <div class="blockText leftBlock">
         Наша цель - сделать ваше обучение легким и увлекательным
         <br>
@@ -25,7 +23,7 @@
       </div>
     </div>
     <div class="block">
-      <img class="blockImage" src="../assets/girl.png" alt="фоновое изображение">
+      <img class="blockImage" src="../assets/img/girl.png" alt="фоновое изображение">
       <div class="blockText rightBlock">
         Наши программы подходят для всех возрастов и любого уровня. Вы можете начать изучать язык с нуля, либо улучшить имеющиеся знания до свободного общения с носителями
         <router-link
@@ -44,11 +42,6 @@ export default {
 </script>
 
 <style lang="scss">
-.container {
-    width: 1140px;
-    margin: 0 auto;
-}
-
 .landingContainer {
   display: flex;
   flex-direction: column;
@@ -104,7 +97,6 @@ export default {
   background-color: #ABB5D0;
   position: absolute;
   color: white;
-  text-decoration: none;
   padding: 10px;
   bottom: -60px;
 

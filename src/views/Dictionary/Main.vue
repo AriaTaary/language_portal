@@ -1,91 +1,62 @@
 <template>
-  <div class="wrapper-dictionary">
-    <div class="dictionary-block">
+  <div class="container">
+    <div class="wrapper">
+      <h1>Словарь</h1>
       <div class="search-block">
-        <input
-          type="text"
-          class="search-block__item"
-          v-model="searchRequest"
-          @keyup.enter="sortArray"
-          placeholder="Найти слово"
+        <Search 
+          ref="search"
+          @clickEvent="searchWord"
+          @enterEvent="searchWord"
         />
-        <svg
-          @click="sortArray"
-          xmlns="http://www.w3.org/2000/svg"
-          width="25"
-          height="25"
-          fill="currentColor"
-          class="bi bi-search"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-          />
-        </svg>
-        <button @click="themesList = !themesList" class="choice-theme">Выберите тему</button>
-        <button @click="clearTheme" class="choice-theme">Сбросить</button>
-        <router-link class="router-btn" to="/dictionary/my">
-          <span class="choice-theme">Мой словарь</span>
+        <button 
+          @click="clearTheme" 
+          class="purpleButton buttonMarginLeft"
+        >Сбросить</button>
+        <button 
+          @click="themesList = !themesList" 
+          class="purpleButton buttonMarginLeft"
+        >Выберите тему</button>
+        <router-link class="buttonAutoMarginLeft" to="/dictionary/my">
+          <span class="purpleButton">Мой словарь</span>
         </router-link>
       </div>
-      <div v-show="notFound" class="search-fail">К сожалению, слово не найдено</div>
-      <transition name="fade">
-        <div v-show="themesList" class="theme-content">
-          <DictionaryTheme
-            v-for="card in themesArray"
-            :key="card.id"
-            v-bind:card="card"
-            class="themes-block"
-          />
-        </div>
-      </transition>
-      <div class="word-list">
-        <h1 class="word-list__heading">Словарь</h1>
-
-        <div class="word-list__item" v-for="item in searchResult" :key="item.id">
-          <span class="sound">
-            <svg
-              @click="toSpeak(item.word)"
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="25"
-              fill="currentColor"
-              class="bi bi-volume-up-fill"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"
-              />
-              <path
-                d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"
-              />
-              <path
-                d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"
-              />
-            </svg>
-          </span>
-
-          <div class="word-element">
-            <div class="word-element__row">
-              <span class="word">{{ item.word }}</span>
-            </div>
-            <div class="word-element__row">
-              <span class="transcription">{{ item.transcription }}</span>
-            </div>
-            <div class="word-element__row">
-              <span class="translate">{{ item.translation }}</span>
-            </div>
+      <div 
+        v-if="notFound" 
+        class="search-fail"
+      >
+        К сожалению, слово не найдено
+      </div>
+      <div v-show="themesList" class="itemsList">
+        <DictionaryTheme
+          v-for="card in themesArray"
+          :key="card.id"
+          v-bind:card="card"
+        />
+      </div>
+      <div class="wordList">
+        <div class="wordItem" v-for="item in searchResult" :key="item.id">
+          <svg
+            @click="toSpeak(item.word)"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            class="dictionaryIcon"
+            viewBox="0 0 16 16"
+          >
+            <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z" />
+            <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z" />
+            <path d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z" />
+          </svg>
+          <div class="wordInfo">
+            <div class="word">{{ item.word }}</div>
+            <div class="word">{{ item.transcription }}</div>
+            <div class="word">{{ item.translation }}</div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="21"
-              height="21"
               fill="currentColor"
-              class="bi bi-plus-square-fill"
+              class="dictionaryIcon"
               viewBox="0 0 16 16"
             >
-              <path
-                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"
-              />
+              <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
             </svg>
           </div>
         </div>
@@ -94,21 +65,23 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import DictionaryTheme from '../../components/DictionaryTheme.vue';
+import Search from '../../components/Search.vue';
 
 export default {
   name: 'Dictionary',
 
   components: { 
-    DictionaryTheme 
+    DictionaryTheme,
+    Search,
   },
 
   data() {
     return {
       themesList: false,
       currentTheme: '',
-      searchRequest: null,
+      searchValue: '',
       searchResult: [],
       wordsArray: [],
       themesArray: [],
@@ -143,13 +116,13 @@ export default {
       });
     },
 
-    sortArray() {
+    searchWord(searchText) {            
       this.searchResult = this.wordsArray.filter((item) => {
         if (
-          item.word.toUpperCase().includes(this.searchRequest.toUpperCase()) ||
+          item.word.toUpperCase().includes(searchText.toUpperCase()) ||
           item.translation
             .toUpperCase()
-            .includes(this.searchRequest.toUpperCase())
+            .includes(searchText.toUpperCase())
         ) {
           return true;
         }
@@ -184,6 +157,11 @@ export default {
     clearTheme() {
       this.searchResult = this.wordsArray;
       this.currentTheme = '';
+      
+      const inputElement = this.$refs.search;
+      if (inputElement) {
+        inputElement.clearInput();
+      }
     },
 
     findDouble(array, word) {
@@ -221,48 +199,17 @@ export default {
 </script>
 
 <style lang="scss" >
-.wrapper-dictionary {
-  background: url('../../assets/img/dictionary-bcg.jpg');
-  background-size: cover;
-}
-
-.dictionary-block {
-  display: flex;
-  margin: auto;
-  flex-direction: column;
-  width: 990px;
-}
-
 .search-block {
   display: flex;
   align-items: center;
+  margin-bottom: 40px;
 }
 
-.search-block__item {
+.wordList {
   margin-top: 40px;
-  margin-bottom: 40px;
-  padding: 10px 15px;
-  font-size: 16px;
-  color: #596070;
-  width: 238px;
-  border: 2px solid #abb5d0;
 }
 
-.search-fail {
-  display: block;
-  color: black;
-  margin-bottom: 40px;
-  font-size: 16px;
-}
-
-.word-list__heading {
-  font-size: 20px;
-  color: #666e83;
-  text-transform: uppercase;
-  margin-bottom: 50px;
-}
-
-.word-list__item {
+.wordItem {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #ced4e7;
@@ -271,82 +218,27 @@ export default {
   align-items: center;
 }
 
-.sound {
-  margin-right: 60px;
-}
-
-.word-element {
+.wordInfo {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  align-items: center;
 }
 
-.word-element__row {
+.word {
   text-align: center;
   width: 200px;
 }
 
-.bi-volume-up-fill {
+.dictionaryIcon {
   color: #a8b4d4;
   cursor: pointer;
   transition: 0.3s;
+  width: 21px;
+  height: 21px;
+
   &:hover {
     color: #8089a1;
   }
-}
-
-.bi-search {
-  color: #666e83;
-  cursor: pointer;
-  margin-left: 15px;
-}
-
-.choice-theme {
-  background-color: #abb5d0;
-  color: white;
-  padding: 10px 20px;
-  margin-left: 30px;
-  border-radius: 5px;
-  font-size: 16px;
-  transition: 0.3s;
-  &:hover {
-    background-color: #8892ad;
-  }
-}
-
-.theme-content {
-  margin-bottom: 30px;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.themes-block {
-  display: flex;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-  &:hover {
-    scale: 1.1;
-  }
-}
-
-.transcription {
-  text-transform: lowercase;
-}
-
-.bi-plus-square-fill {
-  color: #a8b4d4;
-  cursor: pointer;
-  transition: 0.3s;
-  &:hover {
-    color: #8089a1;
-  }
-}
-
-.router-btn {
-  text-transform: initial;
-  text-decoration: none;
-  margin-left: 15%;
 }
 </style>

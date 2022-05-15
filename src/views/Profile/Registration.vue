@@ -72,8 +72,6 @@ export default {
   width: 200px;
 
   a {
-    text-decoration: none;
-    color: black;
     text-transform: uppercase;
     font-size: 16px;
   }

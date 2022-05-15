@@ -1,79 +1,81 @@
 <template>
-    <div class="wrapper">
-        <h1>Обучение</h1>
-        <div class="progress-list">
-            <div class="progress-block">
-                <p>Прогресс</p>
-            </div>
-        <div class="programm-list">
-            <div class="type-item">
-                <div class="level">Начальный
-                    <div class="level-type">
-                        <div class="type-programm">
-                            <p>Грамматика</p>
-                            <span class="material-icons icon center">push_pin</span>
+    <div class="programContainer">
+        <div class="programWrapper">
+            <h1>Наши программы</h1>
+            <div class="progress-list">
+                <div class="progress-block">
+                    <p>Прогресс</p>
+                </div>
+                <div class="programm-list">
+                    <div class="type-item">
+                        <div class="level">Начальный
+                            <div class="level-type">
+                                <div class="type-programm">
+                                    <p>Грамматика</p>
+                                    <span class="material-icons icon center">push_pin</span>
+                                </div>
+                                <div class="type-programm">
+                                    <p>Лексика</p>
+                                    <span class="material-icons icon center">push_pin</span>
+                                </div>
+                                <div class="type-programm">
+                                    <p>Тесты</p>
+                                    <span class="material-icons icon center">push_pin</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="type-programm">
-                            <p>Лексика</p>
-                            <span class="material-icons icon center">push_pin</span>
-                        </div>
-                        <div class="type-programm">
-                            <p>Тесты</p>
-                            <span class="material-icons icon center">push_pin</span>
+                        <div class="text-progress">
+                            <span class="material-icons icon icon-txt">turned_in_not</span>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est eos doloribus, reprehenderit incidunt illum quisquam pariatur officiis sunt, debitis, deleniti enim sit quas facilis repudiandae. Est aliquid magni et aliquam.
                         </div>
                     </div>
-                </div>
-                <div class="text-progress">
-                    <span class="material-icons icon icon-txt">turned_in_not</span>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est eos doloribus, reprehenderit incidunt illum quisquam pariatur officiis sunt, debitis, deleniti enim sit quas facilis repudiandae. Est aliquid magni et aliquam.
-                </div>
-            </div>
-            <div class="type-item">
-                <div class="text-progress">
-                    <span class="material-icons icon icon-txt">turned_in_not</span>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est eos doloribus, reprehenderit incidunt illum quisquam pariatur officiis sunt, debitis, deleniti enim sit quas facilis repudiandae. Est aliquid magni et aliquam.
-                </div>
-                <div class="level">Средний
-                    <div class="level-type">
-                        <div class="type-programm">
-                            <p>Грамматика</p>
-                            <span class="material-icons icon center">push_pin</span>
+                    <div class="type-item">
+                        <div class="text-progress">
+                            <span class="material-icons icon icon-txt">turned_in_not</span>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est eos doloribus, reprehenderit incidunt illum quisquam pariatur officiis sunt, debitis, deleniti enim sit quas facilis repudiandae. Est aliquid magni et aliquam.
                         </div>
-                        <div class="type-programm">
-                            <p>Лексика</p>
-                            <span class="material-icons icon center">push_pin</span>
-                        </div>
-                        <div class="type-programm">
-                            <p>Тесты</p>
-                            <span class="material-icons icon center">push_pin</span>
+                        <div class="level">Средний
+                            <div class="level-type">
+                                <div class="type-programm">
+                                    <p>Грамматика</p>
+                                    <span class="material-icons icon center">push_pin</span>
+                                </div>
+                                <div class="type-programm">
+                                    <p>Лексика</p>
+                                    <span class="material-icons icon center">push_pin</span>
+                                </div>
+                                <div class="type-programm">
+                                    <p>Тесты</p>
+                                    <span class="material-icons icon center">push_pin</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="type-item">
-                <div class="level">Продвинутый
-                    <div class="level-type">
-                        <div class="type-programm">
-                            <p>Грамматика</p>
-                            <span class="material-icons icon center">push_pin</span>
+                    <div class="type-item">
+                        <div class="level">Продвинутый
+                            <div class="level-type">
+                                <div class="type-programm">
+                                    <p>Грамматика</p>
+                                    <span class="material-icons icon center">push_pin</span>
+                                </div>
+                                <div class="type-programm">
+                                    <p>Лексика</p>
+                                    <span class="material-icons icon center">push_pin</span>
+                                </div>
+                                <div class="type-programm">
+                                    <p>Тесты</p>
+                                    <span class="material-icons icon center">push_pin</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="type-programm">
-                            <p>Лексика</p>
-                            <span class="material-icons icon center">push_pin</span>
-                        </div>
-                        <div class="type-programm">
-                            <p>Тесты</p>
-                            <span class="material-icons icon center">push_pin</span>
+                        <div class="text-progress">
+                            <span class="material-icons icon icon-txt">turned_in_not</span>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est eos doloribus, reprehenderit incidunt illum quisquam pariatur officiis sunt, debitis, deleniti enim sit quas facilis repudiandae. Est aliquid magni et aliquam.
                         </div>
                     </div>
-                </div>
-                <div class="text-progress">
-                    <span class="material-icons icon icon-txt">turned_in_not</span>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est eos doloribus, reprehenderit incidunt illum quisquam pariatur officiis sunt, debitis, deleniti enim sit quas facilis repudiandae. Est aliquid magni et aliquam.
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </template>
 
@@ -84,16 +86,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.wrapper {
-    text-align: center;
-    padding-top: 25px;
+.programContainer {
+    display: flex;
+    justify-content: center;
 }
 
-.wrapper h1 {
-    margin-bottom: 40px;
+.programWrapper {
+    padding: 40px 0 60px 0;
     text-align: center;
-    font-size: 20px;
-    color: #666e83;
+    text-transform: none;
+    max-width: 1366px;
+
+    & h1 {
+        font-size: 35px;
+        font-weight: 400;
+        margin-bottom: 40px;
+        text-align: center;
+    }
 }
 
 .progress-list {

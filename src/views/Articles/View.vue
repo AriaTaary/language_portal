@@ -1,13 +1,15 @@
 <template>
   <div class="container">
-    <div v-if="loading" class="loading-main">
-      <img src="../../assets/img/loader.svg" alt="Загрузка данных">
-    </div>
-    <div v-else class="feed-body">
-      <ArticleBase
-        v-bind:article="article"
-      />
-      <RecommendationBlock />
+    <div class="wrapper">
+      <div v-if="loading" class="loading-main">
+        <img src="../../assets/img/loader.svg" alt="Загрузка данных">
+      </div>
+      <div v-else class="rowContent">
+        <ArticleBase
+          v-bind:article="article"
+        />
+        <RecommendationBlock />
+      </div>
     </div>
   </div>
 </template>

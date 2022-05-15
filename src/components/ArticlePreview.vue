@@ -21,12 +21,11 @@
         alt="article-photo"
       >
       <p class="card-description-base">{{ this.article.text }}</p>
-      <div class="row-group">
-        <router-link class="button-not-main"
-              :to="{ name: 'ArticleView',
-              params: { id: this.article.id } }
-              ">Подробнее >></router-link>
-      </div>
+      <router-link class="button-not-main"
+        :to="{ name: 'ArticleView',
+        params: { id: this.article.id } }
+        ">Подробнее >>
+      </router-link>
       <div class="ratings">
         <div class="views">
           <svg width="24" height="15" viewBox="0 0 24 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -124,8 +123,16 @@ export default {
     margin-right: 20px;
 }
 
-.card-main-info{
-    margin-top: 25px;
+.card-main-info {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    & h2, p {
+      color: black;
+      text-align: left;
+    }
 }
 
 .card-main-info-title{
@@ -217,7 +224,6 @@ export default {
     padding: 7px 0px;
     cursor: pointer;
     outline: none;
-    text-decoration: none;
 }
 
 .button-not-main:hover{
