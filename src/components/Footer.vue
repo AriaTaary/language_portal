@@ -100,7 +100,6 @@
 
     & .menuItem {
       color: white;
-      text-decoration: none;
       padding-bottom: 10px;
 
       &.router-link-exact-active {

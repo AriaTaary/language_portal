@@ -1,21 +1,29 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Profile from '../views/Profile.vue';
+
 import Main from '../views/Main.vue';
-import MyDictionary from '../views/MyDictionary';
-import Dictionary from '../views/Dictionary.vue';
-import Words from '../views/Words.vue';
-import Speaking from '../views/Speaking.vue';
-import Songs from '../views/Songs.vue';
-import Music from '../views/Music.vue';
-import TrainingPrograms from '../views/TrainingPrograms.vue';
-import Videos from '../views/Videos.vue';
-import VideoPage from '../views/VideoPage.vue';
-import Testing from '../views/Testing.vue';
-import TranslateInTime from '../views/TranslateInTime.vue';
+
+import Authorization from '../views/Profile/Authorization.vue';
+import Registration from '../views/Profile/Registration.vue';
+import Profile from '../views/Profile/Main.vue';
+
+import DictionaryMain from '../views/Dictionary/Main.vue';
+import MyDictionary from '../views/Dictionary/MyDictionary';
+
+import VideosMain from '../views/Videos/Main.vue';
+import VideoView from '../views/Videos/View.vue';
 
 import ArticlesMain from '../views/Articles/Main.vue';
 import ArticleView from '../views/Articles/View.vue';
+
+import MusicMain from '../views/Music/Main.vue'
+import MusicView from '../views/Music/View.vue'
+
+import Words from '../views/Words.vue'
+import Speaking from '../views/Speaking.vue'
+import TrainingPrograms from '../views/TrainingPrograms.vue'
+import Testing from '../views/Testing.vue';
+import TranslateInTime from '../views/TranslateInTime.vue';
 
 Vue.use(VueRouter);
 
@@ -23,37 +31,67 @@ const routes = [
   {
     path: '/',
     name: 'Main',
-    component: Main
+    component: Main,
+    meta: {
+      title: 'HelpTense'
+    }
   },
   {
-    path: '/dictionary',
-    name: 'Dictionary',
-    component: Dictionary
+    path: '/auth',
+    name: 'Authorization',
+    component: Authorization,
+    meta: {
+      title: 'Авторизация'
+    }
+  },
+  {
+    path: '/registration',
+    name: 'Registration',
+    component: Registration,
+    meta: {
+      title: 'Регистрация'
+    }
   },
   {
     path: '/profile',
     name: 'Profile',
-    component: Profile
+    component: Profile,
+    meta: {
+      title: 'Профиль'
+    }
   },
   {
-    path: '/words',
-    name: 'Words',
-    component: Words
+    path: '/dictionary',
+    name: 'DictionaryMain',
+    component: DictionaryMain,
+    meta: {
+      title: 'Словарь'
+    }
   },
   {
-    path: '/speaking',
-    name: 'Speaking',
-    component: Speaking
-  },
-  {
-    path: '/mydictionary',
+    path: '/dictionary/my',
     name: 'Mydictionary',
-    component: MyDictionary
+    component: MyDictionary,
+    meta: {
+      title: 'Мой словарь'
+    }
+  }, 
+  {
+    path: '/videos',
+    name: 'VideosMain',
+    component: VideosMain,
+    meta: {
+      title: 'Видео'
+    }
   },
   {
-    path: '/music',
-    name: 'Music',
-    component: Music
+    path: '/video/view/:videoUrl=videoUrl:videoTitle=videoTitle',
+    name: 'VideoView',
+    component: VideoView,
+    props: true,
+    meta: {
+      title: 'Просмотр видео'
+    }
   },
   {
     path: '/articles',
@@ -67,42 +105,67 @@ const routes = [
     path: '/article/view/:id',
     name: 'ArticleView',
     component: ArticleView,
+    props: true,
     meta: {
       title: 'Просмотр статьи'
     }
   },
   {
-    path: '/songs/:videoId/:titleOfSong',
-    name: 'Songs',
-    component: Songs,
-    props: true
+    path: '/music',
+    name: 'Music',
+    component: MusicMain,
+    meta: {
+      title: 'Музыка'
+    }
+  },
+  {
+    path: '/music/view/:videoId/:titleOfSong',
+    name: 'MusicView',
+    component: MusicView,
+    props: true,
+    meta: {
+      title: 'Просмотр песни'
+    }
+  },
+  {
+    path: '/words',
+    name: 'Words',
+    component: Words,
+    meta: {
+      title: 'Слова'
+    }
+  },
+  {
+    path: '/speaking',
+    name: 'Speaking',
+    component: Speaking,
+    meta: {
+      title: 'Разговорник'
+    }
   },
   {
     path: '/programs',
     name: 'Trainingprograms',
-    component: TrainingPrograms
-  },
-
-  {
-    path: '/videos',
-    name: 'Videos',
-    component: Videos
-  },
-  {
-    path: '/videoPage:videoUrl=videoUrl:videoTitle=videoTitle',
-    name: 'VideoPage',
-    component: VideoPage,
-    props: true
+    component: TrainingPrograms,
+    meta: {
+      title: 'Обучающие программы'
+    }
   },
   {
     path: '/testing',
     name: 'Testing',
-    component: Testing
+    component: Testing,
+    meta: {
+      title: 'Тестирование'
+    }
   },
-  {
+   {
     path: '/translateintime',
     name: 'translateintime',
-    component: TranslateInTime
+    component: TranslateInTime,
+    meta: {
+      title: 'Перевод на время'
+    }
   }
 ];
 
