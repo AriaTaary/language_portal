@@ -12,6 +12,7 @@ import TrainingPrograms from '../views/TrainingPrograms.vue';
 import Videos from '../views/Videos.vue';
 import VideoPage from '../views/VideoPage.vue';
 import Testing from '../views/Testing.vue';
+import ProgramPage from '../views/ProgramPage.vue';
 
 import ArticlesMain from '../views/Articles/Main.vue';
 import ArticleView from '../views/Articles/View.vue';
@@ -97,6 +98,11 @@ const routes = [
     path: '/testing',
     name: 'Testing',
     component: Testing
+  },
+  {
+    path: '/programpage',
+    name: 'ProgramPage',
+    component: ProgramPage
   }
 ];
 
