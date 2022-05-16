@@ -15,6 +15,7 @@
             <router-link to="/music" class="dropdownMenuItem">Музыка</router-link>
             <router-link to="/videos" class="dropdownMenuItem">Фильмы и видео</router-link>
             <router-link to="/testing" class="dropdownMenuItem">Тестирование</router-link>
+            <router-link to="/translateintime" class="menuItem">10 слов на время</router-link>
           </div>
         </div>
         <div 

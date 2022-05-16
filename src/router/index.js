@@ -23,6 +23,7 @@ import Words from '../views/Words.vue'
 import Speaking from '../views/Speaking.vue'
 import TrainingPrograms from '../views/TrainingPrograms.vue'
 import Testing from '../views/Testing.vue';
+import TranslateInTime from '../views/TranslateInTime.vue';
 
 Vue.use(VueRouter);
 
@@ -158,6 +159,14 @@ const routes = [
       title: 'Тестирование'
     }
   },
+   {
+    path: '/translateintime',
+    name: 'translateintime',
+    component: TranslateInTime,
+    meta: {
+      title: 'Перевод на время'
+    }
+  }
 ];
 
 const router = new VueRouter({
