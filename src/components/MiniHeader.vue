@@ -1,11 +1,30 @@
 <template>
     <div class="miniHeaderContainer">
         <div class="miniHeaderContent">
-            <router-link class="miniMenuItem" to="/words" >Слова</router-link>
-            <router-link class="miniMenuItem" to="/speaking" >Разговорник</router-link>
-            <router-link class="miniMenuItem" to="/music" >Музыка</router-link>
-            <router-link class="miniMenuItem" to="/videos" >Фильмы И Видео</router-link>
-            <router-link class="miniMenuItem" to="/testing" >Тестирование</router-link>
+            <router-link 
+                to="/words"
+                class="miniMenuItem"
+            >Слова</router-link>
+            <router-link 
+                to="/speaking" 
+                class="miniMenuItem"
+            >Разговорник</router-link>
+            <router-link 
+                to="/music" 
+                class="miniMenuItem"
+            >Музыка</router-link>
+            <router-link 
+                to="/videos" 
+                class="miniMenuItem"
+            >Фильмы И Видео</router-link>
+            <router-link 
+                to="/testing" 
+                class="miniMenuItem"
+            >Тестирование</router-link>
+            <router-link 
+                to="/translateintime" 
+                class="miniMenuItem"
+            >Перевод на время</router-link>
         </div>
     </div>
 </template>

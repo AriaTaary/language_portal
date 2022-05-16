@@ -93,8 +93,21 @@ h3 {
     cursor: default;
     color: #c2c2c2;
     background-color: #f0f0f0;
-    border: 1px solid #c2c2c2;
+    border: 1px solid #f0f0f0;
   }
+}
+
+.disabledButton {
+  background-color: #f0f0f0;
+  color: #c2c2c2;
+  padding: 5px 20px;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+  font-size: 16px;
+  height: 30px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
 }
 
 .buttonMarginLeft {
@@ -151,4 +164,80 @@ h3 {
   display: flex;
   width: 100%;
   justify-content: flex-start;
+}
+
+.searchField {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.searchButton {
+  display: flex;
+  align-items: center;
+  top: 0;
+  right: 0px;
+  padding: 5px 10px;
+  height: 30px;
+  border:none;
+  background-color: #FBECED;
+  border-radius: 5px 0px 0px 5px;
+  outline: none;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+    background-color: #f0f0f0;
+  }
+
+  &:disabled svg path {
+    fill: #c2c2c2;
+  }
+}
+
+input::-webkit-input-placeholder {
+  vertical-align: middle;
+  color: #D5444C;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.inputSearch {
+  height: 30px;
+  line-height: 30px;
+  border: none;
+  border-radius:0px 5px 5px 0px;
+  outline: none;
+  background-color: #FBECED;
+  color: #D5444C;
+  font-size: 16px;
+  box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  width: 25vw;
+
+  &:disabled {
+    cursor: default;
+    background-color: #f0f0f0;
+  }
+
+  &:disabled::-webkit-input-placeholder {
+    color: #c2c2c2;
+  }
+}
+
+.verticalMargin {
+  margin: 40px 0;
+}
+
+.correctColor {
+  color: green;
+  background-color: rgba(144, 238, 180, 0.6);
+}
+
+.incorrectColor {
+  color: #d5444c;
+  background-color: rgba(213, 68, 76, 0.171);
 }

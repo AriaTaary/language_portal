@@ -1,7 +1,7 @@
 <template>
-    <div class="search-field">
+    <div class="searchField">
         <button 
-            class="search-button" 
+            class="searchButton" 
             type="submit" 
             @click="$emit('clickEvent', inputValue)"
         >
@@ -11,8 +11,8 @@
         </button>
         <input 
             v-model="inputValue"
-            class="input-search" 
-            placeholder="НАЙТИ..." 
+            class="inputSearch" 
+            placeholder="найти" 
             type="search"
             @keyup.enter="$emit('enterEvent', inputValue)"
         >
@@ -52,48 +52,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss" scoped>
-.search-field {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-}
-
-.search-button {
-    display: flex;
-    align-items: center;
-    top: 0;
-    right: 0px;
-    padding: 5px 10px;
-    height: 30px;
-    border:none;
-    background-color: #FBECED;
-    border-radius: 5px 0px 0px 5px;
-    outline: none;
-    cursor: pointer;
-}
-
-.input-search {
-    height: 30px;
-    line-height: 30px;
-    border: none;
-    border-radius:0px 5px 5px 0px;
-    outline: none;
-    background-color: #FBECED;
-    color: #D5444C;
-    font-size: 16px;
-    box-sizing:border-box;
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    width: 25vw;
-}
-
-input::-webkit-input-placeholder {
-    vertical-align: middle;
-    color: #D5444C;
-    font-size: 12px;
-}
-</style>

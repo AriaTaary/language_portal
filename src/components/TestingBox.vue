@@ -106,9 +106,9 @@ export default {
       if (!this.answered && this.selectedIndex === index) {
         return 'selected';
       } else if (this.answered && this.correctIndex === index) {
-        return 'correct';
+        return 'correctColor';
       } else if (this.answered && this.selectedIndex === index && this.correctIndex !== index) {
-        return 'incorrect';
+        return 'incorrectColor';
       }
     }
   }
@@ -120,7 +120,7 @@ export default {
   margin-top: 40px;
   padding: 40px 100px 0 100px;
   background: #abb5d0;
-  border-radius:10px;
+  border-radius: 10px;
   width: 900px;
 }
 
@@ -155,13 +155,5 @@ export default {
 
 .buttonsList {
   margin: 40px 0;
-}
-
-.correct {
-  background-color: rgba(144, 238, 180, 0.6);
-}
-
-.incorrect {
-  background-color: rgba(255, 0, 0, 0.171);
 }
 </style>

@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1, 
+        "word": "ox",
+        "translation": "бык",
+        "active": false
+    },
+    {
+        "id": 2,
+        "word": "owl",
+        "translation": "сова",
+        "active": false
+    },
+    {
+        "id": 3,
+        "word": "fox",
+        "translation": "лиса",
+        "active": false
+    },
+    {
+        "id": 4,
+        "word": "hare",
+        "translation": "заяц",
+        "active": false
+    },
+    {
+        "id": 5,
+        "word": "rat",
+        "translation": "крыса",
+        "active": false
+    },
+    {
+        "id": 6,
+        "word": "toad",
+        "translation": "жаба",
+        "active": false
+    },
+    {
+        "id": 7,
+        "word": "pig",
+        "translation": "свинья",
+        "active": false
+    },
+    {
+        "id": 8,
+        "word": "mole",
+        "translation": "крот",
+        "active": false
+    },
+    {
+        "id": 9,
+        "word": "cow",
+        "translation": "корова",
+        "active": false
+    },
+    {
+        "id": 10,
+        "word": "deer",
+        "translation": "олень",
+        "active": false
+    }
+]
