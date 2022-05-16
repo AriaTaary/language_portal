@@ -232,6 +232,7 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
 .type-programm:hover {
   background-color: #666e83;
   color: white;
