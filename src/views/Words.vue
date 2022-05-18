@@ -45,8 +45,9 @@
 </template>
 
 <script>
+import axios from 'axios'
 import MiniHeader from '../components/MiniHeader.vue'
-import dictionary from '../db/dictionary'
+// import dictionary from '../db/dictionary'
 
 export default {
   name: 'Words',
@@ -57,40 +58,46 @@ export default {
 
   data () {
     return {
-      words: dictionary,
+      listWord: [],
       isActive: false,
-      randomWord:null,
+      randomWord:'',
       newDictionary:[],
       myDictionary:[],
       show: false
     }
   },
-
-  beforeMount() {
-    this.randomWord= this.words[Math.floor(Math.random() * this.words.length)];
-    this.newDictionary.push(this.randomWord);
+  created(){
+    axios
+    .get(`${this.$store.getters.getServerUrl}/word/`)
+    .then(response =>{
+      this.listWord = response.data;
+      this.Random();
+    });
   },
-
   methods: {
     cartRotate () {
       this.isActive = !this.isActive;
     },
-
+    Random(){
+       this.randomWord= this.listWord[Math.floor(Math.random() * this.listWord.length)];
+      this.newDictionary.push(this.randomWord);
+    },
     addMyDictionary () {
-      if (this.myDictionary.filter(item => item.word == this.randomWord.word).length > 0) {
-        this.show=true;
-      } else {
-        this.myDictionary.push(this.randomWord);
-      }
+      console.log(this.randomWord);
+      // if (this.myDictionary.filter(item => item.word == this.randomWord.word).length > 0) {
+      //   this.show=true;
+      // } else {
+      //   this.myDictionary.push(this.randomWord);
+      // }
     },
 
     nextWord () { 
       this.show=false;
-      let filterWords=this.words.filter((i)=> !this.newDictionary.includes(i))
+      let filterWords=this.listWord.filter((i)=> !this.newDictionary.includes(i))
       this.randomWord=filterWords[Math.floor(Math.random() * filterWords.length)];
       this.newDictionary.push(this.randomWord);
 
-      if (this.newDictionary.length === this.words.length){
+      if (this.newDictionary.length === this.listWord.length){
         document.getElementById("nextWord").classList.add('hide')
       }
 

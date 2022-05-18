@@ -7,8 +7,8 @@
             <span class="purpleButton">Назад</span>
           </router-link>
       </div>
-      <h1 class="videoTitle">{{ videoTitle }}</h1>
-      <youtube :video-id="videoUrl" />
+      <h1 class="videoTitle">{{ video.title }}</h1>
+      <youtube :video-id="video.videoid" />
     </div>
   </div>
 </template>
@@ -24,15 +24,24 @@ export default {
   },
 
   props: {
-    videoTitle: {
-      type: String,
-      default: '',
+    id: {
+      type: Number,
     },
-
-    videoUrl: {
-      type: String,
-      default: '',
-    }
+  },
+  data () {
+    return {
+      video: {},
+    };
+  },
+  created() {
+    this.loadVideo();
+  },
+  methods: {
+    async loadVideo() {
+      this.video = await fetch(
+        `${this.$store.getters.getServerUrl}/video/${this.id}`
+      ).then((response) => response.json());
+    },
   },
 };
 </script>

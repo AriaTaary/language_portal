@@ -1,14 +1,14 @@
 <template>
-  <div @click="$parent.toActivateTheme(card.name)">
+  <div @click="$parent.toActivateTheme(card.id)">
     <img 
-      v-if="card.name !== $parent.currentTheme"
+      v-if="card.id !== $parent.currentTheme"
       class="itemImage" 
-      :src="require('../assets/img/'+card.name+'.png')" 
+      :src="card.image" 
     />
     <img 
       v-else 
       class="itemImage" 
-      :src="require('../assets/img/'+card.name+'.png')" 
+     :src="card.image" 
     />
   </div>
 </template>

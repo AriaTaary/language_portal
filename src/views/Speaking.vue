@@ -7,24 +7,24 @@
                 <div class="speakingThemes">
                     <div  
                         class="themeBlock purpleButton" 
-                        v-for="item in themesArray" 
-                        :key="item.index" 
-                        @click="toActivateTheme(item)" 
+                        v-for="item in topiclist" 
+                        :key="item.id" 
+                        @click="toActivateTheme(item.id)" 
                     >
                         {{item.translation}}
                     </div>
                     <div class="wordsList" v-show="show">
-                        <h2>{{this.currentTheme.translation}}</h2>
+                        <h2>{{this.phraseslist.translation}}</h2>
                         <div 
-                            v-for="item in searchResult" 
-                            :key="item.index"             
+                            v-for="item in phraseslist" 
+                            :key="item.id"             
                             class="wordInfo"
                         >
-                            <span @click="toSpeak(item.word)" class="material-icons">
+                            <span @click="toSpeak(item.text)" class="material-icons">
                                 volume_up
                             </span>
                             <span class="word">
-                                {{item.word}}
+                                {{item.text}}
                             </span>
                             <span class="transcription">
                                 {{item.translation}}
@@ -38,9 +38,8 @@
 </template>
 
 <script>
+import axios from 'axios';
 import MiniHeader from '../components/MiniHeader.vue'
-import phrases from '../db/phrases'
-import themespharases from '../db/themespharases'
 
 export default {
     name: 'Speaking',
@@ -51,31 +50,40 @@ export default {
 
     data() {
         return {
-            phraseslist:phrases,
-            themesArray:themespharases,
+            phraseslist:[],
+            topiclist:[],
             show: true,
-            currentTheme:[],
             searchResult:[],
         };
     },
-        
+    created(){
+    this.loadList('topicphrase/');  
+    },    
     methods: {
+        loadList(url){
+            axios
+            .get(`${this.$store.getters.getServerUrl}/${url}`)
+            .then(response=>{
+                switch (url){
+                    case 'topicphrase/':
+                        this.topiclist=response.data;
+                        break
+                    default:
+                        this.phraseslist=response.data;
+                }
+            })
+            .catch(error => {
+            this.errorMessage = error.message;
+            console.error("There was an error!", error);
+            });
+        },
         toSpeak(word) {
             speechSynthesis.speak(new SpeechSynthesisUtterance(word));
         }, 
 
-        toActivateTheme(item) {
-            this.currentTheme = item;
-            this.sortByTheme();
+        toActivateTheme(id) {
+            this.loadList(`phrase/?topic=`+id);
         },
-
-        sortByTheme() {
-            this.searchResult = this.phraseslist.filter((item) => {
-                if (item.theme === this.currentTheme.theme) {
-                    return true;
-                }
-            });
-        }
     }
 };
 </script>

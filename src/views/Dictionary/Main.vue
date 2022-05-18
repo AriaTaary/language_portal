@@ -34,7 +34,7 @@
         />
       </div>
       <div class="wordList">
-        <div class="wordItem" v-for="item in searchResult" :key="item.id">
+        <div class="wordItem" v-for="item in wordsArray" :key="item.id">
           <svg
             @click="toSpeak(item.word)"
             xmlns="http://www.w3.org/2000/svg"
@@ -68,6 +68,7 @@
 <script lang="ts">
 import DictionaryTheme from '../../components/DictionaryTheme.vue';
 import Search from '../../components/Search.vue';
+import axios from 'axios';
 
 export default {
   name: 'Dictionary',
@@ -82,7 +83,6 @@ export default {
       themesList: false,
       currentTheme: '',
       searchValue: '',
-      searchResult: [],
       wordsArray: [],
       themesArray: [],
       notFound: false,
@@ -90,72 +90,55 @@ export default {
   },
 
   created() {
-    this.fetchWords();
-    this.fetchThemes();
+    this.loadWord('word/');
+    this.loadWord('topicword/');
   },
 
   methods: {
-    getJson(url) {
-      return fetch(url).then((result) => result.json());
+    loadWord(url){
+        axios
+        .get(`${this.$store.getters.getServerUrl}/${url}`)
+        .then(response=>{
+          this.notFound = false;
+          switch(url){
+            case 'word/':
+              this.wordsArray=response.data; 
+              break
+            case  'topicword/':
+              this.themesArray=response.data;
+              break
+            default:
+              this.wordsArray = response.data;
+          }
+          if (response.data.length == 0) 
+            this.notFound = true;
+        })
+        .catch(error => {
+        this.errorMessage = error.message;
+        console.error("There was an error!", error);
+        });
     },
-
-    fetchWords() {
-      this.getJson(
-        'https://raw.githubusercontent.com/Anna-Naily/json/main/dictionaryDB.json'
-      ).then((data) => {
-        this.wordsArray = data.words;
-        this.searchResult = this.wordsArray;
-      });
-    },
-
-    fetchThemes() {
-      this.getJson(
-        'https://raw.githubusercontent.com/Anna-Naily/json/main/themes.json'
-      ).then((data) => {
-        this.themesArray = data.themes;
-      });
-    },
-
-    searchWord(searchText) {            
-      this.searchResult = this.wordsArray.filter((item) => {
-        if (
-          item.word.toUpperCase().includes(searchText.toUpperCase()) ||
-          item.translation
-            .toUpperCase()
-            .includes(searchText.toUpperCase())
-        ) {
-          return true;
-        }
-        return false;
-      });
-      if (this.searchResult.length == 0) {
-        this.notFound = true;
-        this.searchResult = this.wordsArray;
-      } else {
-        this.notFound = false;
-      }
-      this.delDouble();
+    searchWord(searchText) {   
+      this.themesList=false
+      if (Number.isInteger(searchText)){
+        this.loadWord('word/?topic='+searchText); 
+      } else if (/[a-zA-Z]/.test(searchText)){
+        this.loadWord('word/?word='+searchText); 
+      } else if(/[а-яА-Я]/.test(searchText))
+        this.loadWord('word/?translation='+searchText); 
+      // this.delDouble();
     },
 
     toSpeak(word) {
       speechSynthesis.speak(new SpeechSynthesisUtterance(word));
     },
 
-    toActivateTheme(theme) {
-      this.currentTheme = theme;
-      this.sortByTheme();
+    toActivateTheme(id) {
+      this.currentTheme = id;
+      this.loadWord(`word/?topic=`+id);
     },
-
-    sortByTheme() {
-      this.searchResult = this.wordsArray.filter((item) => {
-        if (item.theme.trim() === this.currentTheme) {
-          return true;
-        }
-      });
-    },
-
     clearTheme() {
-      this.searchResult = this.wordsArray;
+      this.loadWord('word/');
       this.currentTheme = '';
       
       const inputElement = this.$refs.search;
@@ -165,34 +148,34 @@ export default {
     },
 
     findDouble(array, word) {
-      for (let i = 0; i < array.length; i++) {
-        if (array[i].word === word) return false;
-      }
-      return true;
+      // for (let i = 0; i < array.length; i++) {
+      //   if (array[i].word === word) return false;
+      // }
+      // return true;
     },
 
     delDouble() {
-      let singleArray = [];
-      let singleResult = [];
+  //     let singleArray = [];
+  //     let singleResult = [];
 
-      this.searchResult.forEach((item) => {
-        singleArray.push(item.word);
-      });
+  //     this.searchResult.forEach((item) => {
+  //       singleArray.push(item.word);
+  //     });
 
-      let singleList = new Set(singleArray);
-      singleArray = [];
-      singleList.forEach((word) => {
-        singleArray.push(word);
-      });
+  //     let singleList = new Set(singleArray);
+  //     singleArray = [];
+  //     singleList.forEach((word) => {
+  //       singleArray.push(word);
+  //     });
 
-      this.searchResult.forEach((item) => {
-        singleArray.forEach((word) => {
-          if (item.word === word && this.findDouble(singleResult, word)) {
-            singleResult.push(item);
-          }
-        });
-      });
-      this.searchResult = singleResult;
+  //     this.searchResult.forEach((item) => {
+  //       singleArray.forEach((word) => {
+  //         if (item.word === word && this.findDouble(singleResult, word)) {
+  //           singleResult.push(item);
+  //         }
+  //       });
+  //     });
+  //     this.searchResult = singleResult;
     },
   },
 };
