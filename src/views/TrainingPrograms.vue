@@ -3,7 +3,7 @@
     <h1>Обучение</h1>
     <div class="progress-list">
       <div class="progress-block">
-        <h2 class="progress-block__heading">Прогресс</h2>
+        <h3 class="progress-block__heading">Прогресс</h3>
         <TrainingProgress />
       </div>
       <div class="programm-list">
@@ -20,22 +20,22 @@
                   </div>
                 </v-app>
               </div>
-              <div class="type-programm">
+              <router-link to="/programpageGrammar" class="type-programm">
                 <p>Грамматика</p>
                 <span class="material-icons icon center">push_pin</span>
-              </div>
-              <div class="type-programm">
+              </router-link>
+              <router-link to="/programpageVocabulary" class="type-programm">
                 <p>Лексика</p>
                 <span class="material-icons icon center">push_pin</span>
-              </div>
-              <div class="type-programm">
+              </router-link>
+              <router-link to="/programpageAudition" class="type-programm">
                 <p>Аудирование</p>
                 <span class="material-icons icon center">push_pin</span>
-              </div>
-              <div class="type-programm">
+              </router-link>
+              <router-link to="/programpageTesting" class="type-programm">
                 <p>Тесты</p>
                 <span class="material-icons icon center">push_pin</span>
-              </div>
+              </router-link>
             </div>
           </div>
           <div class="text-progress">
@@ -60,22 +60,22 @@
                   </div>
                 </v-app>
               </div>
-              <div class="type-programm">
+              <router-link to="/programpageGrammar" class="type-programm">
                 <p>Грамматика</p>
                 <span class="material-icons icon center">push_pin</span>
-              </div>
-              <div class="type-programm">
+              </router-link>
+              <router-link to="/programpageVocabulary" class="type-programm">
                 <p>Лексика</p>
                 <span class="material-icons icon center">push_pin</span>
-              </div>
-              <div class="type-programm">
+              </router-link>
+              <router-link to="/programpageAudition" class="type-programm">
                 <p>Аудирование</p>
                 <span class="material-icons icon center">push_pin</span>
-              </div>
-              <div class="type-programm">
+              </router-link>
+              <router-link to="/programpageTesting" class="type-programm">
                 <p>Тесты</p>
                 <span class="material-icons icon center">push_pin</span>
-              </div>
+              </router-link>
             </div>
           </div>
         </div>
@@ -85,29 +85,28 @@
               <div class="type-box">Продвинутый</div>
               <div class="override">
                 <v-app id="inspire">
-                  <div class="text-center">
-                    <router-link to="/programpage">
-                      <v-btn class="btn-start" x-large rounded color="primary" dark>начать обучение</v-btn>
-                    </router-link>
-                  </div>
+                  <div class="text-center"></div>
+                  <router-link to="/programpage">
+                    <v-btn class="btn-start" x-large rounded color="primary" dark>начать обучение</v-btn>
+                  </router-link>
                 </v-app>
               </div>
-              <div class="type-programm">
+              <router-link to="/programpageGrammar" class="type-programm">
                 <p>Грамматика</p>
                 <span class="material-icons icon center">push_pin</span>
-              </div>
-              <div class="type-programm">
+              </router-link>
+              <router-link to="/programpageVocabulary" class="type-programm">
                 <p>Лексика</p>
                 <span class="material-icons icon center">push_pin</span>
-              </div>
-              <div class="type-programm">
+              </router-link>
+              <router-link to="/programpageAudition" class="type-programm">
                 <p>Аудирование</p>
                 <span class="material-icons icon center">push_pin</span>
-              </div>
-              <div class="type-programm">
+              </router-link>
+              <router-link to="/programpageTesting" class="type-programm">
                 <p>Тесты</p>
                 <span class="material-icons icon center">push_pin</span>
-              </div>
+              </router-link>
             </div>
           </div>
           <div class="text-progress">
@@ -121,7 +120,7 @@
 </template>
 
 <script>
-import TrainingProgress from '../components/TrainingProgress.vue';
+import TrainingProgress from '../components/ProgramComponents/TrainingProgress.vue';
 
 export default {
   components: { TrainingProgress },
@@ -142,9 +141,13 @@ export default {
 .theme--light.v-application {
   background: none;
 }
-.override {
-  height: 90px;
+::v-deep .v-application--wrap {
+  min-height: fit-content;
 }
+.btn-start {
+  margin: 40px;
+}
+
 .wrapper {
   text-align: center;
   margin: 25px auto;
@@ -191,7 +194,6 @@ export default {
 }
 
 .type-box {
-  margin-bottom: 30px;
   font-weight: 600;
   text-align: center;
   font-size: 20px;

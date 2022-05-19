@@ -16,14 +16,15 @@ import VideoView from '../views/Videos/View.vue';
 import ArticlesMain from '../views/Articles/Main.vue';
 import ArticleView from '../views/Articles/View.vue';
 
-import MusicMain from '../views/Music/Main.vue'
-import MusicView from '../views/Music/View.vue'
+import MusicMain from '../views/Music/Main.vue';
+import MusicView from '../views/Music/View.vue';
 
-import Words from '../views/Words.vue'
-import Speaking from '../views/Speaking.vue'
-import TrainingPrograms from '../views/TrainingPrograms.vue'
+import Words from '../views/Words.vue';
+import Speaking from '../views/Speaking.vue';
+import TrainingPrograms from '../views/TrainingPrograms.vue';
 import Testing from '../views/Testing.vue';
 import TranslateInTime from '../views/TranslateInTime.vue';
+import ProgramPage from '../views/ProgramPage.vue';
 
 Vue.use(VueRouter);
 
@@ -75,7 +76,7 @@ const routes = [
     meta: {
       title: 'Мой словарь'
     }
-  }, 
+  },
   {
     path: '/videos',
     name: 'VideosMain',
@@ -159,12 +160,28 @@ const routes = [
       title: 'Тестирование'
     }
   },
-   {
+  {
     path: '/translateintime',
     name: 'translateintime',
     component: TranslateInTime,
     meta: {
       title: 'Перевод на время'
+    }
+  },
+  {
+    path: '/programpage',
+    name: 'ProgramPage',
+    component: ProgramPage,
+    meta: {
+      title: 'Прохождение программы обучения'
+    }
+  },
+  {
+    path: '/programpage:article',
+    name: 'ProgramPageArticle',
+    component: ProgramPage,
+    meta: {
+      title: 'Прохождение программы обучения'
     }
   }
 ];

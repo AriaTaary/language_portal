@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <div class="text-center">
-      <h2 class="progress-heading">Начальный уровень</h2>
+      <h3 class="progress-heading">Начальный уровень</h3>
       <v-progress-circular
         class="progress-item"
         :rotate="360"
@@ -10,7 +10,7 @@
         :value="20"
         color="teal"
       >20</v-progress-circular>
-      <h2 class="progress-heading">Средний уровень</h2>
+      <h3 class="progress-heading">Средний уровень</h3>
       <v-progress-circular
         class="progress-item"
         :rotate="-90"
@@ -19,7 +19,7 @@
         :value="50"
         color="primary"
       >50</v-progress-circular>
-      <h2 class="progress-heading">Продвинутый уровень</h2>
+      <h3 class="progress-heading">Продвинутый уровень</h3>
       <v-progress-circular
         class="progress-item"
         :rotate="90"

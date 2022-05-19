@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import Articles from '../db/articles';
+import Articles from '../../db/articles';
 export default {
   data() {
     return {
@@ -42,6 +42,12 @@ export default {
     nextArticle() {
       this.numberArticleId++;
       this.currentArticle = this.articleId[this.numberArticleId];
+    },
+    getCurrentArticle() {
+      if (this.numberArticleId == this.articleId.length - 1) {
+        return true;
+      }
+      return false;
     },
   },
 };
