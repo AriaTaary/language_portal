@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import ProgressBar from '../../components/ProgramComponents/ProgressBar.vue';
+import ProgressBar from '../../components/ProgressBar.vue';
 
 export default {
   components: {

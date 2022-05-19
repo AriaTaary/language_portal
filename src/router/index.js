@@ -3,8 +3,6 @@ import VueRouter from 'vue-router';
 
 import Main from '../views/Main.vue';
 
-import Authorization from '../views/Profile/Authorization.vue';
-import Registration from '../views/Profile/Registration.vue';
 import Profile from '../views/Profile/Main.vue';
 
 import DictionaryMain from '../views/Dictionary/Main.vue';
@@ -35,22 +33,6 @@ const routes = [
     component: Main,
     meta: {
       title: 'HelpTense'
-    }
-  },
-  {
-    path: '/auth',
-    name: 'Authorization',
-    component: Authorization,
-    meta: {
-      title: 'Авторизация'
-    }
-  },
-  {
-    path: '/registration',
-    name: 'Registration',
-    component: Registration,
-    meta: {
-      title: 'Регистрация'
     }
   },
   {
