@@ -173,7 +173,7 @@ export default {
 .table {
   margin: 40px auto 0 auto;
   border: 1px solid #a8b4d4;
-  border-radius: 10px;
+  border-radius: 10px !important;
   width: 900px;
   overflow: hidden;
   border-collapse: collapse;

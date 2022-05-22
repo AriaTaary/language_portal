@@ -1,19 +1,20 @@
 <template>
-  <div>
-    <div class="speakingThemes">
+  <div class="speakingThemes">
+    <h1>Разговорник</h1>
+    <div class="themes">
       <div
         class="themeBlock purpleButton"
         v-for="item in randomThemes"
         :key="item.index"
         @click="toActivateTheme(item)"
       >{{item.translation}}</div>
-      <div class="wordsList" v-show="show">
-        <h2>{{this.currentTheme.translation}}</h2>
-        <div v-for="item in searchResult" :key="item.index" class="wordInfo">
-          <span @click="toSpeak(item.word)" class="material-icons">volume_up</span>
-          <span class="word">{{item.word}}</span>
-          <span class="transcription">{{item.translation}}</span>
-        </div>
+    </div>
+    <div class="wordsList" v-show="show">
+      <h2>{{this.currentTheme.translation}}</h2>
+      <div v-for="item in searchResult" :key="item.index" class="wordInfo">
+        <span @click="toSpeak(item.word)" class="material-icons">volume_up</span>
+        <span class="word">{{item.word}}</span>
+        <span class="transcription">{{item.translation}}</span>
       </div>
     </div>
   </div>
@@ -76,10 +77,17 @@ export default {
 <style lang="scss" scoped>
 .speakingThemes {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 auto 40px auto;
 }
+
+.themes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .themeBlock {
   margin: 10px;
 }

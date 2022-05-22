@@ -14,7 +14,7 @@
             </p>
         </div>
         <div class="card-main-info">
-            <h2>{{ this.article.title }}</h2>
+            <h1>{{ this.article.title }}</h1>
             <img
                 class="article-photo"
                 :src="this.article.image"
@@ -38,13 +38,12 @@
                 </div>
             </button>
             </div>
-            <div class="back-to">
             <router-link
-                class="button-not-main"
+                v-if="useBack"
+                class="button-not-main backTo"
                 :to="{ name: 'Articles' }">
-                Назад
+                Вернуться назад
             </router-link>
-            </div>
         </div>
     </div>
 </template>
@@ -53,14 +52,19 @@
 import Articles from '../db/articles'
 
 export default {
+    name: 'ArticleBase',
+    
     props: {
         article: Object,
         index: Number,
+        useBack: Boolean,
     },
+
     data: () => ({
         rating: null,
         formattedDate: null
     }),
+
     beforeMount() {
         if (Object.keys(this.article).length == 0) {
             const articleId = this.$route.params.id;
@@ -71,19 +75,4 @@ export default {
         this.formattedDate = dateFormatter.format(new Date(this.article.created_at));
     }
 }
-
 </script>
-
-<style lang="scss">
-.card-info{
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 40px;
-    border-bottom: 1px solid rgb(0, 0, 0, 0.1);
-    margin-bottom: 40px;
-}
-
-.card-view-info {
-    margin-bottom: 50px;
-}
-</style>

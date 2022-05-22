@@ -8,7 +8,7 @@
         :size="100"
         :width="15"
         :value="20"
-        color="teal"
+        color="#8892ad80"
       >20</v-progress-circular>
       <h3 class="progress-heading">Средний уровень</h3>
       <v-progress-circular
@@ -17,7 +17,7 @@
         :size="100"
         :width="15"
         :value="50"
-        color="primary"
+        color="#8892ad"
       >50</v-progress-circular>
       <h3 class="progress-heading">Продвинутый уровень</h3>
       <v-progress-circular
@@ -26,16 +26,15 @@
         :size="100"
         :width="15"
         :value="5"
-        color="red"
+        color="#6b738a"
       >5</v-progress-circular>
     </div>
   </v-app>
 </template>
 
-
 <script>
 export default {
-  value: 20,
+  name: 'TrainingProgress',
 };
 </script>
 
@@ -45,12 +44,19 @@ export default {
   flex-direction: column;
   align-items: center;
 }
+
 .progress-item {
   margin-top: 20px;
 }
+
 .progress-heading {
-  margin-top: 40px;
-  font-size: 14px;
-  color: #666e83;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  color: #8892ad;
+  margin-bottom: 20px;
+
+  &:not(:first-child) {
+    margin-top: 40px;
+  }
 }
 </style>

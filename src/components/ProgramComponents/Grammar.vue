@@ -1,48 +1,35 @@
 <template>
-  <div>
-    <div class="card-view-info">
-      <div class="card-about-info">
-        <p class="author mini-hover">{{ this.article[this.currentArticle].title }}</p>
-      </div>
-      <div class="card-categories">
-        <p
-          v-for="category in this.article[this.currentArticle].categories"
-          :key="category.id"
-          class="mini-hover"
-        >{{ category.name }}</p>
-      </div>
-      <div class="card-main-info">
-        <h2>{{ this.article[this.currentArticle].title }}</h2>
-        <img
-          class="article-photo"
-          :src="this.article[this.currentArticle].image"
-          alt="article-photo"
-        />
-        <p class="card-description">{{ this.article[this.currentArticle].text }}</p>
-      </div>
-    </div>
-  </div>
+  <ArticleBase
+    v-bind:article="articles[currentArticle]"
+  />
 </template>
 
 <script>
 import Articles from '../../db/articles';
+import ArticleBase from "../../components/ArticleBase";
+
 export default {
+  name: 'Grammar',
+
+  components: {
+    ArticleBase,
+  },
+
   data() {
     return {
-      article: [],
+      articles: Articles,
       articleId: [2, 3],
       numberArticleId: 0,
       currentArticle: 0,
     };
   },
-  beforeMount() {
-    this.article = Articles;
-  },
+
   methods: {
     nextArticle() {
       this.numberArticleId++;
       this.currentArticle = this.articleId[this.numberArticleId];
     },
+
     getCurrentArticle() {
       if (this.numberArticleId == this.articleId.length - 1) {
         return true;
@@ -52,6 +39,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-</style>
