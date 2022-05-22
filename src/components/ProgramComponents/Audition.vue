@@ -1,12 +1,12 @@
 <template>
-  <div class="audition-wrapper wrapper">
+  <div class="audition">
     <div class="header">
       <div class="arrow-down">
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <div class="heading-audition">Посмотрите видео и прослушайте аудио</div>
+      <h1>Посмотрите видео и прослушайте аудио</h1>
       <div class="arrow-down">
         <span></span>
         <span></span>
@@ -130,31 +130,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.audition-item {
-  margin-top: 100px;
-}
-.heading-audition {
-  font-size: 26px;
-}
 .arrow-down {
-  margin: 30px;
+  margin: -30px 30px 30px 30px;
 }
+
 .arrow-down span {
   display: block;
   width: 30px;
   height: 30px;
-  border-bottom: 5px solid #337ab7;
-  border-right: 5px solid #337ab7;
+  border-bottom: 5px solid #abb5d0;
+  border-right: 5px solid #abb5d0;
   transform: rotate(45deg);
   margin: -16px;
   animation: arrow-down 2s infinite;
 }
+
 .arrow-down span:nth-child(2) {
   animation-delay: -0.2s;
 }
+
 .arrow-down span:nth-child(3) {
   animation-delay: -0.4s;
 }
+
 @keyframes arrow-down {
   0% {
     opacity: 0;
@@ -168,6 +166,7 @@ export default {
     transform: rotate(45deg) translate(20px, 20px);
   }
 }
+
 .header {
   display: flex;
   justify-content: center;

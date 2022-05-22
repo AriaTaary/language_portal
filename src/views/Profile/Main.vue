@@ -5,7 +5,7 @@
       <div class="profileInfo">
         <img class="profileImage" src="../../assets/img/Layer_5.png" alt="img" />
         <span class="profileUsername">{{userName}} {{userSurname}}</span>
-        <button class="purpleButton buttonAutoMarginLeft" href>
+        <button class="purpleButton buttonAutoMarginLeft">
           <span class="material-icons">edit</span>
           Редактировать
         </button>

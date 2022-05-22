@@ -1,25 +1,20 @@
 <template>
-  <div class="wrapper-program">
-    <div class="program-item">
-      <v-app class="btn-block">
-        <router-link to="/programs" v-if="currentPage=='Finish'">
-          <v-btn color="primary" elevation="2" large class="btn-trigger">Завершить</v-btn>
-        </router-link>
-        <v-btn
-          v-else
-          @click="nextItem"
-          color="primary"
-          elevation="2"
-          large
-          class="btn-trigger"
-        >Далее →</v-btn>
-      </v-app>
+  <div class="container">
+    <div class="wrapper">
+      <router-link to="/programs" v-if="currentPage=='Finish'">
+        <span class="purpleButton centerButton">Завершить</span>
+      </router-link>
+      <span 
+        v-else
+        @click="nextItem"
+        class="purpleButton bigBottomMargin"
+      >Далее →</span>
       <Grammar v-if="currentPage=='Grammar'" ref="childComponent" />
       <Vocabulary v-else-if="currentPage=='Vocabulary'" />
       <Audition v-else-if="currentPage=='Audition'" />
-      <Testing v-else-if="currentPage=='Testing'" />
+      <Testing v-else-if="currentPage=='Testing'" :showMenuHeader="false"/>
       <div v-else-if="currentPage=='Finish'" class="finish-block">
-        <h2>Поздравляю! Вы успешно окончили программу!</h2>
+        <h2>Поздравляем! Вы успешно окончили программу!</h2>
         <img src="../assets/img/finish.gif" />
       </div>
     </div>
@@ -31,8 +26,15 @@ import Audition from '../components/ProgramComponents/Audition.vue';
 import Grammar from '../components/ProgramComponents/Grammar.vue';
 import Vocabulary from '../components/ProgramComponents/Vocabulary.vue';
 import Testing from './Testing.vue';
+
 export default {
-  components: { Grammar, Vocabulary, Audition, Testing },
+  components: { 
+    Grammar, 
+    Vocabulary, 
+    Audition, 
+    Testing,
+  },
+
   name: 'ProgramPage',
   data() {
     return {
@@ -80,25 +82,28 @@ export default {
 ::v-deep .v-application--wrap {
   min-height: fit-content;
 }
-.wrapper-program {
-  max-width: 1366px;
-  width: 100%;
-  margin: auto;
-}
+
 .btn-trigger {
   width: 200px;
   margin-bottom: 20px;
 }
-.program-item {
-  margin-top: 50px;
-}
+
 .finish-block {
   margin-top: 30px;
-  h2 {
-    font-size: 28px;
-  }
+
   img {
-    margin-left: 20%;
+    height: 300px;
+    margin-top: -40px;
   }
+}
+
+.centerButton {
+  margin: 0 auto 40px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  padding: 10px 0;
+  height: 50px;
 }
 </style>
