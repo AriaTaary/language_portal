@@ -7,11 +7,11 @@
 </template>
 
 <script>
-import Header from "./components/Header.vue";
-import Footer from "./components/Footer.vue";
+import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
 
 export default {
-  name: "App",
+  name: 'App',
 
   components: {
     Header,
@@ -30,7 +30,7 @@ export default {
 }
 
 .app {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   text-transform: uppercase;
   font-size: 15px;
@@ -38,7 +38,6 @@ export default {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  
 }
 
 .routerBody {

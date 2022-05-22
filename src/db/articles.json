@@ -21,7 +21,7 @@
     },
     {
         "id": 2,
-        "title": "Present Simple - простое настоящее время",
+        "title": "Past Simple - простое прошедшее время",
         "categories": [
             {
                 "id": 1,
@@ -41,7 +41,7 @@
     },
     {
         "id": 3,
-        "title": "Present Simple - простое настоящее время",
+        "title": "Future Simple - простое будущее время",
         "categories": [
             {
                 "id": 1,
@@ -61,7 +61,7 @@
     },
     {
         "id": 4,
-        "title": "Present Simple - простое настоящее время",
+        "title": "Present Continuous - настоящее продолженное время",
         "categories": [
             {
                 "id": 1,
@@ -81,7 +81,7 @@
     },
     {
         "id": 5,
-        "title": "Present Simple - простое настоящее время",
+        "title": "Past Continuous - прошедшее продолженное время",
         "categories": [
             {
                 "id": 1,
