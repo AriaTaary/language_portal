@@ -8,10 +8,9 @@
     <img 
       v-else 
       class="itemImage" 
-     :src="card.image" 
+      :src="card.image" 
     />
-    <img v-else class="itemImage active-item" :src="require('../assets/img/'+card.name+'.png')" />
-  </div>
+    </div>
 </template>
 
 <script>
