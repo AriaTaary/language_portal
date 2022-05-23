@@ -42,6 +42,13 @@ h3 {
   width: 1366px;
 }
 
+.wrapperWithoutHeader {
+  padding: 0 0 60px 0;
+  text-align: center;
+  text-transform: none;
+  width: 1366px;
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -53,6 +60,7 @@ h3 {
 }
 
 .purpleButton {
+  font-family: "Montserrat", sans-serif;
   background-color: #abb5d0;
   color: white;
   padding: 5px 20px;
@@ -64,6 +72,7 @@ h3 {
   display: flex;
   align-items: center;
   transition: 0.3s;
+  width: fit-content;
 
   &:hover {
     cursor: pointer;
@@ -230,6 +239,14 @@ input::-webkit-input-placeholder {
 
 .verticalMargin {
   margin: 40px 0;
+}
+
+.bottomMargin {
+  margin-bottom: 20px;
+}
+
+.bigBottomMargin {
+  margin-bottom: 40px;
 }
 
 .correctColor {
