@@ -496,4 +496,8 @@ summary {
 .sort_block:hover::before {
     background-image: url(../../assets/img/sort-hover.svg);
 }
+
+.backTo {
+    margin-top: 40px;
+}
 </style>

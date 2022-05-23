@@ -10,12 +10,13 @@
       class="itemImage" 
      :src="card.image" 
     />
+    <img v-else class="itemImage active-item" :src="require('../assets/img/'+card.name+'.png')" />
   </div>
 </template>
 
 <script>
 export default {
-  name:'DictionaryTheme',
+  name: 'DictionaryTheme',
 
   props: {
     card: {
@@ -25,3 +26,8 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+.active-item {
+  filter: drop-shadow(0px 10px 20px #5f7dce);
+}
+</style>

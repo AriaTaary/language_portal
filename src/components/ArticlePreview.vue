@@ -221,7 +221,6 @@ export default {
     color: #D5444C ;
     border-radius: 5px;
     border: none;
-    padding: 7px 0px;
     cursor: pointer;
     outline: none;
 }

@@ -7,6 +7,7 @@
       <div v-else class="rowContent">
         <ArticleBase
           v-bind:article="article"
+          use-back
         />
         <RecommendationBlock />
       </div>

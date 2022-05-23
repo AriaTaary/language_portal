@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div class="wrapper">
-      <MiniHeader />
+    <div :class="{'wrapper': showMenuHeader, 'wrapperWithoutHeader': !showMenuHeader}">
+      <MiniHeader v-if='showMenuHeader' />
       <h1>Тестирование</h1>
       <div class="quiz">
         <div class="quizInfo">Правильных ответов: 
@@ -34,6 +34,13 @@ export default {
   components: {
     TestingBox,
     MiniHeader,
+  },
+
+  props: {
+    showMenuHeader: {
+      type: Boolean,
+      default: true,
+    },
   },
 
   data() {
