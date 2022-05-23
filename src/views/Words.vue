@@ -47,7 +47,6 @@
 <script>
 import axios from 'axios'
 import MiniHeader from '../components/MiniHeader.vue'
-// import dictionary from '../db/dictionary'
 
 export default {
   name: 'Words',
@@ -67,12 +66,12 @@ export default {
     }
   },
   created(){
-    axios
-    .get(`${this.$store.getters.getServerUrl}/word/`)
-    .then(response =>{
-      this.listWord = response.data;
-      this.Random();
-    });
+     axios
+        .get(`${this.$store.getters.getServerUrl}/word/`)
+        .then(response =>{
+          this.listWord = response.data;
+          this.Random();
+      });
   },
   methods: {
     cartRotate () {
@@ -107,7 +106,6 @@ export default {
     previousWord(){
       this.show=false;
       this.randomWord=this.newDictionary[this.newDictionary.length-2];
-
       if (this.newDictionary.length === 2){
         document.getElementById("previousWord").classList.add('hide')
       }

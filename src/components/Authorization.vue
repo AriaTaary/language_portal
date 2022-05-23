@@ -27,7 +27,7 @@
             <input type="email" v-model="auth_email" placeholder="Введите email" />
             <label for="password">Пароль</label>
             <input type="password" v-model="auth_password" placeholder="Пароль" />
-            <button class="auth-btn" type="submit">Войти</button>
+            <button class="auth-btn" type="submit" >Войти</button>
           </form>
         </div>
         <div v-else>
@@ -40,7 +40,11 @@
             <input type="email" v-model="reg_email" placeholder="Укажите email" />
             <label for="password">Пароль</label>
             <input type="password" v-model="reg_password" placeholder="Придумайте пароль" />
-            <button class="reg-btn" type="submit">Зарегистрироваться</button>
+            <button 
+              class="reg-btn" 
+              type="submit" 
+              @click="setRegistration"
+            >Зарегистрироваться</button>
           </form>
         </div>
       </div>
@@ -49,6 +53,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import { PROFILE_ENTER } from '../constants';
 
 export default {
@@ -72,6 +77,11 @@ export default {
     makeActive(item) {
       this.active = item;
     },
+    setRegistration(){
+      axios
+        .post(`${this.$store.getters.getServerUrl}/auth/users/`,{'username':this.email, 'password': this.reg_password} )
+        .then(response=>{console.log(response)})
+    }
   },
 };
 </script>

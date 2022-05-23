@@ -56,7 +56,7 @@ export default {
 
   data() {
     return {
-      authFlag: false,
+      authFlag: true,
       authModalWindow: false,
     };
   },
@@ -100,6 +100,7 @@ export default {
     & .menuItem {
       color: white;
       margin-left: 30px;
+      cursor: pointer;
 
       &.router-link-exact-active {
         font-weight: 600;
