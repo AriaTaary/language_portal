@@ -1,73 +1,97 @@
 <template>
-  <div class="quiz">
-     <nav tabs>
-      <div disabled><b>Правильные/Всего</b></div>
-      <div disabled>Количество: {{ numCorrect }}/{{ numTotal }}</div>
-    </nav>
-
-    <div class="bv-example-row">
-      <div>
-        <div>
-          <TestingBox
-            v-if="questions.length"
-            :currentQuestion="questions[index]"
-            :next="next"
-            :increment="increment"
-          />
+  <div class="container">
+    <div :class="{'wrapper': showMenuHeader, 'wrapperWithoutHeader': !showMenuHeader}">
+      <MiniHeader v-if='showMenuHeader' />
+      <h1>Тестирование</h1>
+      <div class="quiz">
+        <div class="quizInfo">Правильных ответов: 
+          <b>{{ numCorrect }}</b>
         </div>
+        <div class="quizInfo">Пройдено вопросов: 
+          <b>{{ numTotal }}</b>
+        </div>
+        <TestingBox
+          v-if="questions.length"
+          :currentQuestion="questions[index]"
+          :testIsOver="testIsOver"
+          :result="result"
+          @next="next"
+          @increment="increment"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import TestingBox from '../components/v-testing-box.vue'
+import MiniHeader from '../components/MiniHeader.vue'
+import TestingBox from '../components/TestingBox.vue'
 import Questions from '../db/tests.json'
+
 export default {
   name: 'Testing',
+
   components: {
-    TestingBox  
+    TestingBox,
+    MiniHeader,
+  },
+
+  props: {
+    showMenuHeader: {
+      type: Boolean,
+      default: true,
     },
+  },
+
   data() {
     return {
       questions: [],
       index: 0,
       numCorrect: 0,
-      numTotal: 0
-    }
+      numTotal: 0,
+      testIsOver: false,
+      result: '',
+    };
   },
+
+  beforeMount() {
+    this.questions = Questions.results;
+  },
+
   methods: {
     next() {
-      if(this.index == this.questions.length-1){
-        return
-      }else{      
-        this.index++
+      if (this.index !== this.questions.length-1) {
+        this.index++;
+      } else {
+        this.result = `${this.numCorrect}/${this.numTotal}`
+        this.testIsOver = true;
       }
-      
     },
+
     increment(isCorrect) {
       if (isCorrect) {
-        this.numCorrect++
+        this.numCorrect++;
       }
-      this.numTotal++
+      this.numTotal++;
     }
   },
-  mounted: function() {
-    this.questions  = Questions.results
-  }
 }
 </script>
 
-<style>
+<style lang="scss">
 .quiz {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-.bv-example-row {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+}
+
+.quizInfo {
+  margin-bottom: 10px;
+
+  & b {
+    color: #8892ad;
+  }
 }
 </style>

@@ -12,10 +12,12 @@
 import RadialProgressBar from 'vue-radial-progress'
 
 export default {
-  name: 'VProgressBar',
+  name: 'ProgressBar',
+
   components: {
-    RadialProgressBar
+    RadialProgressBar,
   },
+
   data () {
     return {
       completedSteps: 10,
