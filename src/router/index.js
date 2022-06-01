@@ -68,7 +68,7 @@ const routes = [
     }
   },
   {
-    path: '/video/view/:videoUrl=videoUrl:videoTitle=videoTitle',
+    path: '/video/view/:id&:url',
     name: 'VideoView',
     component: VideoView,
     props: true,
@@ -88,7 +88,6 @@ const routes = [
     path: '/article/view/:id',
     name: 'ArticleView',
     component: ArticleView,
-    props: true,
     meta: {
       title: 'Просмотр статьи'
     }
@@ -102,7 +101,7 @@ const routes = [
     }
   },
   {
-    path: '/music/view/:videoId/:titleOfSong',
+    path: '/music/view/:id&:url',
     name: 'MusicView',
     component: MusicView,
     props: true,
@@ -166,6 +165,13 @@ const routes = [
       title: 'Прохождение программы обучения'
     }
   }
+  // {
+  //   path: '/music/:id&:url',
+  //   name: 'Songs',
+  //   component: Songs,
+  //   props: true
+  // },
+ 
 ];
 
 const router = new VueRouter({

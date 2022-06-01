@@ -23,19 +23,18 @@
             <div class="itemsList">
                 <router-link 
                     class="itemContainer" 
-                    v-for="item in songs" 
-                    :key="item.index"
+                    v-for="item in listMusic" 
+                    :key="item.id"
                     :to="{
                         name:'MusicView', 
-                        params:{videoId:item.videoId, titleOfSong:item.titleOfSong}
+                        params:{id: item.id, url: item.url}
                     }"
                 >
                     <img 
-                        :src="'https://i.ytimg.com/vi/'+item.videoId+'/hqdefault.jpg'"
-                        @click="chooseSong(item)"
+                        :src="'https://i.ytimg.com/vi/'+item.videoid+'/hqdefault.jpg'"
                         class="itemImage"
                     >
-                    <p class="itemTitle">{{item.titleOfSong}}</p>
+                    <p class="itemTitle">{{item.title}}</p>
                 </router-link>
             </div>
         </div>
@@ -43,7 +42,7 @@
 </template>
 
 <script>
-import musicList from '../../db/musicList.json'
+import axios from 'axios'
 import MiniHeader from '../../components/MiniHeader.vue'
 import Search from '../../components/Search.vue';
 
@@ -57,29 +56,33 @@ export default {
         
     data() {
         return {
-            songs: musicList,
+            listMusic: [],
             notFound: false,
         };
     },
-
+    created(){
+        this.loadMovie('movie/');
+    },
     methods:{
-        searchMusic(searchText) {
-            this.songs = musicList.filter((item) => {
-                if (item.titleOfSong.toUpperCase().includes(searchText.toUpperCase())) {
-                    return true;
-                }
-                return false;
-            });
 
-            if (this.songs.length == 0) {
-                this.notFound = true;
-                this.songs = musicList;
-            } else {
-                this.notFound = false;
-            }
+        loadMovie(url){
+            axios
+            .get(`${this.$store.getters.getServerUrl}/${url}`)
+            .then(response=>{
+                this.listMusic=response.data; 
+            })
+            .catch(error => {
+            this.errorMessage = error.message;
+            console.error("There was an error!", error);
+            });
+        },
+
+        searchMusic(searchText) {
+            this.loadMovie('movie/?title='+searchText);
         },
 
         clearTheme() {
+            this.loadMovie('movie/');
             const inputElement = this.$refs.search;
             if (inputElement) {
                 inputElement.clearInput();

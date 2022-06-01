@@ -23,11 +23,13 @@
         </button>
         <div v-if="active===PROFILE_ENTER.auth">
           <form action="#" class="auth-enter" method="get">
+            <p v-if="show" class="error">Неверный логин или пароль</p>
             <label for="email">Email</label>
             <input type="email" v-model="auth_email" placeholder="Введите email" />
             <label for="password">Пароль</label>
             <input type="password" v-model="auth_password" placeholder="Пароль" />
-            <button class="auth-btn" type="submit">Войти</button>
+            <button class="auth-btn" type="submit" @click="setAutorisation">Войти</button>
+            
           </form>
         </div>
         <div v-else>
@@ -40,7 +42,11 @@
             <input type="email" v-model="reg_email" placeholder="Укажите email" />
             <label for="password">Пароль</label>
             <input type="password" v-model="reg_password" placeholder="Придумайте пароль" />
-            <button class="reg-btn" type="submit">Зарегистрироваться</button>
+            <button 
+              class="reg-btn" 
+              type="submit" 
+              @click="setRegistration"
+            >Зарегистрироваться</button>
           </form>
         </div>
       </div>
@@ -49,12 +55,14 @@
 </template>
 
 <script>
+import axios from 'axios';
 import { PROFILE_ENTER } from '../constants';
 
 export default {
   name: 'Authorization',
   data() {
     return {
+      show: false,
       auth_email: '',
       auth_password: '',
       first_name: '',
@@ -72,10 +80,38 @@ export default {
     makeActive(item) {
       this.active = item;
     },
+    setAutorisation(){
+      axios
+        .post(`${this.$store.getters.getRegUrl}/token/login/`,{'username':this.auth_email, 'password': this.auth_password} )
+        .then(response=>{
+          console.log(response.data.auth_token, response);
+          const token = response.data.auth_token;
+          localStorage.setItem('token', token);
+          })
+        .catch(error=>{
+          if(error.response.status === 400){
+            this.show=true
+          }
+        })
+    },
+    setRegistration(){
+        axios
+        .post(`${this.$store.getters.getRegUrl}/users/`,{'username':this.reg_email, 'password': this.reg_password, 'email': this.reg_email} )
+        .then(response=>{console.log(response)})
+        .catch(error =>{console.log(error)})
+    },
+    //  setLogined(token){
+    //   console.log(token);
+    // },
   },
 };
 </script>
 <style lang="scss" scoped>
+.error{
+  color: #d8474e;
+  padding: 10px;
+  background-color: #d9d9d9;
+}
 .authorization-block {
   background-color: rgba(0, 0, 0, 0.4);
   width: 100%;

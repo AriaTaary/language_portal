@@ -22,30 +22,30 @@
       </div> 
       <div class="videoThemesList">
         <div 
-          v-for="theme in getThemeArray" 
+          v-for="theme in themesArray" 
           :key="theme.id" 
-          @click="toActivateTheme(theme)"
-          :class="{'emptyPurpleButton': theme !== currentTheme, 'purpleButton': theme === currentTheme}"
+          @click="toActivateTheme(theme.id)"
+          :class="{'emptyPurpleButton': theme.id !== currentTheme, 'purpleButton': theme.id === currentTheme}"
         >
-          {{ theme }}
+          {{ theme.name }}
         </div>
       </div>
       <div class="itemsList">
         <router-link
           class="itemContainer"
-          v-for="item in searchResult"
+          v-for="item in videoArray"
           :key="item.id"
           :to="{
             name: 'VideoView',
-            params: { videoTitle: item.name, videoUrl: item.url }
+            params: { id: item.id, url: item.url }
           }"
         >
           <img
-            :src="'https://i.ytimg.com/vi/'+item.url+'/hqdefault.jpg'"
+            :src="'https://i.ytimg.com/vi/'+item.videoid+'/hqdefault.jpg'"
             alt="img"
             class="itemImage"
           />
-          <p class="itemTitle">{{ item.name }}</p>
+          <p class="itemTitle">{{ item.title }}</p>
         </router-link>
       </div>
     </div>
@@ -53,6 +53,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import MiniHeader from '../../components/MiniHeader.vue';
 import Search from '../../components/Search.vue';
 
@@ -67,81 +68,57 @@ export default {
   data() {
     return {
       videoArray: [],
-      searchRequest: null,
-      searchResult: [],
+      themesArray: [],
       notFound: false,
       currentTheme: '',
     };
   },
 
   created() {
-    this.fetchFilms();
+    this.loadVideo('video/');
+    this.loadVideo('topicvideo/');
   },
 
   methods: {
-    getJson(url) {
-      return fetch(url).then((result) => result.json());
+    loadVideo(url){
+      axios
+        .get(`${this.$store.getters.getServerUrl}/${url}`)
+        .then(response=>{
+          switch(url){
+            case 'video/':
+              this.videoArray=response.data; 
+              break
+            case  'topicvideo/':
+              this.themesArray=response.data;
+              break
+            default:
+              this.videoArray = response.data;
+          }
+        })
+        .catch(error => {
+        this.errorMessage = error.message;
+        console.error("There was an error!", error);
+        });
     },
 
-    fetchFilms() {
-      this.getJson(
-        'https://raw.githubusercontent.com/Anna-Naily/json/main/dataFilms.json'
-      ).then((data) => {
-        this.videoArray = data.films;
-        this.searchResult = this.videoArray;
-      });
+    searchVideo(searchText) {
+      this.loadVideo('video/?title='+searchText);
     },
 
-    searchVideo() {
-      this.searchResult = this.videoArray.filter((item) => {
-        if (
-          item.name.toUpperCase().includes(this.searchRequest.toUpperCase())
-        ) {
-          return true;
-        }
-        return false;
-      });
-
-      if (this.searchResult.length == 0) {
-        this.notFound = true;
-        this.searchResult = this.videoArray;
-      } else {
-        this.notFound = false;
-      }
-    },
-
-    sortByTheme() {
-      this.searchResult = this.videoArray.filter((item) => {
-        if (item.theme === this.currentTheme) {
-          return true;
-        }
-      });
-    },
-
-    toActivateTheme(theme) {
-      this.currentTheme = theme;
-      this.sortByTheme();
+    toActivateTheme(id) {
+      console.log(id);
+      this.currentTheme = id;
+      this.loadVideo(`video/?topic=`+id);
     },
     
     clearTheme() {
-      this.searchResult = this.videoArray;
+      this.loadVideo('video/');
       this.currentTheme = '';
 
       const inputElement = this.$refs.search;
       if (inputElement) {
           inputElement.clearInput();
       }
-    },
-  },
-  computed: {
-    getThemeArray() {
-      let themeArray = [];
-      for (let i = 0; i < this.videoArray.length; i++) {
-        if (!themeArray.includes(this.videoArray[i].theme)) {
-          themeArray.push(this.videoArray[i].theme);
-        }
-      }
-      return themeArray;
     },
   },
 };
